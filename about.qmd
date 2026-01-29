@@ -43,13 +43,14 @@ This workshop is taught by the organizers of [OSU Code Club](https://osu-codeclu
 
 The following **helpers** will be assisting participants:
 
-- Hannah Toth
-- Menuka Bhandari
+- Neel Agarwal
 - Kelsey Badger
-- Matthew Thompson
-- Elizabeth Campolongo
+- Menuka Bhandari
+- Emerson Frasure
+- Jay Jivandas
+- Balaji Radhakrishnan
+- Hannah Toth
 - Net Zhang
-- Jay
 
 This workshop is organized by **Kelsey Badger** at the
 [OSU Research Commons](https://library.osu.edu/researchcommons), and

@@ -1,6 +1,6 @@
 ---
 title: "Workshop on R for Reproducibility"
-subtitle: "Friday February 16^th^, 2026 9 am -- 3 pm, Ohio State University"
+subtitle: "Friday February 13^th^, 2026 9 am -- 3 pm, Ohio State University"
 toc: false
 number-sections: false
 ---
@@ -9,7 +9,7 @@ number-sections: false
 
 <hr style="height:1pt; visibility:hidden;" />
 
-[Register](https://library.osu.edu/events/r-for-scientific-reproducibility ) here if you haven't done so already.
+[Register](https://library.osu.edu/events/r-for-scientific-reproducibility) here if you haven't done so already.
 
 #### Schedule
 
