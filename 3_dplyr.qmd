@@ -27,9 +27,9 @@ In this session,
 you'll learn to work with tabular data in R using the _dplyr_ package.
 
 For example, you'll see how to subset, manipulate and summarize a dataset,
-the kinds of task that are commonly referred to as "data wrangling".
-This type of data processing is often essential before you can move on to say,
-data visualization (next session of this workshop) or statistical data analysis.
+the kinds of tasks commonly referred to as "data wrangling".
+Such data processing is often essential before you can move on to say,
+data visualization (next session of this workshop) or statistical analyses.
 
 ### Setting up
 
@@ -90,10 +90,20 @@ Use a new script for this session --- much like in the previous session:
 ### Data frames
 
 One of R's most powerful features is its
-**built-in ability to deal with tabular data** --
-i.e., data with rows and columns like you are familiar with from Excel
-spreadsheets and so on.
+**built-in ability to deal with tabular data**:
+data with rows and columns like you are familiar with from Excel spreadsheets
+and so on:
+
+| name  | coat | weight
+|-----|----|----|
+| Luna  | calico | 2.1
+| Thomas | black | 5.0
+| Daisy | tabby | 3.2
+
+<hr style="height:1pt; visibility:hidden;" />
+
 In R, tabular data is stored in a data structure called "**data frame**".
+We'll see some examples very soon.
 
 ### The _dplyr_ package and the tidyverse
 
@@ -102,16 +112,16 @@ useful functions for **manipulating data in data frames**.
 In this session, we'll cover these commonly used _dplyr_ functions:
 
 - `arrange()` to change the order of rows (i.e., to sort a data frame)
-- `filter()` to pick rows (observations)
-- `mutate()` to modify values in columns and create new columns
-- `summarize()` to compute across-row summaries
+- `filter()` to keep only a subset of rows
+- `mutate()` to manipulate columns and create new columns
+- `summarize()` to compute data summaries across rows
 
-_dplyr_ has a host of other functions,
-some more advanced than the ones we'll cover today,
-but also some that are conceptually very simple
+_dplyr_ has a host of other functions.
+Some of these are more advanced than the ones we'll cover today,
+while others are conceptually simpler
 (e.g. `rename()` to change column names and `select()` to select columns)
-that we encourage you to [explore](#bonus-material-for-self-study) on
-[your own](https://dplyr.tidyverse.org/articles/dplyr.html). 
+and we encourage you to [explore](#bonus-material-for-self-study) these
+[on your own](https://dplyr.tidyverse.org/articles/dplyr.html). 
 
 _dplyr_ belongs to a family of R packages for data science called the
 ["tidyverse"](https://www.tidyverse.org).
@@ -141,7 +151,7 @@ which contains statistics such as population size for different countries across
 five-year intervals.
 
 This dataset is available in a package of the same name,
-which you also should have already installed^[
+which you already should have installed as well^[
 If not: run `install.packages("gapminder")` now.
 ]. To load the package into your current R session:
 
@@ -156,24 +166,7 @@ Take a look at the `gapminder` data frame that is now available to you:
 gapminder
 ```
 
-You can also use the `View()` function to look at the data frame.
-This will open a new tab in your editor pane with a spreadsheet-like look and feel:
-
-```{r, eval=FALSE}
-View(gapminder)
-# (Should display the dataset in an editor pane tab)
-```
-
-As you could see above, the `gapminder` data frame is referred to as a
-*"tibble"*, which is just a slight variation on data frames from the tidyverse^[
-The main difference is the nicer default printing behavior of tibbles:
-e.g. the data types of columns are shown,
-and only a limited number of rows are printed.].
-Also, two of the columns are referred to as `<fct>`, which is short for `factor`,
-[an alternative to](./2_vectors.qmd#factors) `character` commonly used
-for categorical data.
-
-Here is an overview of all columns in this data frame:
+The first 10 rows are printed, with the following columns:
 
 | column name | data type | meaning |
 |---|---|------|
@@ -186,7 +179,30 @@ Here is an overview of all columns in this data frame:
 
 : {.striped}
 
-## `arrange()` to sort data frames
+<hr style="height:1pt; visibility:hidden;" />
+
+Two columns are of type `factor`,
+[an alternative to](./2_vectors.qmd#factors) `character` commonly used for
+categorical data.
+
+You can also use the `View()` function to look at the data frame.
+This will open a new tab in your editor pane with a spreadsheet-like look and feel:
+
+```{r, eval=FALSE}
+View(gapminder)
+# (Should display the dataset in an editor pane tab)
+```
+
+::: {.callout-note appearance="simple"}
+In the `head()` output above,
+the `gapminder` data frame is referred to as a *"tibble"*,
+which is just a slight variation on data frames from the tidyverse^[
+The main difference is the nicer default printing behavior of tibbles:
+e.g. the data types of columns are shown,
+and only a limited number of rows are printed.].
+:::
+
+## `arrange()`
 
 The `arrange()` function is like sorting functionality in Excel:
 it changes the order of rows based on the values in one or more columns.
@@ -204,8 +220,10 @@ gm_arranged <- arrange(.data = gapminder, pop)
 Before we take a look at the result,
 let's break down the syntax of the `arrange()` function:
 
-- The first argument is the data frame to be sorted, which we specify with the `.data` argument.
-- The second argument is the column to sort by, which we specify without an argument name.
+- The first argument is the data frame to be sorted,
+  which we specify with the `.data` argument.
+- The second argument is the column to sort by,
+  which we specify without an argument name.
 
 Also, ***like all dplyr functions, `arrange()` outputs a new data frame,***
 ***and does not modify the input data frame.***
@@ -249,17 +267,27 @@ arrange(.data = gapminder, continent, country)
 Pay attention to the syntax:
 additional columns to sort by are additional arguments to the function,
 not part of the same argument.
-Other dplyr functions work equivalently in this regard.
+Other _dplyr_ functions work equivalently in this regard.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 1** {-}
+#### {{< fa user-edit >}} **Challenge 1**
 
-<details><summary>Click for the solution</summary>
-</details>
+Which line of code would you use to find out which observation (country and year)
+has the highest per-capita GDP in the entire dataset?
 
+```{r, eval=FALSE}
+# A)
+arrange(.data = gapminder, desc(gdpPercap), year, country)
+# B)
+arrange(.data = gapminder, country, year, gdpPercap)
+# C)
+arrange(.data = gapminder, desc(gdpPercap))
+# D)
+arrange(.data = gapminder, gdpPercap)
+```
 :::
 
-## `filter()` to pick rows (observations)
+## `filter()`
 
 The `filter()` function outputs only those rows that satisfy one or more conditions.
 It is similar to Filter functionality in Excel.
@@ -364,21 +392,80 @@ and to keep the subsequent line(s) _indented_ as RStudio will automatically do.
 :::
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 2** {-}
+#### {{< fa user-edit >}} **Challenge 2: Find the mistakes**
 
-<details><summary>Click for the solution</summary>
+This pipeline is supposed to find the 3 countries with the lowest GDP per capita
+in 1997, sorted from lowest to highest.
+It has two errors. Find and fix them:
+
+```{r, eval=FALSE}
+gapminder
+  filter(year = 1997) |>
+  arrange(gdpPercap) |>
+  head(n = 3)
+```
+
+<details><summary>_Click for the solution_</summary>
+
+1. Line 1: Missing pipe `|>` after gapminder
+2. Line 2: Should use `==` (not `=`) for comparison
+
+Corrected code:
+
+```{r}
+gapminder |>
+  filter(year == 1997) |>
+  arrange(gdpPercap) |>
+  head(n = 3)
+```
 </details>
-
 :::
 
-## `mutate()` to modify columns and create new ones
+:::exercise
+#### {{< fa user-edit >}} **Challenge 2: Find the extremes**
+
+Using `filter()`, `arrange()`, and the pipe, answer:
+
+A) Which African country had the highest life expectancy in 2002?
+
+   <details><summary>_Click for the solution_</summary>
+
+   (We'll use the same trick with `head()` like in the exercise above
+   to _only_ see the top 1 country, but this is not strictly necessary.) 
+   
+   ```{r}
+   gapminder |>
+     filter(continent == "Africa", year == 2002) |>
+     arrange(desc(lifeExp)) |>
+     head(n = 1)
+   ```
+  
+   </details>
+
+B) What was the smallest population recorded in Asia across all years?
+
+   <details><summary>_Click for the solution_</summary>
+   
+   (We'll use the same trick with `head()` like in the exercise above
+   to _only_ see the bottom 1 country, but this is not strictly necessary.) 
+  
+   ```{r}
+   gapminder |>
+     filter(continent == "Asia") |>
+     arrange(pop) |>
+     head(n = 1)
+   ```
+  
+   </details>
+:::
+
+## `mutate()`
 
 So far, we've focused on functions that subset and reorganize data frames.
 But you haven't seen how you can _change the data_ or _compute derived data_.
 
 This can be done with the `mutate()` function.
-For example, to create a new column that has population sizes
-in millions rather than in individuals:
+For example, to create a new column with population sizes in millions:
 
 ```{r}
 # Create a new column 'pop_million' by dividing 'pop' by a million:
@@ -396,13 +483,13 @@ gapminder |>
 ```
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 3** {-}
+#### {{< fa user-edit >}} **Challenge 3**
 
 Use `mutate()` to create a new column `gdp_billion` that has the
 **absolute** GDP (i.e., not relative to population size)
-in **units of billions** (i.e., `2.3` would mean 2.3 billion).
+in **units of billions**.
 
-<details><summary>Click for the solution</summary>
+<details><summary>_Click for the solution_</summary>
 
 You need to do two things, which can be combined into a single line:
 
@@ -417,11 +504,11 @@ gapminder |>
 </details>
 :::
 
-## `summarize()` to compute summary stats
+## `summarize()`
 
 The final function _dplyr_ function we'll cover is `summarize()`,
 which computes **summaries of your data across rows**.
-For example, to calculate the mean GDP across the entire dataset (all rows):
+For example, to calculate the mean GDP across the entire dataset:
 
 ```{r}
 # The syntax is similar to 'mutate': <new-column> = <operation>
@@ -449,13 +536,13 @@ After that, operations like in `summarize()` will happen separately for each gro
 which is how we ended up with per-continent means.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 4** {-}
+#### {{< fa user-edit >}} **Challenge 4**
 
 Calculate the average life expectancy per country.
 Which country has the longest average life expectancy and which has the shortest
 average life expectancy?
 
-<details><summary>Click for some hints</summary>
+<details><summary>_Click for some hints_</summary>
 - Since you'll need to examine your output in two ways,
   it makes sense to store the output of the life expectancy calculation in a dataframe.
 
@@ -463,7 +550,7 @@ average life expectancy?
   simply sort by that column and examining the output.
 </details>
 
-<details><summary>Click for the solution</summary>
+<details><summary>_Click for the solution_</summary>
 
 First, create a dataframe with the mean life expectancy by country:
 

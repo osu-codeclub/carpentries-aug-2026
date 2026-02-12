@@ -126,11 +126,25 @@ vector1
 vector2
 ```
 
-Meanwhile, the code below doesn't work because there is no _object called `panda`_:
+Meanwhile,
+the code below doesn't work because there is no _object called `panda`_:
 
 ```{r, error=TRUE}
 vector_fail <- panda
 ```
+
+::: exercise
+#### {{< fa user-edit >}} **Challenge 1**
+
+Which of the following (one or more options) will produce an error?
+
+A) `number <- "42"`
+B) `color <- blue`
+C) `animal <- "djfhjkhkjkhCGT"`
+D) `number <- 10^6`
+
+:::
+
 
 ### Multi-element vectors
 
@@ -182,49 +196,29 @@ We call this behavior "vectorization" and this is a key feature of the R languag
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 1** {-}
+#### {{< fa user-edit >}} **Challenge 2**
 
-Make a vector `x` with the whole numbers 1 through 26.
-Then, subtract 0.5 from each element in `x` and save the result in vector `y`.
-Check your results by printing both vectors.
+1. Make a vector `x` with the (whole) numbers 1 through 26
+2. Subtract 0.5 from each element in `x` and save the result in vector `y`
+3. Check your results by printing both vectors
 
 <details><summary>_Click for the solution_</summary>
 
 ```{r}
 x <- 1:26
-x
+```
 
+```{r}
 y <- x - 0.5
+```
+
+```{r}
+x
 y
 ```
 
 </details>
 
-<hr style="height:1pt; visibility:hidden;" />
-
------
-
-*Bonus:* What do you think the result of the following operation will be?
-We didn't cover this kind of scenario, but go ahead and test your intuition!
-After you've decided on your expectation, run the code and check if you were correct.
-
-```{r, eval=FALSE}
-1:5 * 1:5
-```
-
-<details><summary>_Click for the solution_</summary>
-
-```{r}
-1:5 * 1:5
-```
-
-Both vectors are of length 5 which will lead to "element-wise matching":
-the first element in the first vector will be multiplied with the first element
-in the second vector,
-the second element in the first vector will be multiplied with the second element
-in the second vector, and so on.
-
-</details>
 :::
 
 ### Exploring vectors
@@ -287,6 +281,31 @@ In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd
   num_vec[c(1, 3)]
   ```
 
+::: exercise
+#### {{< fa user-edit >}} **Challenge 3**
+
+<hr style="height:1pt; visibility:hidden;" />
+
+1. Given the `fruits` vector below, what does `fruits[c(1, 3)]` return?
+
+   ```{r}
+   fruits <- c("apple", "banana", "cherry", "date")
+   ```
+
+2. What do you expect `birds[3]` will return?
+   A) `"bald eagle"`
+   B) `bald eagle`
+   C) An error
+   D) Something else
+
+3. What do you expect `mean(birds)` will return?
+   A) `"cardidee"`
+   B) `"chickanal"`
+   C) `cardinal eagle`
+   D) An error
+   E) Something else
+:::
+
 ## Data types
 
 ### R's main data types
@@ -301,6 +320,8 @@ For example, this fails:
 "valerion" * 5
 ```
 
+And you saw in the exercise above that R can't compute the mean of a vector
+with bird names.
 We can ask what the data type of something is using the `typeof()` function:
 
 ```{r}
@@ -321,7 +342,8 @@ typeof("5")
 
 Besides `character`, three other **common data types** are:
 
-- `double` / `numeric` --- numbers that can have decimal points:
+- `double` (sometimes referred to as `numeric`) ---
+  numbers that can have decimal points:
 
   ```{r}
   typeof(3.14)
@@ -346,14 +368,20 @@ As we saw above,
 R silently picks the "best-fitting" data type when you create a vector.
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 2** {-}
+#### {{< fa user-edit >}} **Challenge 4**
 
 In each line below, what do you think the data type (if any) will be?
 Try it out and see if you were right.
 
 ```{r, eval=FALSE}
 typeof("TRUE")
+```
+
+```{r, eval=FALSE}
 typeof(banana)
+```
+
+```{r, eval=FALSE}
 typeof(c(2, 6, "3"))
 ```
 
