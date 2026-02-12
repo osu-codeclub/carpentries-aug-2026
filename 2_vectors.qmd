@@ -56,40 +56,28 @@ we'll write our code in a script:
 # 2 - Vectors ------------------------------------------------------------------
 # 2.1 - Single-element vectors (and quoting)
 
+# Challenge 1 - Quoting
+
 # 2.2 - Multi-element vectors
 
 # 2.3 - Vectorization
 
-# Challenge 1
-# - Make a vector `x` with the whole numbers 1 through 26.
-#   Then, subtract 0.5 from each element in `x` and save the result in vector `y`.
-#   Check your results by printing both vectors.
-
-# - Bonus: What do you think the result of the following operation will be?
-#   1:5 * 1:5
-#   We didn't cover this kind of scenario, but go ahead and test your intuition!
-#   After you've decided on your expectation,
-#   run the code and check if you were correct.
+# Challenge 3 - Vectorizaion
 
 # 2.4 - Exploring vectors
 
 # 2.5 - Extracting element from vectors
 
-# 3 - Data frames --------------------------------------------------------------
+# Challenge 3 - Indexing
 
-# 4 - Data types ---------------------------------------------------------------
-# 4.1 - R's main data types
+# 3 - Data types ---------------------------------------------------------------
+# 3.1 - R's main data types
 
-# 4.3 - A vector can only contain one data type
+# 3.2 - A vector can only contain one data type
 
-# Challenge 2
-# What type of vector (if any) do you think each of the following will produce?
-# Try it out and see if you were right.
-#   typeof("TRUE")
-#   typeof(banana)
-#   typeof(c(2, 6, "3"))
+# Challenge 4 - Data types
 
-# 4.5 - Manual type conversion
+# 3.3 - Manual type conversion
 
 ```
 </details>
@@ -97,7 +85,7 @@ we'll write our code in a script:
 ## Vectors
 
 A vector in R is essentially **a collection of one or more items**.
-Moving forward, we'll call such individual items "elements".
+Moving forward, we'll call these items "elements".
 
 ### Single-element vectors (and quoting)
 
@@ -117,7 +105,8 @@ In the `"panda"` example, which is a **character string** (_string_ for short):
   but the former are most commonly used by convention.]
 
 Character strings need to be quoted because they are otherwise interpreted as
-R objects -- for example, because our vectors `vector1` and `vector2` are objects,
+R objects --
+for example, because `vector1` and `vector2` are objects,
 we refer to them without quotes:
 
 ```{r}
@@ -134,7 +123,7 @@ vector_fail <- panda
 ```
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 1**
+#### {{< fa user-edit >}} **Challenge 1**: Quoting
 
 Which of the following (one or more options) will produce an error?
 
@@ -144,7 +133,6 @@ C) `animal <- "djfhjkhkjkhCGT"`
 D) `number <- 10^6`
 
 :::
-
 
 ### Multi-element vectors
 
@@ -173,13 +161,18 @@ _we didn't save the above vector to an object._
 _While the vector is still created this way, it is only printed to the console._
 :::
 
-It is common to want vectors with **series of numbers**,
-and a handy shortcut to make series of whole numbers (integers) is by using the
+Vectors with **series of numbers** are commonly useful,
+and a handy shortcut to make series of whole numbers (integers) is with the
 `:` operator:
 
 ```{r}
 series_vec <- 1:10
 series_vec
+```
+
+```{r}
+# Another example:
+15:20
 ```
 
 ### Vectorization
@@ -196,7 +189,7 @@ We call this behavior "vectorization" and this is a key feature of the R languag
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 2**
+#### {{< fa user-edit >}} **Challenge 2**: Vectorization
 
 1. Make a vector `x` with the (whole) numbers 1 through 26
 2. Subtract 0.5 from each element in `x` and save the result in vector `y`
@@ -232,7 +225,8 @@ objects, such as:
   length(series_vec)
   ```
 
-- See the **first and last few elements**, respectively, with `head()` and `tail()`:
+- See the **first and last few elements**, respectively,
+  with `head()` and `tail()`:
 
   ```{r}
   # Print the first 6 elements:
@@ -254,9 +248,9 @@ objects, such as:
 
 ### Extracting elements from vectors
 
-Extracting element from objects like vectors is often called **"indexing"**.
+Extracting element from objects like vectors is often called ***indexing***.
 In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd> 
--- for example:
+--- for example:
 
 - Get the second element with `[2]`^[
   R uses 1-based indexing, which means it starts counting at 1 like humans do.
@@ -269,20 +263,14 @@ In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd
   num_vec[2]
   ```
 
-- Get the second through the fifth elements with `[2:4]`:
+- Get the second through the fourth elements with `[2:4]`:
 
   ```{r}
   num_vec[2:4]
   ```
 
-- Get the first and third elements with `[c(1, 3)]`:
-
-  ```{r}
-  num_vec[c(1, 3)]
-  ```
-
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 3**
+#### {{< fa user-edit >}} **Challenge 3**: Indexing
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -301,34 +289,35 @@ In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd
 3. What do you expect `mean(birds)` will return?
    A) `"cardidee"`
    B) `"chickanal"`
-   C) `cardinal eagle`
-   D) An error
-   E) Something else
+   C) The original vector `birds`
+   D) Nothing meaningful, maybe an error
 :::
 
 ## Data types
 
 ### R's main data types
 
+You saw in the exercise above that R can't compute the mean of a vector with
+bird names.
 R distinguishes between different kinds of data,
 such as character strings and numbers,
 using several pre-defined "data types".
-R's behavior in various operations depends heavily on the data type.
-For example, this fails:
+And R's behavior in various operations depends heavily on the data type.
+
+As another example, this fails:
 
 ```{r, error=TRUE}
 "valerion" * 5
 ```
 
-And you saw in the exercise above that R can't compute the mean of a vector
-with bird names.
 We can ask what the data type of something is using the `typeof()` function:
 
 ```{r}
 typeof("valerion")
 ```
 
-R set the data type of `"valerion"` to `character`, i.e. a (character) string.
+R had automatically set the data type of `"valerion"` to `character`,
+i.e. a (character) string.
 The earlier command failed because R can't perform mathematical functions 
 ("_binary operator_") on vectors of type `character` ("_non-numeric argument_").
 
@@ -368,7 +357,7 @@ As we saw above,
 R silently picks the "best-fitting" data type when you create a vector.
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 4**
+#### {{< fa user-edit >}} **Challenge 4**: Data types
 
 In each line below, what do you think the data type (if any) will be?
 Try it out and see if you were right.
@@ -416,15 +405,16 @@ typeof(c(2, 6, "3"))
 </details>
 :::
 
+<hr style="height:1pt; visibility:hidden;" />
+
 R's behavior of returning a character vector for `c(2, 6, "3")` in the challenge
 above is called **type coercion**.
-When R encounters a _mix of data types_ (here, numbers and characters)
-to be combined into a single vector, it forces them all to be the same type.
-It "must" do this because a vector can consist of only a single data type.
+Because a vector can consist of only a single data type,
+R forces all elements to be of the same type.
 
 Type coercion can be the source of many surprises,
-and is one reason you need to be aware of the basic R data types and how R's
-behaviour around them.
+and is one reason you need to be aware of these data types and R's behavior
+around them.
 
 ### Manual Type Conversion
 
@@ -451,8 +441,8 @@ as.double("kiwi")
 (`NA` is R's way of denoting _missing data_ --
 see [this bonus section](#missing-values-na) for more.)
 
-That's it!
-In the next session, we'll learn to manipulate and summarize data frames using
+That's it for this session!
+After lunch, we'll learn to manipulate and summarize data frames using
 a real dataset with periodic countrywise statistics such as population size.
 
 <br>

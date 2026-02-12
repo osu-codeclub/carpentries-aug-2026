@@ -22,8 +22,7 @@ editor_options:
 ### What we'll cover
 
 Many of the most common data analysis tasks involve working with **tabular data**,
-i.e. data with rows and columns.
-In this session,
+i.e. data with rows and columns. In this session,
 you'll learn to work with tabular data in R using the _dplyr_ package.
 
 For example, you'll see how to subset, manipulate and summarize a dataset,
@@ -49,64 +48,49 @@ Use a new script for this session --- much like in the previous session:
 <details><summary>Section headers for your script _(Click to expand)_</summary>
 ```{r}
 # 1 - Introduction ----------------------------------------------------
-# 1.3 - Loading the tidyverse
+# 1.4 - Loading the tidyverse
 
-# 1.4 - The gapminder dataset
+# 2 - The gapminder dataset  ------------------------------------------
 
-# 2 - select() to pick columns (variables) ----------------------------
-
-# 3 - rename() to change column names ---------------------------------
-
-# 4 - The pipe |> -----------------------------------------------------
-
-# 5 - filter() to pick rows (observations) ----------------------------
+# 3 - arrange() -------------------------------------------------------
 
 # Challenge 1
-# Use a "pipeline" like above to output a data frame with
-# columns `year`, `country`, and `lifeExp`, only for countries in Africa.
-# How many rows does your output data frame have?
-  
-# 6 - arrange() to sort data frames -----------------------------------
 
-# 7 - mutate() to modify columns and create new ones ------------------
+# 4 - filter() --------------------------------------------------------
+# 4.1 - Filter based on one condition
+
+# 4.2 - Filter based on multiple conditions
+
+# 5 - The pipe --------------------------------------------------------
 
 # Challenge 2
-# Use mutate() to create a new column called gdp_billion that has the
-# absolute GDP (i.e., not relative to population size) and does so in
-# units of billions (i.e., 2.3 would mean 2.3 billion).
-
-# 8 - summarize() to compute summary stats ----------------------------
 
 # Challenge 3
-# Calculate the average life expectancy per country.
-# Which has the longest average life expectancy and which has the
-# shortest average life expectancy?
+
+# 6 - mutate() --------------------------------------------------------
+
+# Challenge 4
+
+# 7 - summarize() -----------------------------------------------------
+
+# Challenge 5
 ```
 
 </details>
 
-## Data frames and _dplyr_
+### The _dplyr_ package and the tidyverse
 
-### Data frames
-
-One of R's most powerful features is its
-**built-in ability to deal with tabular data**:
+One of R's most powerful features is its ability to deal with **tabular data**:
 data with rows and columns like you are familiar with from Excel spreadsheets
-and so on:
-
-| name  | coat | weight
-|-----|----|----|
-| Luna  | calico | 2.1
-| Thomas | black | 5.0
-| Daisy | tabby | 3.2
+and so on -- for example:
 
 <hr style="height:1pt; visibility:hidden;" />
 
+```{r, echo=FALSE}
+head(data.frame(gapminder::gapminder))
+```
+
 In R, tabular data is stored in a data structure called "**data frame**".
-We'll see some examples very soon.
-
-### The _dplyr_ package and the tidyverse
-
 The [_dplyr_](https://cran.r-project.org/package=dplyr) package provides very
 useful functions for **manipulating data in data frames**.
 In this session, we'll cover these commonly used _dplyr_ functions:
@@ -116,15 +100,15 @@ In this session, we'll cover these commonly used _dplyr_ functions:
 - `mutate()` to manipulate columns and create new columns
 - `summarize()` to compute data summaries across rows
 
-_dplyr_ has a host of other functions.
-Some of these are more advanced than the ones we'll cover today,
+_dplyr_ has many more functions.
+Some of these are more advanced than those we'll cover today,
 while others are conceptually simpler
 (e.g. `rename()` to change column names and `select()` to select columns)
 and we encourage you to [explore](#bonus-material-for-self-study) these
 [on your own](https://dplyr.tidyverse.org/articles/dplyr.html). 
 
-_dplyr_ belongs to a family of R packages for data science called the
-["tidyverse"](https://www.tidyverse.org).
+_dplyr_ belongs to a **family of R packages for data science called the**
+&&["tidyverse"](https://www.tidyverse.org).**
 Another tidyverse package we'll cover in today's workshop is _ggplot2_
 for making plots.
 
@@ -270,7 +254,7 @@ not part of the same argument.
 Other _dplyr_ functions work equivalently in this regard.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 1**
+#### {{< fa user-edit >}} **Challenge 1**: `arrange()`
 
 Which line of code would you use to find out which observation (country and year)
 has the highest per-capita GDP in the entire dataset?
@@ -392,7 +376,7 @@ and to keep the subsequent line(s) _indented_ as RStudio will automatically do.
 :::
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 2: Find the mistakes**
+#### {{< fa user-edit >}} **Challenge 2:** Find the mistakes
 
 This pipeline is supposed to find the 3 countries with the lowest GDP per capita
 in 1997, sorted from lowest to highest.
@@ -422,7 +406,7 @@ gapminder |>
 :::
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 2: Find the extremes**
+#### {{< fa user-edit >}} **Challenge 3:** Find the extremes
 
 Using `filter()`, `arrange()`, and the pipe, answer:
 
@@ -483,7 +467,7 @@ gapminder |>
 ```
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 3**
+#### {{< fa user-edit >}} **Challenge 4**: Absolute GDP
 
 Use `mutate()` to create a new column `gdp_billion` that has the
 **absolute** GDP (i.e., not relative to population size)
@@ -536,7 +520,7 @@ After that, operations like in `summarize()` will happen separately for each gro
 which is how we ended up with per-continent means.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 4**
+#### {{< fa user-edit >}} **Challenge 5**: Mean life expectancy
 
 Calculate the average life expectancy per country.
 Which country has the longest average life expectancy and which has the shortest

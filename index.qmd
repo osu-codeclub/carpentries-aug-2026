@@ -9,12 +9,9 @@ number-sections: false
 
 <hr style="height:1pt; visibility:hidden;" />
 
-::: {.callout-tip appearance='minimal'}
-_[Register here](https://library.osu.edu/events/r-for-scientific-reproducibility)_
-_if you haven't done so already._
-:::
-
-#### Schedule
+<center>
+### Schedule
+</center>
 
 | Time | Instructor | Topic & link |
 |----|----|----|

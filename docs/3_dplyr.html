@@ -229,32 +229,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#what-well-cover" id="toc-what-well-cover" class="nav-link" data-scroll-target="#what-well-cover"><span class="header-section-number">1.1</span> What we’ll cover</a></li>
   <li><a href="#setting-up" id="toc-setting-up" class="nav-link" data-scroll-target="#setting-up"><span class="header-section-number">1.2</span> Setting up</a></li>
+  <li><a href="#the-dplyr-package-and-the-tidyverse" id="toc-the-dplyr-package-and-the-tidyverse" class="nav-link" data-scroll-target="#the-dplyr-package-and-the-tidyverse"><span class="header-section-number">1.3</span> The <em>dplyr</em> package and the tidyverse</a></li>
+  <li><a href="#loading-the-tidyverse" id="toc-loading-the-tidyverse" class="nav-link" data-scroll-target="#loading-the-tidyverse"><span class="header-section-number">1.4</span> Loading the tidyverse</a></li>
   </ul></li>
-  <li><a href="#data-frames-and-dplyr" id="toc-data-frames-and-dplyr" class="nav-link" data-scroll-target="#data-frames-and-dplyr"><span class="header-section-number">2</span> Data frames and <em>dplyr</em></a>
+  <li><a href="#the-gapminder-dataset" id="toc-the-gapminder-dataset" class="nav-link" data-scroll-target="#the-gapminder-dataset"><span class="header-section-number">2</span> The <code>gapminder</code> dataset</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">3</span> <code>arrange()</code></a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">4</span> <code>filter()</code></a>
   <ul class="collapse">
-  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="header-section-number">2.1</span> Data frames</a></li>
-  <li><a href="#the-dplyr-package-and-the-tidyverse" id="toc-the-dplyr-package-and-the-tidyverse" class="nav-link" data-scroll-target="#the-dplyr-package-and-the-tidyverse"><span class="header-section-number">2.2</span> The <em>dplyr</em> package and the tidyverse</a></li>
-  <li><a href="#loading-the-tidyverse" id="toc-loading-the-tidyverse" class="nav-link" data-scroll-target="#loading-the-tidyverse"><span class="header-section-number">2.3</span> Loading the tidyverse</a></li>
+  <li><a href="#filter-based-on-one-condition" id="toc-filter-based-on-one-condition" class="nav-link" data-scroll-target="#filter-based-on-one-condition"><span class="header-section-number">4.1</span> Filter based on one condition</a></li>
+  <li><a href="#filter-based-on-multiple-conditions" id="toc-filter-based-on-multiple-conditions" class="nav-link" data-scroll-target="#filter-based-on-multiple-conditions"><span class="header-section-number">4.2</span> Filter based on multiple conditions</a></li>
   </ul></li>
-  <li><a href="#the-gapminder-dataset" id="toc-the-gapminder-dataset" class="nav-link" data-scroll-target="#the-gapminder-dataset"><span class="header-section-number">3</span> The <code>gapminder</code> dataset</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">4</span> <code>arrange()</code></a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">5</span> <code>filter()</code></a>
+  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe"><span class="header-section-number">5</span> The pipe (<code>|&gt;</code>)</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">6</span> <code>mutate()</code></a></li>
+  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">7</span> <code>summarize()</code></a></li>
+  <li><a href="#bonus-material-for-self-study" id="toc-bonus-material-for-self-study" class="nav-link" data-scroll-target="#bonus-material-for-self-study"><span class="header-section-number">8</span> Bonus material for self-study</a>
   <ul class="collapse">
-  <li><a href="#filter-based-on-one-condition" id="toc-filter-based-on-one-condition" class="nav-link" data-scroll-target="#filter-based-on-one-condition"><span class="header-section-number">5.1</span> Filter based on one condition</a></li>
-  <li><a href="#filter-based-on-multiple-conditions" id="toc-filter-based-on-multiple-conditions" class="nav-link" data-scroll-target="#filter-based-on-multiple-conditions"><span class="header-section-number">5.2</span> Filter based on multiple conditions</a></li>
-  </ul></li>
-  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe"><span class="header-section-number">6</span> The pipe (<code>|&gt;</code>)</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="header-section-number">7</span> <code>mutate()</code></a></li>
-  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">8</span> <code>summarize()</code></a></li>
-  <li><a href="#bonus-material-for-self-study" id="toc-bonus-material-for-self-study" class="nav-link" data-scroll-target="#bonus-material-for-self-study"><span class="header-section-number">9</span> Bonus material for self-study</a>
-  <ul class="collapse">
-  <li><a href="#writing-and-reading-tabular-data-to-and-from-files" id="toc-writing-and-reading-tabular-data-to-and-from-files" class="nav-link" data-scroll-target="#writing-and-reading-tabular-data-to-and-from-files"><span class="header-section-number">9.1</span> Writing and reading tabular data to and from files</a></li>
-  <li><a href="#rename-to-change-column-names" id="toc-rename-to-change-column-names" class="nav-link" data-scroll-target="#rename-to-change-column-names"><span class="header-section-number">9.2</span> <code>rename()</code> to change column names</a></li>
-  <li><a href="#select-to-pick-columns-variables" id="toc-select-to-pick-columns-variables" class="nav-link" data-scroll-target="#select-to-pick-columns-variables"><span class="header-section-number">9.3</span> <code>select()</code> to pick columns (variables)</a></li>
-  <li><a href="#counting-rows-with-count" id="toc-counting-rows-with-count" class="nav-link" data-scroll-target="#counting-rows-with-count"><span class="header-section-number">9.4</span> Counting rows with <code>count()</code></a></li>
-  <li><a href="#function-name-conflicts" id="toc-function-name-conflicts" class="nav-link" data-scroll-target="#function-name-conflicts"><span class="header-section-number">9.5</span> Function name conflicts</a></li>
-  <li><a href="#using-the-pipe-keyboard-shortcut" id="toc-using-the-pipe-keyboard-shortcut" class="nav-link" data-scroll-target="#using-the-pipe-keyboard-shortcut"><span class="header-section-number">9.6</span> Using the pipe keyboard shortcut</a></li>
-  <li><a href="#learn-even-more" id="toc-learn-even-more" class="nav-link" data-scroll-target="#learn-even-more"><span class="header-section-number">9.7</span> Learn even more</a></li>
+  <li><a href="#writing-and-reading-tabular-data-to-and-from-files" id="toc-writing-and-reading-tabular-data-to-and-from-files" class="nav-link" data-scroll-target="#writing-and-reading-tabular-data-to-and-from-files"><span class="header-section-number">8.1</span> Writing and reading tabular data to and from files</a></li>
+  <li><a href="#rename-to-change-column-names" id="toc-rename-to-change-column-names" class="nav-link" data-scroll-target="#rename-to-change-column-names"><span class="header-section-number">8.2</span> <code>rename()</code> to change column names</a></li>
+  <li><a href="#select-to-pick-columns-variables" id="toc-select-to-pick-columns-variables" class="nav-link" data-scroll-target="#select-to-pick-columns-variables"><span class="header-section-number">8.3</span> <code>select()</code> to pick columns (variables)</a></li>
+  <li><a href="#counting-rows-with-count" id="toc-counting-rows-with-count" class="nav-link" data-scroll-target="#counting-rows-with-count"><span class="header-section-number">8.4</span> Counting rows with <code>count()</code></a></li>
+  <li><a href="#function-name-conflicts" id="toc-function-name-conflicts" class="nav-link" data-scroll-target="#function-name-conflicts"><span class="header-section-number">8.5</span> Function name conflicts</a></li>
+  <li><a href="#using-the-pipe-keyboard-shortcut" id="toc-using-the-pipe-keyboard-shortcut" class="nav-link" data-scroll-target="#using-the-pipe-keyboard-shortcut"><span class="header-section-number">8.6</span> Using the pipe keyboard shortcut</a></li>
+  <li><a href="#learn-even-more" id="toc-learn-even-more" class="nav-link" data-scroll-target="#learn-even-more"><span class="header-section-number">8.7</span> Learn even more</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -330,93 +326,65 @@ Section headers for your script <em>(Click to expand)</em>
 </summary>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 - Introduction ----------------------------------------------------</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.3 - Loading the tidyverse</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.4 - Loading the tidyverse</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1.4 - The gapminder dataset</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 - The gapminder dataset  ------------------------------------------</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 - select() to pick columns (variables) ----------------------------</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 - arrange() -------------------------------------------------------</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3 - rename() to change column names ---------------------------------</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 - The pipe |&gt; -----------------------------------------------------</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 - filter() to pick rows (observations) ----------------------------</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Use a "pipeline" like above to output a data frame with</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># columns `year`, `country`, and `lifeExp`, only for countries in Africa.</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># How many rows does your output data frame have?</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 - arrange() to sort data frames -----------------------------------</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 - filter() --------------------------------------------------------</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 4.1 - Filter based on one condition</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 4.2 - Filter based on multiple conditions</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 - The pipe --------------------------------------------------------</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 3</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 7 - mutate() to modify columns and create new ones ------------------</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 6 - mutate() --------------------------------------------------------</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Use mutate() to create a new column called gdp_billion that has the</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># absolute GDP (i.e., not relative to population size) and does so in</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># units of billions (i.e., 2.3 would mean 2.3 billion).</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># 8 - summarize() to compute summary stats ----------------------------</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 3</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the average life expectancy per country.</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Which has the longest average life expectancy and which has the</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># shortest average life expectancy?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 4</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 7 - summarize() -----------------------------------------------------</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 </section>
-</section>
-<section id="data-frames-and-dplyr" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="data-frames-and-dplyr"><span class="header-section-number">2</span> Data frames and <em>dplyr</em></h2>
-<section id="data-frames" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">2.1</span> Data frames</h3>
-<p>One of R’s most powerful features is its <strong>built-in ability to deal with tabular data</strong>: data with rows and columns like you are familiar with from Excel spreadsheets and so on:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>name</th>
-<th>coat</th>
-<th>weight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Luna</td>
-<td>calico</td>
-<td>2.1</td>
-</tr>
-<tr class="even">
-<td>Thomas</td>
-<td>black</td>
-<td>5.0</td>
-</tr>
-<tr class="odd">
-<td>Daisy</td>
-<td>tabby</td>
-<td>3.2</td>
-</tr>
-</tbody>
-</table>
+<section id="the-dplyr-package-and-the-tidyverse" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="the-dplyr-package-and-the-tidyverse"><span class="header-section-number">1.3</span> The <em>dplyr</em> package and the tidyverse</h3>
+<p>One of R’s most powerful features is its ability to deal with <strong>tabular data</strong>: data with rows and columns like you are familiar with from Excel spreadsheets and so on – for example:</p>
 <hr style="height:1pt; visibility:hidden;">
-<p>In R, tabular data is stored in a data structure called “<strong>data frame</strong>”. We’ll see some examples very soon.</p>
-</section>
-<section id="the-dplyr-package-and-the-tidyverse" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="the-dplyr-package-and-the-tidyverse"><span class="header-section-number">2.2</span> The <em>dplyr</em> package and the tidyverse</h3>
-<p>The <a href="https://cran.r-project.org/package=dplyr"><em>dplyr</em></a> package provides very useful functions for <strong>manipulating data in data frames</strong>. In this session, we’ll cover these commonly used <em>dplyr</em> functions:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre class="regular-r-output"><code>      country continent year lifeExp      pop gdpPercap
+1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+6 Afghanistan      Asia 1977  38.438 14880372  786.1134</code></pre>
+</div>
+</div>
+<p>In R, tabular data is stored in a data structure called “<strong>data frame</strong>”. The <a href="https://cran.r-project.org/package=dplyr"><em>dplyr</em></a> package provides very useful functions for <strong>manipulating data in data frames</strong>. In this session, we’ll cover these commonly used <em>dplyr</em> functions:</p>
 <ul>
 <li><code>arrange()</code> to change the order of rows (i.e., to sort a data frame)</li>
 <li><code>filter()</code> to keep only a subset of rows</li>
 <li><code>mutate()</code> to manipulate columns and create new columns</li>
 <li><code>summarize()</code> to compute data summaries across rows</li>
 </ul>
-<p><em>dplyr</em> has a host of other functions. Some of these are more advanced than the ones we’ll cover today, while others are conceptually simpler (e.g.&nbsp;<code>rename()</code> to change column names and <code>select()</code> to select columns) and we encourage you to <a href="#bonus-material-for-self-study">explore</a> these <a href="https://dplyr.tidyverse.org/articles/dplyr.html">on your own</a>.</p>
-<p><em>dplyr</em> belongs to a family of R packages for data science called the <a href="https://www.tidyverse.org">“tidyverse”</a>. Another tidyverse package we’ll cover in today’s workshop is <em>ggplot2</em> for making plots.</p>
+<p><em>dplyr</em> has many more functions. Some of these are more advanced than those we’ll cover today, while others are conceptually simpler (e.g.&nbsp;<code>rename()</code> to change column names and <code>select()</code> to select columns) and we encourage you to <a href="#bonus-material-for-self-study">explore</a> these <a href="https://dplyr.tidyverse.org/articles/dplyr.html">on your own</a>.</p>
+<p><em>dplyr</em> belongs to a <strong>family of R packages for data science called the</strong> &amp;&amp;<a href="https://www.tidyverse.org">“tidyverse”</a>.** Another tidyverse package we’ll cover in today’s workshop is <em>ggplot2</em> for making plots.</p>
 </section>
-<section id="loading-the-tidyverse" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="loading-the-tidyverse"><span class="header-section-number">2.3</span> Loading the tidyverse</h3>
+<section id="loading-the-tidyverse" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="loading-the-tidyverse"><span class="header-section-number">1.4</span> Loading the tidyverse</h3>
 <p>All core tidyverse packages can be installed and loaded with a single command. Since you should already have <em>installed</em> the tidyverse<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, you only need to <em>load</em> it, which you do as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre class="regular-r-output"><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -433,17 +401,17 @@ Section headers for your script <em>(Click to expand)</em>
 <p>The output tells you which packages have been loaded as part of the tidyverse. (For now, you don’t have to worry about the <a href="#function-name-conflicts">“Conflicts” section</a>.)</p>
 </section>
 </section>
-<section id="the-gapminder-dataset" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="the-gapminder-dataset"><span class="header-section-number">3</span> The <code>gapminder</code> dataset</h2>
+<section id="the-gapminder-dataset" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="the-gapminder-dataset"><span class="header-section-number">2</span> The <code>gapminder</code> dataset</h2>
 <p>In this session and the next one on data visualization, we will work with the <code>gapminder</code> dataset, which contains statistics such as population size for different countries across five-year intervals.</p>
 <p>This dataset is available in a package of the same name, which you already should have installed as well<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. To load the package into your current R session:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (Unlike with the tidyverse, no output is expected when you load gapminder)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (Unlike with the tidyverse, no output is expected when you load gapminder)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Take a look at the <code>gapminder</code> data frame that is now available to you:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -512,8 +480,8 @@ Section headers for your script <em>(Click to expand)</em>
 <p>Two columns are of type <code>factor</code>, <a href="./2_vectors.html#factors">an alternative to</a> <code>character</code> commonly used for categorical data.</p>
 <p>You can also use the <code>View()</code> function to look at the data frame. This will open a new tab in your editor pane with a spreadsheet-like look and feel:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(gapminder)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (Should display the dataset in an editor pane tab)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(gapminder)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (Should display the dataset in an editor pane tab)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -526,12 +494,12 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 </section>
-<section id="arrange" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="arrange"><span class="header-section-number">4</span> <code>arrange()</code></h2>
+<section id="arrange" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="arrange"><span class="header-section-number">3</span> <code>arrange()</code></h2>
 <p>The <code>arrange()</code> function is like sorting functionality in Excel: it changes the order of rows based on the values in one or more columns. It will always rearrange the order of rows as a whole, never just of individual columns since that would scramble the data.</p>
 <p><code>gapminder</code> is currently first sorted alphabetically by <code>country</code>, and next by <code>year</code>. But you may, for example, want to sort by population size instead:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gm_arranged <span class="ot">&lt;-</span> <span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gm_arranged <span class="ot">&lt;-</span> <span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Before we take a look at the result, let’s break down the syntax of the <code>arrange()</code> function:</p>
 <ul>
@@ -546,7 +514,7 @@ Section headers for your script <em>(Click to expand)</em>
 </details>
 <p>Now let’s look at the result of the sorting:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gm_arranged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gm_arranged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country               continent  year lifeExp   pop gdpPercap
@@ -567,7 +535,7 @@ Section headers for your script <em>(Click to expand)</em>
 <p>Sorting can help you find observations with the smallest or largest values for a certain column: above, we see that the smallest population size in the dataset is <em>Sao Tome and Principe</em> in 1952.</p>
 <p>Default sorting is from <strong>small to large</strong>, as seen above . To sort in reverse order, use the <code>desc()</code> (descending) helper function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country continent  year lifeExp        pop gdpPercap
@@ -597,8 +565,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 <p>Finally, you may want to sort by multiple columns, where ties in the first column are broken by a second column (and so on). Do this by simply listing the columns in the appropriate order:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort first by continent, then by country:</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, continent, country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort first by continent, then by country:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, continent, country)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country continent  year lifeExp      pop gdpPercap
@@ -617,29 +585,29 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 <p>Pay attention to the syntax: additional columns to sort by are additional arguments to the function, not part of the same argument. Other <em>dplyr</em> functions work equivalently in this regard.</p>
-<section id="challenge-1" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-1"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 1</strong></h4>
+<section id="challenge-1-arrange" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="challenge-1-arrange"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 1</strong>: <code>arrange()</code></h4>
 <p>Which line of code would you use to find out which observation (country and year) has the highest per-capita GDP in the entire dataset?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(gdpPercap), year, country)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># B)</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, country, year, gdpPercap)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C)</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(gdpPercap))</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># D)</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(gdpPercap), year, country)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># B)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, country, year, gdpPercap)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C)</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, <span class="fu">desc</span>(gdpPercap))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># D)</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gapminder, gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="filter" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="filter"><span class="header-section-number">5</span> <code>filter()</code></h2>
+<section id="filter" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="filter"><span class="header-section-number">4</span> <code>filter()</code></h2>
 <p>The <code>filter()</code> function outputs only those rows that satisfy one or more conditions. It is similar to Filter functionality in Excel.</p>
-<section id="filter-based-on-one-condition" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="filter-based-on-one-condition"><span class="header-section-number">5.1</span> Filter based on one condition</h3>
+<section id="filter-based-on-one-condition" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="filter-based-on-one-condition"><span class="header-section-number">4.1</span> Filter based on one condition</h3>
 <p>This first <code>filter()</code> example outputs only rows for which the life expectancy exceeds 80 years (remember, each row represents a country in a given year):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 21 × 6
    country          continent  year lifeExp      pop gdpPercap
@@ -664,8 +632,8 @@ Section headers for your script <em>(Click to expand)</em>
 </details>
 <p>As the example above demonstrated, <code>filter()</code> <strong>outputs rows that satisfy the condition(s)</strong> you specify. These conditions don’t have to be based on numeric comparisons:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only keep rows where the value in the 'continent' column is 'Europe':</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, continent <span class="sc">==</span> <span class="st">"Europe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Only keep rows where the value in the 'continent' column is 'Europe':</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, continent <span class="sc">==</span> <span class="st">"Europe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 360 × 6
    country continent  year lifeExp     pop gdpPercap
@@ -694,11 +662,11 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 </section>
-<section id="filter-based-on-multiple-conditions" class="level3" data-number="5.2">
-<h3 data-number="5.2" class="anchored" data-anchor-id="filter-based-on-multiple-conditions"><span class="header-section-number">5.2</span> Filter based on multiple conditions</h3>
+<section id="filter-based-on-multiple-conditions" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="filter-based-on-multiple-conditions"><span class="header-section-number">4.2</span> Filter based on multiple conditions</h3>
 <p>It’s also possible to filter based on multiple conditions. For example, you may want to see which countries in Asia had a life expectancy greater than 80 years:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, continent <span class="sc">==</span> <span class="st">"Asia"</span>, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, continent <span class="sc">==</span> <span class="st">"Asia"</span>, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 6 × 6
   country          continent  year lifeExp       pop gdpPercap
@@ -714,8 +682,8 @@ Section headers for your script <em>(Click to expand)</em>
 <p>Like above, by default, multiple conditions are combined using a Boolean <strong><em>AND</em></strong>. In other words, in a given row, <em>each</em> condition must be met to output the row.</p>
 <p>If you want to combine conditions using a Boolean <strong><em>OR</em></strong>, where only one of the conditions needs to be met, use a <code>|</code> (vertical bar) between the conditions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep rows with a high life expectancy and/or a high GDP:</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span> <span class="sc">|</span> gdpPercap <span class="sc">&gt;</span> <span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep rows with a high life expectancy and/or a high GDP:</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&gt;</span> <span class="dv">80</span> <span class="sc">|</span> gdpPercap <span class="sc">&gt;</span> <span class="dv">100000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 24 × 6
    country          continent  year lifeExp      pop gdpPercap
@@ -735,14 +703,14 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </section>
 </section>
-<section id="the-pipe" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="the-pipe"><span class="header-section-number">6</span> The pipe (<code>|&gt;</code>)</h2>
+<section id="the-pipe" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-pipe"><span class="header-section-number">5</span> The pipe (<code>|&gt;</code>)</h2>
 <p>Examples so far applied a single <em>dplyr</em> function to a data frame. But in practice, it’s common to use several consecutive <em>dplyr</em> functions to wrangle a dataframe into the format you want.</p>
 <p>For example, you may want to filter rows and then sort the result. You could do that as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>gm_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&lt;</span> <span class="dv">50</span>, year <span class="sc">&gt;</span> <span class="dv">2000</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gm_filt, <span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>gm_filt <span class="ot">&lt;-</span> <span class="fu">filter</span>(<span class="at">.data =</span> gapminder, lifeExp <span class="sc">&lt;</span> <span class="dv">50</span>, year <span class="sc">&gt;</span> <span class="dv">2000</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="at">.data =</span> gm_filt, <span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 42 × 6
    country          continent  year lifeExp       pop gdpPercap
@@ -763,9 +731,9 @@ Section headers for your script <em>(Click to expand)</em>
 <p>And you could go on along these lines, successively creating new objects that you then use for the next step.</p>
 <p>But there is a more elegent way of dong this, directly sending (“piping”) output from one function into the next function with the <strong>pipe operator</strong> <code>|&gt;</code> (a vertical bar followed by a greater-than sign). Let’s start by seeing a reformulation of the code above with pipes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lifeExp <span class="sc">&lt;</span> <span class="dv">50</span>, year <span class="sc">&gt;</span> <span class="dv">2000</span>) <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(lifeExp <span class="sc">&lt;</span> <span class="dv">50</span>, year <span class="sc">&gt;</span> <span class="dv">2000</span>) <span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 42 × 6
    country          continent  year lifeExp       pop gdpPercap
@@ -796,13 +764,13 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 <section id="challenge-2-find-the-mistakes" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-2-find-the-mistakes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 2: Find the mistakes</strong></h4>
+<h4 class="anchored" data-anchor-id="challenge-2-find-the-mistakes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 2:</strong> Find the mistakes</h4>
 <p>This pipeline is supposed to find the 3 countries with the lowest GDP per capita in 1997, sorted from lowest to highest. It has two errors. Find and fix them:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>gapminder</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="at">year =</span> <span class="dv">1997</span>) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap) <span class="sc">|&gt;</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gapminder</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="at">year =</span> <span class="dv">1997</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <details>
 <summary>
@@ -814,10 +782,10 @@ Section headers for your script <em>(Click to expand)</em>
 </ol>
 <p>Corrected code:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1997</span>) <span class="sc">|&gt;</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap) <span class="sc">|&gt;</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1997</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap) <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 3 × 6
   country          continent  year lifeExp      pop gdpPercap
@@ -829,8 +797,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </details>
 </section>
-<section id="challenge-2-find-the-extremes" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-2-find-the-extremes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 2: Find the extremes</strong></h4>
+<section id="challenge-3-find-the-extremes" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="challenge-3-find-the-extremes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3:</strong> Find the extremes</h4>
 <p>Using <code>filter()</code>, <code>arrange()</code>, and the pipe, answer:</p>
 <ol type="A">
 <li><p>Which African country had the highest life expectancy in 2002?</p>
@@ -840,10 +808,10 @@ Section headers for your script <em>(Click to expand)</em>
 </summary>
 <p>(We’ll use the same trick with <code>head()</code> like in the exercise above to <em>only</em> see the top 1 country, but this is not strictly necessary.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Africa"</span>, year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp)) <span class="sc">|&gt;</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Africa"</span>, year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp)) <span class="sc">|&gt;</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1 × 6
   country continent  year lifeExp    pop gdpPercap
@@ -859,10 +827,10 @@ Section headers for your script <em>(Click to expand)</em>
 </summary>
 <p>(We’ll use the same trick with <code>head()</code> like in the exercise above to <em>only</em> see the bottom 1 country, but this is not strictly necessary.)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pop) <span class="sc">|&gt;</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(pop) <span class="sc">|&gt;</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1 × 6
   country continent  year lifeExp    pop gdpPercap
@@ -874,14 +842,14 @@ Section headers for your script <em>(Click to expand)</em>
 </ol>
 </section>
 </section>
-<section id="mutate" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="mutate"><span class="header-section-number">7</span> <code>mutate()</code></h2>
+<section id="mutate" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="mutate"><span class="header-section-number">6</span> <code>mutate()</code></h2>
 <p>So far, we’ve focused on functions that subset and reorganize data frames. But you haven’t seen how you can <em>change the data</em> or <em>compute derived data</em>.</p>
 <p>This can be done with the <code>mutate()</code> function. For example, to create a new column with population sizes in millions:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column 'pop_million' by dividing 'pop' by a million:</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop_million =</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new column 'pop_million' by dividing 'pop' by a million:</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop_million =</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 7
    country     continent  year lifeExp      pop gdpPercap pop_million
@@ -901,9 +869,9 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 <p>To <em>modify</em> an existing column rather than adding a new one, simply “assign back to the same name”:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the unit of the 'pop' column:</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop =</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the unit of the 'pop' column:</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop =</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country     continent  year lifeExp   pop gdpPercap
@@ -921,8 +889,8 @@ Section headers for your script <em>(Click to expand)</em>
 # ℹ 1,694 more rows</code></pre>
 </div>
 </div>
-<section id="challenge-3" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-3"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3</strong></h4>
+<section id="challenge-4-absolute-gdp" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="challenge-4-absolute-gdp"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 4</strong>: Absolute GDP</h4>
 <p>Use <code>mutate()</code> to create a new column <code>gdp_billion</code> that has the <strong>absolute</strong> GDP (i.e., not relative to population size) in <strong>units of billions</strong>.</p>
 <details>
 <summary>
@@ -934,8 +902,8 @@ Section headers for your script <em>(Click to expand)</em>
 <li>Change the unit of the absolute GDP to billions by dividing by a billion: <code>/ 10^9</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap <span class="sc">*</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">gdp_billion =</span> gdpPercap <span class="sc">*</span> pop <span class="sc">/</span> <span class="dv">10</span><span class="sc">^</span><span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 7
    country     continent  year lifeExp      pop gdpPercap gdp_billion
@@ -956,13 +924,13 @@ Section headers for your script <em>(Click to expand)</em>
 </details>
 </section>
 </section>
-<section id="summarize" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="summarize"><span class="header-section-number">8</span> <code>summarize()</code></h2>
+<section id="summarize" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="summarize"><span class="header-section-number">7</span> <code>summarize()</code></h2>
 <p>The final function <em>dplyr</em> function we’ll cover is <code>summarize()</code>, which computes <strong>summaries of your data across rows</strong>. For example, to calculate the mean GDP across the entire dataset:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The syntax is similar to 'mutate': &lt;new-column&gt; = &lt;operation&gt;</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The syntax is similar to 'mutate': &lt;new-column&gt; = &lt;operation&gt;</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1 × 1
   mean_gdp
@@ -973,9 +941,9 @@ Section headers for your script <em>(Click to expand)</em>
 <p>The output is still a dataframe, but unlike with all previous <em>dplyr</em> functions, it is completely different from the input dataframe, “collapsing” the data down to as little as a single number, like above.</p>
 <p><code>summarize()</code> becomes really powerful in combination with the helper function <code>group_by()</code> to compute <strong>groupwise</strong> stats. For example, to get the mean GDP separately for each continent:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">|&gt;</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_gdp =</span> <span class="fu">mean</span>(gdpPercap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 5 × 2
   continent mean_gdp
@@ -988,8 +956,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 <p><code>group_by()</code> implicitly splits a data frame into groups of rows: here, one group for observations from each continent. After that, operations like in <code>summarize()</code> will happen separately for each group, which is how we ended up with per-continent means.</p>
-<section id="challenge-4" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-4"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 4</strong></h4>
+<section id="challenge-5-mean-life-expectancy" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="challenge-5-mean-life-expectancy"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 5</strong>: Mean life expectancy</h4>
 <p>Calculate the average life expectancy per country. Which country has the longest average life expectancy and which has the shortest average life expectancy?</p>
 <details>
 <summary>
@@ -1006,24 +974,24 @@ Section headers for your script <em>(Click to expand)</em>
 </summary>
 <p>First, create a dataframe with the mean life expectancy by country:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="ot">&lt;-</span> gapminder <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">group_by</span>(country) <span class="sc">|&gt;</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then, arrange that dataframe in two directions to see the countries with the longest and shortest life expectancy. You could optionally pipe into <code>head()</code> to only see the top <code>n</code>, here top 1:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(mean_lifeExp) <span class="sc">|&gt;</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(mean_lifeExp) <span class="sc">|&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1 × 2
   country      mean_lifeExp
   &lt;fct&gt;               &lt;dbl&gt;
 1 Sierra Leone         36.8</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="sc">|&gt;</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_lifeExp)) <span class="sc">|&gt;</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>lifeExp_bycountry <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">arrange</span>(<span class="fu">desc</span>(mean_lifeExp)) <span class="sc">|&gt;</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1 × 2
   country mean_lifeExp
@@ -1036,10 +1004,10 @@ Section headers for your script <em>(Click to expand)</em>
 <p><br></p>
 <hr>
 </section>
-<section id="bonus-material-for-self-study" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="bonus-material-for-self-study"><span class="header-section-number">9</span> Bonus material for self-study</h2>
-<section id="writing-and-reading-tabular-data-to-and-from-files" class="level3" data-number="9.1">
-<h3 data-number="9.1" class="anchored" data-anchor-id="writing-and-reading-tabular-data-to-and-from-files"><span class="header-section-number">9.1</span> Writing and reading tabular data to and from files</h3>
+<section id="bonus-material-for-self-study" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="bonus-material-for-self-study"><span class="header-section-number">8</span> Bonus material for self-study</h2>
+<section id="writing-and-reading-tabular-data-to-and-from-files" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="writing-and-reading-tabular-data-to-and-from-files"><span class="header-section-number">8.1</span> Writing and reading tabular data to and from files</h3>
 <p>When working with your own data in R, you’ll usually need to read data from files into your R environment, and conversely, to write data that is in your R environment to files.</p>
 <p>While it’s possible to make R interact with Excel spreadsheet files<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, storing your data in <strong>plain-text files</strong> generally benefits reproducibility. Tabular plain text files can be stored using:</p>
 <ul>
@@ -1051,7 +1019,7 @@ Section headers for your script <em>(Click to expand)</em>
 <h4 class="anchored" data-anchor-id="writing-to-files">Writing to files</h4>
 <p>To write the <code>gapminder</code> data frame to a TSV file, use the <code>write_tsv()</code> function with argument <code>x</code> for the R object and argument <code>file</code> for the file path:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Because we simply provided a file name, the file will have been written in your R working directory<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>.</p>
 <p>If you want to take a look at the file you just created, you can find it in RStudio’s <strong>Files</strong> tab and click on it, which will open it in the editor panel. Of course, you could also find it in your computer’s file browser and open it in different ways.</p>
@@ -1070,12 +1038,12 @@ Want to write to a different folder on your computer? <em>(Click to expand)</em>
 <p>The <code>file</code> argument to <code>write_tsv()</code> takes a file <em>path</em>, meaning that you can specify any location on your computer for it, in addition to the file name.</p>
 <p>For example, if you had a folder called <code>results</code> in your current working directory, you could save the file in there like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"results/gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"results/gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Note that a forward slash <code>/</code> as a folder delimiter will work regardless of your</em> <em>operating system</em> <em>(even though Windows natively delimits folder by a backslash <code>\</code>).</em></p>
 <p>Finally, if you want to store the file in a totally different place than your working dir, it’s good to know that you can also use a so-called absolute (or “full”) path. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"/Users/poelstra.1/Desktop/gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(<span class="at">x =</span> gapminder, <span class="at">file =</span> <span class="st">"/Users/poelstra.1/Desktop/gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1085,7 +1053,7 @@ Want to write to a different folder on your computer? <em>(Click to expand)</em>
 <h4 class="anchored" data-anchor-id="reading-from-files">Reading from files</h4>
 <p>To practice reading data from a file, use the <code>read_tsv()</code> function on the file you just created:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>gapminder_reread <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>gapminder_reread <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"gapminder.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre class="regular-r-output"><code>Rows: 1704 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -1099,7 +1067,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 <p>Note that this function is rather chatty, telling you how many rows and columns it read, and what their data types are. Let’s check the resulting object:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>gapminder_reread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>gapminder_reread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -1120,7 +1088,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 <p>This looks good! Do note that the column’s data types are not identical to what they were (<code>year</code> and <code>pop</code> are saved as <code>double</code> rather than <code>integer</code>, and <code>country</code> and <code>continent</code> as <code>character</code> rather than <code>factor</code>). This is largely expected because that kind of metadata is not stored in a plain-text TSV, so <code>read_tsv()</code> will by default simply make best guesses as to the types.</p>
 <p>Alternatively, you could tell <code>read_tsv()</code> what the column types should be, using the <code>col_types</code> argument (with abbreviations <code>f</code> for <code>factor</code>, <code>i</code> for <code>integer</code>, <code>d</code> for <code>double</code> — run <code>?read_tsv</code> for more info):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"gapminder.tsv"</span>, <span class="at">col_types =</span> <span class="st">"ffidi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"gapminder.tsv"</span>, <span class="at">col_types =</span> <span class="st">"ffidi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country     continent  year lifeExp      pop gdpPercap
@@ -1150,12 +1118,12 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 </section>
 </section>
-<section id="rename-to-change-column-names" class="level3" data-number="9.2">
-<h3 data-number="9.2" class="anchored" data-anchor-id="rename-to-change-column-names"><span class="header-section-number">9.2</span> <code>rename()</code> to change column names</h3>
+<section id="rename-to-change-column-names" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="rename-to-change-column-names"><span class="header-section-number">8.2</span> <code>rename()</code> to change column names</h3>
 <p>The <code>rename()</code> <em>dplyr</em> function is one of the package’s simplest, but it is very useful when you want to change column names.</p>
 <p>The syntax to specify the new and old name within the function is <code>new_name = old_name</code>. For example, to rename the <code>gdpPercap</code> column:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(<span class="at">.data =</span> gapminder, <span class="at">gdp_per_capita =</span> gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rename</span>(<span class="at">.data =</span> gapminder, <span class="at">gdp_per_capita =</span> gdpPercap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 6
    country     continent  year lifeExp      pop gdp_per_capita
@@ -1174,12 +1142,12 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 </div>
 </section>
-<section id="select-to-pick-columns-variables" class="level3" data-number="9.3">
-<h3 data-number="9.3" class="anchored" data-anchor-id="select-to-pick-columns-variables"><span class="header-section-number">9.3</span> <code>select()</code> to pick columns (variables)</h3>
+<section id="select-to-pick-columns-variables" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="select-to-pick-columns-variables"><span class="header-section-number">8.3</span> <code>select()</code> to pick columns (variables)</h3>
 <p>The <code>select()</code> <em>dplyr</em> function subsets a data frame by including/excluding certain columns. By default, it only <strong>includes the columns you specify</strong>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, country, pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 3
     year country          pop
@@ -1200,9 +1168,9 @@ dbl (4): year, lifeExp, pop, gdpPercap
 <p>The <strong>order of the columns</strong> in the output data frame is exactly as you list them in <code>select()</code>, and doesn’t need to be the same as in the input data frame. In other words, <code>select()</code> is also one way to reorder columns: in the example above, we made <code>year</code> appear before <code>country</code>.</p>
 <p>You can also <strong>specify columns that should be excluded</strong>, by prefacing their name with a <code>!</code> (or a <code>-</code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will include all columns _except_ continent:</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This will include all columns _except_ continent:</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">!</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 1,704 × 5
    country      year lifeExp      pop gdpPercap
@@ -1231,13 +1199,13 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 </div>
 </section>
-<section id="counting-rows-with-count" class="level3" data-number="9.4">
-<h3 data-number="9.4" class="anchored" data-anchor-id="counting-rows-with-count"><span class="header-section-number">9.4</span> Counting rows with <code>count()</code></h3>
+<section id="counting-rows-with-count" class="level3" data-number="8.4">
+<h3 data-number="8.4" class="anchored" data-anchor-id="counting-rows-with-count"><span class="header-section-number">8.4</span> Counting rows with <code>count()</code></h3>
 <p>A common operation is simply counting the number of observations for each group. For instance, to check the number of countries included in the dataset for the year 2002, you can use the <code>count()</code> function. It takes the name of one or more columns to define the groups we are interested in, and can optionally sort the results in descending order with <code>sort = TRUE</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(continent, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">|&gt;</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">count</span>(continent, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code># A tibble: 5 × 2
   continent     n
@@ -1250,8 +1218,8 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </div>
 </div>
 </section>
-<section id="function-name-conflicts" class="level3" data-number="9.5">
-<h3 data-number="9.5" class="anchored" data-anchor-id="function-name-conflicts"><span class="header-section-number">9.5</span> Function name conflicts</h3>
+<section id="function-name-conflicts" class="level3" data-number="8.5">
+<h3 data-number="8.5" class="anchored" data-anchor-id="function-name-conflicts"><span class="header-section-number">8.5</span> Function name conflicts</h3>
 <p>When you loaded the tidyverse, the output included a “Conflicts” section that may have seemed ominous:</p>
 <pre class="r-out-solo"><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -1262,8 +1230,8 @@ dbl (4): year, lifeExp, pop, gdpPercap
 <p>Due to this function name conflict/collision, the <code>filter()</code> function from <em>dplyr</em> “masks” the <code>filter()</code> function from <em>stats</em>. Therefore, if you write a command with <code>filter()</code>, it will use the <em>dplyr</em> function and not the <em>stats</em> function.</p>
 <p>You <em>can</em> use a “masked” function, by prefacing it with its package name as follows: <code>stats::filter()</code>.</p>
 </section>
-<section id="using-the-pipe-keyboard-shortcut" class="level3" data-number="9.6">
-<h3 data-number="9.6" class="anchored" data-anchor-id="using-the-pipe-keyboard-shortcut"><span class="header-section-number">9.6</span> Using the pipe keyboard shortcut</h3>
+<section id="using-the-pipe-keyboard-shortcut" class="level3" data-number="8.6">
+<h3 data-number="8.6" class="anchored" data-anchor-id="using-the-pipe-keyboard-shortcut"><span class="header-section-number">8.6</span> Using the pipe keyboard shortcut</h3>
 <p>The following RStudio keyboard shortcut will insert a pipe symbol: <kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>.</p>
 <p>However, by default this (still) inserts an older pipe symbol, <code>%&gt;%</code>. As long as you’ve loaded the tidyverse<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, it would not really be a problem to just use <code>%&gt;%</code> instead of <code>|&gt;</code>. But it would be preferred to make RStudio insert the <code>|&gt;</code> pipe symbol:</p>
 <ol type="1">
@@ -1277,8 +1245,8 @@ dbl (4): year, lifeExp, pop, gdpPercap
 </figure>
 </div>
 </section>
-<section id="learn-even-more" class="level3" data-number="9.7">
-<h3 data-number="9.7" class="anchored" data-anchor-id="learn-even-more"><span class="header-section-number">9.7</span> Learn even more</h3>
+<section id="learn-even-more" class="level3" data-number="8.7">
+<h3 data-number="8.7" class="anchored" data-anchor-id="learn-even-more"><span class="header-section-number">8.7</span> Learn even more</h3>
 <p>The material in this page was adapted from <a href="https://swcarpentry.github.io/r-novice-gapminder/instructor/12-dplyr.html">this Carpentries lesson episode</a>, which has a lot more content than we were able to cover today.</p>
 <p>Regarding data wrangling specifically, here are two particularly useful additional skills to learn:</p>
 <ul>
