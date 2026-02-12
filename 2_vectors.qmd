@@ -1,7 +1,14 @@
 ---
-title: "R's data structures and data types"
-author: "Software Carpentry / Jelmer Poelstra"
-# date: 2025-08-18
+title: "Vectors and data types"
+author:
+  - name: Software Carpentry
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+date: 2026-02-13
 editor_options: 
   chunk_output_type: console
 ---
@@ -14,23 +21,18 @@ editor_options:
 
 ### What we'll cover
 
-In this session, you will learn about some of the nuts and bolts of R,
-which will give you a solid foundation to start doing more exciting things in
-the next two sessions of this workshop: data wrangling and data visualization.
+In this session, you will learn about some of the ways that R stores data.
+Specifically, we will cover **vectors** and **data types**.
 
-Specifically, we will cover R's **data structures** and **data types**.
-
-- **Data structures** are the kinds of objects that R can store data in.
-  Here, we'll see the two most common ones: _vectors_ and _data frames_.
+- **Vectors** are the simplest R "data structure",
+  object types that R can store data in.
+  (In the next session, you'll get introduced to another data structure:
+  the data  frame.)
 
 - **Data types** are how R distinguishes between different kinds of data
-  like numbers versus character strings.
-  Here, we'll talk about the 4 main data types:
+  like numbers and text.
+  We'll talk about the 4 main data types:
   `character`, `integer`, `double`, and `logical`.
-
-An analogy: If this was about food rather than data,
-you can think of different data types as different food items,
-and various data structures as different types of containers to store food in.
 
 ### Setting up
 
@@ -92,9 +94,8 @@ we'll write our code in a script:
 ```
 </details>
 
-## The vector data structure
+## Vectors
 
-The first data structure we will explore is the simplest: the vector.
 A vector in R is essentially **a collection of one or more items**.
 Moving forward, we'll call such individual items "elements".
 
@@ -137,39 +138,34 @@ A common way to make vectors with **multiple elements** is
 by using the `c` (combine) function:
 
 ```{r}
-c(2, 6, 3)
+num_vec <- c(2, 6, 3, 41)
+num_vec
 ```
 
-::: {.callout-note appearance='minimal'}
-_Unlike in the first couple of vector examples,_
-_we didn't save the above vector to an object:_
-_now the vector simply printed to the console -- but it is created all the same._
-:::
-
-`c()` can also **append** elements to an existing vector:
+The `c()` function can also **append** elements to an existing vector:
 
 ```{r}
 # First we create a vector:
-vector_to_append <- c("cardinal", "chickadee")
-vector_to_append
+birds <- c("cardinal", "chickadee")
+birds
 
 # Then we append another element to it:
-c(vector_to_append, "bald eagle")
+c(birds, "bald eagle")
 ```
 
-To create vectors with **series of numbers**, a couple of shortcuts are available.
-First, you can make series of whole numbers (integers) with the `:` operator:
+::: {.callout-note appearance='simple'}
+_Unlike in the first couple of vector examples,_
+_we didn't save the above vector to an object._
+_While the vector is still created this way, it is only printed to the console._
+:::
+
+It is common to want vectors with **series of numbers**,
+and a handy shortcut to make series of whole numbers (integers) is by using the
+`:` operator:
 
 ```{r}
-1:10
-```
-
-Second, you can use a function like `seq()` and its arguments `from` (starting 
-value), `to` (end value), and `by` (step size) for fine control over the sequence: 
-
-```{r}
-stepwise_vec <- seq(from = 6, to = 8, by = 0.2)
-stepwise_vec
+series_vec <- 1:10
+series_vec
 ```
 
 ### Vectorization
@@ -177,13 +173,11 @@ stepwise_vec
 Consider the output of this command:
 
 ```{r}
-stepwise_vec * 2
+series_vec * 2
 ```
 
-Above, **every individual element in `stepwise_vec` was multiplied by 2**.
-We call this behavior "vectorization" and this is a key feature of the R language.
-(Alternatively, you may have expected this code to _repeat_ `stepwise_vec` twice,
-but this did not happen!)
+Above, **every individual element in `num_vec` was multiplied by 2**.
+We call this behavior "vectorization" and this is a key feature of the R language!
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -194,7 +188,7 @@ Make a vector `x` with the whole numbers 1 through 26.
 Then, subtract 0.5 from each element in `x` and save the result in vector `y`.
 Check your results by printing both vectors.
 
-<details><summary>Click for the solution</summary>
+<details><summary>_Click for the solution_</summary>
 
 ```{r}
 x <- 1:26
@@ -218,7 +212,7 @@ After you've decided on your expectation, run the code and check if you were cor
 1:5 * 1:5
 ```
 
-<details><summary>Click for the solution</summary>
+<details><summary>_Click for the solution_</summary>
 
 ```{r}
 1:5 * 1:5
@@ -241,27 +235,27 @@ objects, such as:
 - Get the **number of elements** with `length()`:
 
   ```{r}
-  length(stepwise_vec)
+  length(series_vec)
   ```
 
 - See the **first and last few elements**, respectively, with `head()` and `tail()`:
 
   ```{r}
   # Print the first 6 elements:
-  head(stepwise_vec)
+  head(series_vec)
   
   # Print the last 6 elements:
-  tail(stepwise_vec)
+  tail(series_vec)
   
   # Both head and tail have argument `n` to specify the number of elements:
-  tail(stepwise_vec, n = 2)
+  tail(series_vec, n = 2)
   ```
 
 - Get **arithmetic summaries** like `mean()` for vectors with numbers:
 
   ```{r}
   # mean() will compute the mean (average) across all elements
-  mean(stepwise_vec)
+  mean(series_vec)
   ```
 
 ### Extracting elements from vectors
@@ -272,73 +266,26 @@ In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd
 
 - Get the second element with `[2]`^[
   R uses 1-based indexing, which means it starts counting at 1 like humans do.
-  Index 2 therefore simply corresponds to the second element. <br><br>
+  Index 2 therefore simply corresponds to the second element.
   Python and several other languages use 0-based indexing,
   which starts counting at 0 such that the second element corresponds to index 1.
   ]:
 
   ```{r}
-  stepwise_vec[2]
+  num_vec[2]
   ```
 
-- Get the second through the fifth elements with `[2:5]`:
+- Get the second through the fifth elements with `[2:4]`:
 
   ```{r}
-  stepwise_vec[2:5]
+  num_vec[2:4]
   ```
 
-- Get the first and eight elements with `[c(1, 8)]`:
+- Get the first and third elements with `[c(1, 3)]`:
 
   ```{r}
-  stepwise_vec[c(1, 8)]
+  num_vec[c(1, 3)]
   ```
-
-::: {.callout-tip appearance="minimal"}
-To put this in a generalized way:
-we can extract elements from a vector by using another vector,
-whose values are the positional indices of the elements in the original vector.
-:::
-
-## The data frame data structure
-
-One of R's most powerful features is its
-**built-in ability to deal with tabular data** --
-i.e., data with rows and columns like you are familiar with from Excel
-spreadsheets and so on.
-In R, tabular data is stored in a data structure called "**data frame**".
-
-Let's start by using the `data.frame()` function to make a data frame with
-information about 3 cats:
-
-```{r}
-cats <- data.frame(
-  name = c("Luna", "Thomas", "Daisy"),
-  coat = c("calico", "black", "tabby"),
-  weight = c(2.1, 5.0, 3.2)
-  )
-```
-
-```{r}
-cats
-```
-
-Above:
-
-- We created 3 vectors and pasted them side-by-side to create a data frame
-  in which _each vector constitutes a column_.
-- We gave each vector a name (e.g., `coat`), and those names became the _column names_.
-- The resulting data frame has 3 rows (one for each cat) and 3 columns
-  (each with a type of info about the cats, like coat color).
-
-It is good practice to organize tabular data in the so-called
-["tidy" data format](https://r4ds.hadley.nz/data-tidy.html)
-like above, where:
-
-- Each column contains a different **"variable"** (e.g. coat color, weight)
-- Each row contains a different **"observation"** (data on e.g. one cat/person/sample)
-
-That's all we'll say about data frames for now,
-but in today's remaining sessions we will explore this key R data structure more!
 
 ## Data types
 
@@ -347,14 +294,14 @@ but in today's remaining sessions we will explore this key R data structure more
 R distinguishes between different kinds of data,
 such as character strings and numbers,
 using several pre-defined "data types".
-R's behavior in various operations depends heavily on the data type --
-for example, the below fails:
+R's behavior in various operations depends heavily on the data type.
+For example, this fails:
 
 ```{r, error=TRUE}
 "valerion" * 5
 ```
 
-We can ask what type of data something is in R using the `typeof()` function:
+We can ask what the data type of something is using the `typeof()` function:
 
 ```{r}
 typeof("valerion")
@@ -366,7 +313,7 @@ The earlier command failed because R can't perform mathematical functions
 
 The `character` data type most commonly contains letters,
 but anything that is placed between quotes (`"..."`) will be interpreted as this
-data type -- even plain numbers:
+data type --- even plain numbers:
 
 ```{r}
 typeof("5")
@@ -374,19 +321,19 @@ typeof("5")
 
 Besides `character`, three other **common data types** are:
 
-- `double` / `numeric` -- numbers that can have decimal points:
+- `double` / `numeric` --- numbers that can have decimal points:
 
   ```{r}
   typeof(3.14)
   ```
 
-- `integer` -- whole numbers only:
+- `integer` --- whole numbers only:
 
   ```{r}
   typeof(1:3)
   ```
 
-- `logical` (either `TRUE` or `FALSE` -- unquoted!):
+- `logical` (either `TRUE` or `FALSE`, unquoted):
 
   ```{r}
   typeof(TRUE)
@@ -397,20 +344,6 @@ Besides `character`, three other **common data types** are:
 A vector can only **be composed of a single data type**.
 As we saw above,
 R silently picks the "best-fitting" data type when you create a vector.
-
-The same is true when you enter or read data into a data frame,
-_where each column is a vector and can therefore only contain one data type_.
-
-Let's go back to our `cats` dataframe to find out what data types R assigned. 
-We can quickly see each column's data type and other information using the
-`str()` (structure) function:
-
-```{r}
-str(cats)
-```
-
-- The `name` and `coat` columns are `cxharacter`, abbreviated `chr`.
-- The `weight` column is `double`/`numeric`, abbreviated `num`.
 
 ::: exercise
 #### {{< fa user-edit >}} **Challenge 2** {-}
@@ -424,7 +357,7 @@ typeof(banana)
 typeof(c(2, 6, "3"))
 ```
 
-<details><summary>Click for the solutions</summary>
+<details><summary>_Click for the solutions_</summary>
 <hr style="height:1pt; visibility:hidden;" />
 
 1. `"TRUE"` is `character` (and not `logical`) because of the quotes around it:
@@ -455,11 +388,8 @@ typeof(c(2, 6, "3"))
 </details>
 :::
 
-### Automatic Type Coercion
-
 R's behavior of returning a character vector for `c(2, 6, "3")` in the challenge
 above is called **type coercion**.
-
 When R encounters a _mix of data types_ (here, numbers and characters)
 to be combined into a single vector, it forces them all to be the same type.
 It "must" do this because a vector can consist of only a single data type.
@@ -512,24 +442,62 @@ simply use the bracket on the other side of the arrow -- for example:
 - Change the first element to `30`:
 
   ```{r}
-  stepwise_vec[1] <- 30
-  stepwise_vec
+  num_vec[1] <- 30
+  num_vec
   ```
 
 - Change the last element to `0`:
 
   ```{r}
-  stepwise_vec[length(stepwise_vec)] <- 0
-  stepwise_vec
+  num_vec[length(num_vec)] <- 0
+  num_vec
   ```
   
 - Change the second element to the mean value of the vector:
 
   ```{r}
-  stepwise_vec[2] <- mean(stepwise_vec)
-  stepwise_vec
+  num_vec[2] <- mean(num_vec)
+  num_vec
   ```
-  
+
+### The data frame data structure
+
+One of R's most powerful features is its
+**built-in ability to deal with tabular data** --
+i.e., data with rows and columns like you are familiar with from Excel
+spreadsheets and so on.
+In R, tabular data is stored in a data structure called "**data frame**".
+
+Let's start by using the `data.frame()` function to make a data frame with
+information about 3 cats:
+
+```{r}
+cats <- data.frame(
+  name = c("Luna", "Thomas", "Daisy"),
+  coat = c("calico", "black", "tabby"),
+  weight = c(2.1, 5.0, 3.2)
+  )
+```
+
+```{r}
+cats
+```
+
+Above:
+
+- We created 3 vectors and pasted them side-by-side to create a data frame
+  in which _each vector constitutes a column_.
+- We gave each vector a name (e.g., `coat`), and those names became the _column names_.
+- The resulting data frame has 3 rows (one for each cat) and 3 columns
+  (each with a type of info about the cats, like coat color).
+
+It is good practice to organize tabular data in the so-called
+["tidy" data format](https://r4ds.hadley.nz/data-tidy.html)
+like above, where:
+
+- Each column contains a different **"variable"** (e.g. coat color, weight)
+- Each row contains a different **"observation"** (data on e.g. one cat/person/sample)
+
 ### Extracting columns from a data frame
 
 You can extract individual columns from a data frame using the `$` operator:
@@ -695,7 +663,7 @@ cats_v2$weight <- _____(cats_v2$weight)
 _____
 ```
 
-<details><summary>Click for the solution</summary>
+<details><summary>_Click for the solution_</summary>
 
 ```{r}
 # 1. Explore the data frame,

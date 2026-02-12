@@ -14,8 +14,8 @@ website:
         href: 0_setup.qmd
       - text: "1: Intro"
         href: 1_intro.qmd
-      - text: "2: Data Structures"
-        href: 2_data-structures.qmd
+      - text: "2: Vectors and Data Types"
+        href: 2_vectors.qmd
       - text: "3: Data Wrangling"
         href: 3_dplyr.qmd
       - text: "4: Data Visualization"

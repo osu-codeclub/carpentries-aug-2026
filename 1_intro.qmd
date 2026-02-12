@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R and RStudio"
 author: "Software Carpentry / Horacio Lopez-Nicora"
-# date: 2025-08-18
+date: 2026-02-13
 editor_options: 
   chunk_output_type: console
 ---
@@ -14,7 +14,7 @@ editor_options:
 
 ### This session
 
-In this session, we will learn how to find your way around **RStudio**,
+In this session, you will learn how to find your way around **RStudio**,
 how to interact with **R**,
 how to manage your R environment, and how to install packages.
 Our objectives include:
@@ -34,18 +34,30 @@ needed to navigate **RStudio** and effectively interact with *R*.
 
 ### The rest of today
 
-We will begin with raw data, perform exploratory analyses, and learn how to plot results graphically.
-This example starts with a dataset from [gapminder.org](https://www.gapminder.org/) containing population information for many countries through time. Can you read the data into R? Can you plot the population for Senegal? Can you calculate the average income for countries on the continent of Asia? **By the end of these lessons you will be able to do things like plot the populations for all of these countries in under a minute!**
-
-<br>
+We will begin with raw data, perform exploratory analyses,
+and learn how to plot results graphically.
+This example starts with a dataset from [gapminder.org](https://www.gapminder.org/)
+containing population information for many countries through time.
+Can you read the data into R?
+Can you plot the population for Senegal?
+Can you calculate the average income for countries on the continent of Asia?
+**By the end of these lessons you will be able to do things like plot the populations for all of these countries in under a minute!**
 
 ## Why use R and R studio?
 
-Science is a multi-step process: once you've designed an experiment and collected data, the real fun begins with analysis! *In this lesson, we will teach you some of the fundamentals of the R language and share best practices for organizing code in scientific projects, which will make your life easier.*
+Science is a multi-step process:
+once you've designed an experiment and collected data,
+the real fun begins with analysis!
+*In this lesson, we will teach you some of the fundamentals of the R language*
+*and share best practices for organizing code in scientific projects, which will make your life easier.*
 
-Though we could use a spreadsheet in Microsoft Excel or Google Sheets to analyze our data, these tools have limitations in terms of flexibility and accessibility. Moreover, they make it difficult to share the steps involved in exploring and modifying raw data, which is essential for conducting "reproducible" research.
+Though we could use a spreadsheet in Microsoft Excel or Google Sheets to analyze
+our data, these tools have limitations in terms of flexibility and accessibility.
+Moreover, they make it difficult to share the steps involved in exploring and modifying raw data,
+which is essential for conducting "reproducible" research.
 
-Therefore, this lesson will guide you on how to start exploring your data using [R](https://www.r-project.org/).
+Therefore, this lesson will guide you on how to start exploring your data using
+[R](https://www.r-project.org/).
 R is a program available for Windows, Mac, and Linux operating systems,
 and can be freely downloaded from the link provided above.
 To run R, all you need is the R program.
@@ -55,9 +67,8 @@ called [RStudio](https://www.rstudio.com/products/rstudio/download/#download),
 which makes working with R much more pleasant!
 
 Since R is open source,
-there are endlessly available free resource to learn how to do practically whatever you want on the internet.
-
-<br>
+there are endlessly available free resource to learn how to do practically
+whatever you want on the internet.
 
 ## Orienting to RStudio (basic layout)
 
@@ -81,8 +92,6 @@ When you first open RStudio, you will be greeted by three panels:
 ::: {.callout-tip appearance="minimal"}
 [Click here for a useful RStudio cheatsheet](https://rstudio.github.io/cheatsheets/html/rstudio-ide.html)
 :::
-
-<br>
 
 ## R as calculator
 
@@ -160,8 +169,6 @@ From highest to lowest precedence:
 -   Subtract: `-`
 :::
 
-<br>
-
 ## The R prompt
 
 The `>` sign in your console is the R “prompt”.
@@ -184,8 +191,6 @@ If you notice that your prompt turned into a `+`, you typed an incomplete comman
 To get out of this situation, one option is to try and finish the command
 (in this case, by typing another number) —
 but here, let’s practice another option: **aborting the command by pressing `Esc`.**
-
-<br>
 
 ## R scripts
 
@@ -214,8 +219,6 @@ Practice that after typing the following command in the script:
 5 + 5
 ```
 
-<br>
-
 ## Adding comments to your code
 
 You can use `#` signs to comment your code.
@@ -225,7 +228,8 @@ You can use `#` signs to comment your code.
 - You can use `#` both at the start of a line (entire line is a comment) or 
   anywhere in a line following code (rest of the line is a comment).
 
-- In your R script, comments are formatted differently so you can clearly distinguish them from code.
+- In your R script, comments are formatted differently so you can clearly
+  distinguish them from code.
 
 See the example below:
 
@@ -233,8 +237,6 @@ See the example below:
 # This line is entirely ignored by R
 10 / 5  # This line contains code but everythig after the '#' is ignored
 ```
-
-<br>
 
 ## Functions in R -- and packages
 
@@ -297,8 +299,6 @@ Below are examples of some other R functions:
 
 : {.striped .hover}
 
-<br>
-
 ## Comparing things
 
 In R, you can use comparison operators to compare numbers. For example:
@@ -345,8 +345,6 @@ Here are the most common comparison operators in R:
 | \<=          | Less than or equal to    | 6 \<= 6 returns `TRUE`   |
 
 : {.striped .hover}
-
-<br>
 
 ## R objects
 
@@ -400,8 +398,6 @@ Some pointers on object names:
 
 - Make object names descriptive yet not too long — this is not always easy!
 
-<br>
-
 ## R Help: `help()` and `?`
 
 The `help()` function and `?` help operator in R offer access to documentation pages
@@ -418,8 +414,6 @@ The output should be shown in the Viewer tab of the bottom left RStudio panel,
 and look something like this:
 
 ![](img/help.png){width="75%" fig-align="center"}
-
-<br>
 
 ## Working directories
 

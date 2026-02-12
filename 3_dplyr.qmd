@@ -1,7 +1,14 @@
 ---
-title: "Data wrangling with `dplyr`"
-author: "Software Carpentry / Jelmer Poelstra"
-# date: 2025-08-18
+title: "Data wrangling with _dplyr_"
+author:
+  - name: Software Carpentry
+  - name: Jelmer Poelstra
+    orcid: 0000-0002-3514-7462
+    email: poelstra.1@osu.edu
+    affiliation: 
+      - name: CFAES Bioinformatics Core, Ohio State University
+        url: https://mcic.osu.edu/bioinformatics
+date: 2026-02-13
 editor_options: 
   chunk_output_type: console
 ---
@@ -12,34 +19,21 @@ editor_options:
 
 ## Introduction
 
-### The _dplyr_ package and the tidyverse
+### What we'll cover
 
-The [_dplyr_](https://cran.r-project.org/package=dplyr) package provides very
-useful functions for **manipulating data in data frames** ("data wrangling").
+Many of the most common data analysis tasks involve working with **tabular data**,
+i.e. data with rows and columns.
+In this session,
+you'll learn to work with tabular data in R using the _dplyr_ package.
+
+For example, you'll see how to subset, manipulate and summarize a dataset,
+the kinds of task that are commonly referred to as "data wrangling".
 This type of data processing is often essential before you can move on to say,
 data visualization (next session of this workshop) or statistical data analysis.
 
-In this session, we'll cover the most commonly used _dplyr_ functions:
-
-- `select()` to pick columns (variables)
-- `filter()` to pick rows (observations)
-- `rename()` to change column names
-- `arrange()` to change the order of rows (i.e., to sort a data frame)
-- `mutate()` to modify values in columns and create new columns
-- `summarize()` to compute across-row summaries
-
-All these functions take a
-**data frame as the _input_, and output a new, modified data frame**.
-
-_dplyr_ belongs to a family of R packages designed for "dataframe-centric"
-data science called the ["tidyverse"](https://www.tidyverse.org).
-Dataframe-centric refers to doing most if not all data analysis while keeping
-the data in R's data frame data structure.
-Another tidyverse package we'll cover in today's workshop is _ggplot2_ for making plots.
-
 ### Setting up
 
-Use a new script for this session -- much like in the previous session:
+Use a new script for this session --- much like in the previous session:
 
 1. _Open a new R script_ (Click the **`+`** symbol in toolbar at the top, then click `R Script`)^[
    Or Click `File` => `New file` => `R Script`.].
@@ -91,6 +85,39 @@ Use a new script for this session -- much like in the previous session:
 
 </details>
 
+## Data frames and _dplyr_
+
+### Data frames
+
+One of R's most powerful features is its
+**built-in ability to deal with tabular data** --
+i.e., data with rows and columns like you are familiar with from Excel
+spreadsheets and so on.
+In R, tabular data is stored in a data structure called "**data frame**".
+
+### The _dplyr_ package and the tidyverse
+
+The [_dplyr_](https://cran.r-project.org/package=dplyr) package provides very
+useful functions for **manipulating data in data frames**.
+In this session, we'll cover these commonly used _dplyr_ functions:
+
+- `arrange()` to change the order of rows (i.e., to sort a data frame)
+- `filter()` to pick rows (observations)
+- `mutate()` to modify values in columns and create new columns
+- `summarize()` to compute across-row summaries
+
+_dplyr_ has a host of other functions,
+some more advanced than the ones we'll cover today,
+but also some that are conceptually very simple
+(e.g. `rename()` to change column names and `select()` to select columns)
+that we encourage you to [explore](#bonus-material-for-self-study) on
+[your own](https://dplyr.tidyverse.org/articles/dplyr.html). 
+
+_dplyr_ belongs to a family of R packages for data science called the
+["tidyverse"](https://www.tidyverse.org).
+Another tidyverse package we'll cover in today's workshop is _ggplot2_
+for making plots.
+
 ### Loading the tidyverse
 
 All core tidyverse packages can be installed and loaded with a single command.
@@ -106,7 +133,7 @@ The output tells you which packages have been loaded as part of the tidyverse.
 (For now, you don't have to worry about the
 ["Conflicts" section](#function-name-conflicts).)
 
-### The `gapminder` dataset
+## The `gapminder` dataset
 
 In this session and the next one on data visualization,
 we will work with the `gapminder` dataset,
@@ -137,250 +164,60 @@ View(gapminder)
 # (Should display the dataset in an editor pane tab)
 ```
 
-The `gapminder` data frame is a so-called
-**"tibble", which is the tidyverse variant of a data frame.**
+As you could see above, the `gapminder` data frame is referred to as a
+*"tibble"*, which is just a slight variation on data frames from the tidyverse^[
 The main difference is the nicer default printing behavior of tibbles:
 e.g. the data types of columns are shown,
-and only a limited number of rows are printed.
+and only a limited number of rows are printed.].
+Also, two of the columns are referred to as `<fct>`, which is short for `factor`,
+[an alternative to](./2_vectors.qmd#factors) `character` commonly used
+for categorical data.
 
-Each row of this data frame contains statistics for a single country in a specific year
-(across five-year intervals between 1952 and 2007), with the following columns:
+Here is an overview of all columns in this data frame:
 
-- `country` (stored as a `factor`,
-  [an alternative to `character`](./2_data-structures.qmd#factors) that can be used for categorical data)
-- `continent` (stored as a `factor`)
-- `year` (stored as an `integer`)
-- `lifeExp` (stored as an `integer`): the *life expectancy* in years
-- `pop` (stored as an `integer`): the *population size*
-- `gdpPercap` (stored as a `double`): the *per-capita GDP*
+| column name | data type | meaning |
+|---|---|------|
+| `country` | `factor` (`<fct>`) | Country |
+| `continent` | `factor` (`<fct>`) | Continent that the country is in |
+| `year` | `integer` (`<int>`) | Focal year for the stats in the next columns |
+| `lifeExp` | `integer` (`<int>`) | Mean life expectancy in years |
+| `pop` | `integer` (`<int>`) | Population size |
+| `gdpPercap` | `double` (`<dbl>`) | Per-capita GDP |
 
-## `select()` to pick columns (variables)
-
-The first `dplyr` function you'll learn about is `select()`,
-which subsets a data frame by including/excluding certain columns.
-By default, it only **includes the columns you specify**:
-
-```{r}
-select(.data = gapminder, year, country, pop)
-```
-
-Above, the first argument was the data frame,
-whereas the other arguments were the (unquoted!) names of columns to be included
-in the output data frame^[
-Based on what you learned in the previous session,
-it may seem strange that the column names should not be quoted.<br><br>
-One way to make sense of this is that the columns can be thought of as (vector)
-objects, whose names are the column names.].
-
-The **order of the columns** in the output data frame is exactly as you list them in
-`select()`, and doesn't need to be the same as in the input data frame.
-In other words, `select()` is also one way to reorder columns:
-in the example above, we made `year` appear before `country`.
-
-You can also **specify columns that should be excluded**,
-by prefacing their name with a `!` (or a `-`):
-
-```{r}
-# This will include all columns _except_ continent:
-select(.data = gapminder, !continent)
-```
-
-::: {.callout-tip appearance='minimal'}
-There are also ways to e.g. select _ranges_ of columns that are beyond the scope
-of this short workshop.
-Check the `select()` help by typing `?select` to learn more.
-:::
-
-## `rename()` to change column names
-
-The next _dplyr_ function is one of the simplest:
-`rename()` to change column names.
-
-The syntax to specify the new and old name within the function is `new_name = old_name`.
-For example, to rename the `gdpPercap` column:
-
-```{r}
-rename(.data = gapminder, gdp_per_capita = gdpPercap)
-```
-
-## The pipe (`|>`)
-
-Examples so far applied a single _dplyr_ function to a data frame,
-simply printing the output (a new data frame) to screen.
-But in practice, it's common to use several consecutive _dplyr_ functions to
-wrangle a dataframe into the format you want.
-
-For example, you may want to first `select()` one or more columns,
-and _then_ `rename()` a column.
-You could do that as follows:
-
-```{r}
-gapminder_sel <- select(.data = gapminder, year, country, gdpPercap)
-
-rename(.data = gapminder_sel, gdp_per_capita = gdpPercap)
-```
-
-And you could go on along these lines,
-successively creating new objects that you then use for the next step.
-
-But there is a more elegent way of dong this,
-directly sending ("piping") output from one function into the next function
-with the **pipe operator** `|>`
-(a vertical bar <kbd>|</kbd> followed by a greater-than sign <kbd>></kbd>).
-Let's start by seeing a reformulation of the code above with pipes:
-
-```{r}
-gapminder |>
-  select(year, country, gdpPercap) |>
-  rename(gdp_per_capita = gdpPercap)
-```
-
-What happened here? We took the `gapminder` data frame,
-sent ("piped") it into the `select()` function,
-whose output in turn was piped into the `rename()` function.
-You can think of the pipe as **"then"**:
-take `gapminder`, _then_ select, _then_ rename.
-
-When using the pipe,
-you no longer specify the input data frame with the `.data` argument,
-because the function now gets its input data via the pipe
-(specifically, the input goes to the function's first argument by default).
-
-::: {.callout-tip appearance='minimal'}
-Using pipes involves less typing and is especially more readable than using
-successive assignments^[
-Using pipes is also faster and uses less computer memory.
-].
-
-For code readability, 
-it is good practice to always start a new line after a pipe `|>`,
-and to keep the subsequent line(s) _indented_ as RStudio will automatically do.
-:::
-
-## `filter()` to pick rows (observations)
-
-### Introduction
-
-The `filter()` function outputs only those rows that satisfy one or more conditions.
-It is similar to Filter functionality in Excel ---
-except that those only change what you _display_,
-while `filter()` will completely _exclude_ rows.
-
-But if that sounds scary,
-recall that _dplyr_ functions always output a ***new*** data frame.
-Therefore, with any _dplyr_ function,
-you'll only modify existing data when you assign the output back to the input object,
-like in this example with the `select()` function:
-
-```{r, eval=FALSE}
-# [Don't run this - hypothetical example]
-# After running this, any columns in the 'cats' dataframe other than 'name'
-# and 'coat' would be removed from it:
-cats <- cats |> select(name, coat)
-```
-
-### Filter based on one condition
-
-This first `filter()` example outputs only rows for which the
-life expectancy exceeds 80 years
-(remember, each row represents a country in a given year):
-
-```{r}
-gapminder |>
-  filter(lifeExp > 80)
-```
-
-<details><summary>{{< fa user-edit >}} How many rows were output? _(Click to see the answer)_</summary>
-<p>
-21 rows were output, as shown in the first line above: `21 x 6` (rows x columns)
-</p>
-</details>
-
-As the example above demonstrated,
-`filter()` **outputs rows that satisfy the condition(s)** you specify.
-These conditions don't have to be based on numeric comparisons:
-
-```{r}
-# Only keep rows where the value in the 'continent' column is 'Europe':
-gapminder |>
-  filter(continent == "Europe")
-```
-
-:::callout-warning
-### Remember to use _two_ equals signs `==` to test for equality!
-:::
-
-### Filter based on multiple conditions
-
-It's also possible to filter based on multiple conditions.
-For example, you may want to see which countries in Asia had a life expectancy
-greater than 80 years in 2007:
-
-```{r}
-gapminder |>
-  filter(continent == "Asia", year == 2007, lifeExp > 80)
-```
-
-Like above, by default, multiple conditions are combined using a Boolean ***AND***.
-In other words, in a given row, _each_ condition must be met to output the row.
-
-If you want to combine conditions using a Boolean ***OR***,
-where only one of the conditions needs to be met,
-use a `|` between the conditions:
-
-```{r}
-# Keep rows with a high life expectancy and/or a high GDP:
-gapminder |>
-  filter(lifeExp > 80 | gdpPercap > 10000)
-```
-
-### Pipeline practice
-
-Finally, let's practice another time with "pipelines" that use multiple _dplyr_
-functions: `filter` rows, then `select` columns,
-and finally `rename` one of the remaining columns:
-
-```{r}
-gapminder |>
-  filter(continent == "Americas") |>
-  select(year, country, gdpPercap) |>
-  rename(gdp_per_capita = gdpPercap)
-```
-
-:::exercise
-#### {{< fa user-edit >}} **Challenge 1** {-}
-
-Use a "pipeline" like above to output a data frame with
-columns `year`, `country`, and `lifeExp`, only for countries in Africa.
-How many rows does your output data frame have?
-
-<details><summary>Click for the solution</summary>
-```{r}
-gapminder |>
-  filter(continent == "Africa") |>
-  select(year, country, lifeExp)
-```
-
-The output data frame has 624 rows.
-</details>
-
-:::
+: {.striped}
 
 ## `arrange()` to sort data frames
 
 The `arrange()` function is like sorting functionality in Excel:
-it changes the order of rows based on the values in one or more columns^[
+it changes the order of rows based on the values in one or more columns.
 It will always rearrange the order of rows as a whole,
 never just of individual columns since that would scramble the data.
-].
 
 `gapminder` is currently first sorted alphabetically by `country`,
 and next by `year`.
 But you may, for example, want to sort by population size instead:
 
 ```{r}
-gapminder |>
-  arrange(pop)
+gm_arranged <- arrange(.data = gapminder, pop)
+```
+
+Before we take a look at the result,
+let's break down the syntax of the `arrange()` function:
+
+- The first argument is the data frame to be sorted, which we specify with the `.data` argument.
+- The second argument is the column to sort by, which we specify without an argument name.
+
+Also, ***like all dplyr functions, `arrange()` outputs a new data frame,***
+***and does not modify the input data frame.***
+In this case, we chose to assign the output to a new object called `gm_arranged`.
+
+<details><summary>{{< fa user-edit >}} What would have happened if we had assigned the output to `gapminder`?</summary>
+</details>
+
+Now let's look at the result of the sorting:
+
+```{r}
+gm_arranged
 ```
 
 Sorting can help you find observations with the smallest or largest values
@@ -391,24 +228,152 @@ Default sorting is from **small to large**, as seen above .
 To sort in reverse order, use the `desc()` (descending) helper function:
 
 ```{r}
-gapminder |>
-  arrange(desc(pop))
+arrange(.data = gapminder, desc(pop))
 ```
- 
+
+::: {.callout-tip appearance='simple'}
+Here, we didn't assign the output to a new object, so it was just printed to screen.
+We'll keep doing that for the rest of the examples in this session, 
+so we can more easily see the results of the operations we are performing.
+:::
+
 Finally, you may want to sort by multiple columns,
 where ties in the first column are broken by a second column (and so on).
 Do this by simply listing the columns in the appropriate order:
 
 ```{r}
 # Sort first by continent, then by country:
-gapminder |>
-  arrange(continent, country)
+arrange(.data = gapminder, continent, country)
 ```
+
+Pay attention to the syntax:
+additional columns to sort by are additional arguments to the function,
+not part of the same argument.
+Other dplyr functions work equivalently in this regard.
+
+:::exercise
+#### {{< fa user-edit >}} **Challenge 1** {-}
+
+<details><summary>Click for the solution</summary>
+</details>
+
+:::
+
+## `filter()` to pick rows (observations)
+
+The `filter()` function outputs only those rows that satisfy one or more conditions.
+It is similar to Filter functionality in Excel.
+
+### Filter based on one condition
+
+This first `filter()` example outputs only rows for which the
+life expectancy exceeds 80 years
+(remember, each row represents a country in a given year):
+
+```{r}
+filter(.data = gapminder, lifeExp > 80)
+```
+
+<details><summary>{{< fa user-edit >}} How many rows were output?</summary>
+</details>
+
+As the example above demonstrated,
+`filter()` **outputs rows that satisfy the condition(s)** you specify.
+These conditions don't have to be based on numeric comparisons:
+
+```{r}
+# Only keep rows where the value in the 'continent' column is 'Europe':
+filter(.data = gapminder, continent == "Europe")
+```
+
+::: {.callout-warning appearance='simple'}
+Remember to use _two_ equals signs `==` to test for equality!
+:::
+
+### Filter based on multiple conditions
+
+It's also possible to filter based on multiple conditions.
+For example, you may want to see which countries in Asia had a life expectancy
+greater than 80 years:
+
+```{r}
+filter(.data = gapminder, continent == "Asia", lifeExp > 80)
+```
+
+Like above, by default, multiple conditions are combined using a Boolean ***AND***.
+In other words, in a given row, _each_ condition must be met to output the row.
+
+If you want to combine conditions using a Boolean ***OR***,
+where only one of the conditions needs to be met,
+use a `|` (vertical bar) between the conditions:
+
+```{r}
+# Keep rows with a high life expectancy and/or a high GDP:
+filter(.data = gapminder, lifeExp > 80 | gdpPercap > 100000)
+```
+
+## The pipe (`|>`)
+
+Examples so far applied a single _dplyr_ function to a data frame.
+But in practice, it's common to use several consecutive _dplyr_ functions to
+wrangle a dataframe into the format you want.
+
+For example, you may want to filter rows and then sort the result.
+You could do that as follows:
+
+```{r}
+gm_filt <- filter(.data = gapminder, lifeExp < 50, year > 2000)
+
+arrange(.data = gm_filt, desc(pop))
+```
+
+And you could go on along these lines,
+successively creating new objects that you then use for the next step.
+
+But there is a more elegent way of dong this,
+directly sending ("piping") output from one function into the next function
+with the **pipe operator** `|>`
+(a vertical bar followed by a greater-than sign).
+Let's start by seeing a reformulation of the code above with pipes:
+
+```{r}
+gapminder |>
+  filter(lifeExp < 50, year > 2000) |>
+  arrange(desc(pop))
+```
+
+What happened here? We took the `gapminder` data frame,
+sent ("piped") it into the `filter()` function,
+whose output in turn was piped into the `arrange()` function.
+You can think of the pipe as **"then"**:
+take `gapminder`, _then_ filter, _then_ arrange.
+
+When using the pipe,
+you no longer specify the input data frame with the `.data` argument,
+because the function now gets its input data via the pipe
+(specifically, the input goes to the function's first argument by default).
+
+::: {.callout-tip appearance='simple'}
+Using pipes involves less typing and is especially more readable than using
+successive assignments^[
+Using pipes is also faster and uses less computer memory.
+].
+For code readability, 
+it is good practice to always start a new line after a pipe `|>`,
+and to keep the subsequent line(s) _indented_ as RStudio will automatically do.
+:::
+
+:::exercise
+#### {{< fa user-edit >}} **Challenge 2** {-}
+
+<details><summary>Click for the solution</summary>
+</details>
+
+:::
 
 ## `mutate()` to modify columns and create new ones
 
-So far, we've focused on functions that subset and reorganize data frames
-(and you've seen how to modify column names).
+So far, we've focused on functions that subset and reorganize data frames.
 But you haven't seen how you can _change the data_ or _compute derived data_.
 
 This can be done with the `mutate()` function.
@@ -431,7 +396,7 @@ gapminder |>
 ```
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 2** {-}
+#### {{< fa user-edit >}} **Challenge 3** {-}
 
 Use `mutate()` to create a new column `gdp_billion` that has the
 **absolute** GDP (i.e., not relative to population size)
@@ -484,7 +449,7 @@ After that, operations like in `summarize()` will happen separately for each gro
 which is how we ended up with per-continent means.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 3** {-}
+#### {{< fa user-edit >}} **Challenge 4** {-}
 
 Calculate the average life expectancy per country.
 Which country has the longest average life expectancy and which has the shortest
@@ -635,15 +600,56 @@ run `?read_tsv` for more info):
 read_tsv(file = "gapminder.tsv", col_types = "ffidi")
 ```
 
-::: {.callout-tip appearance='minimal'}
+::: {.callout-note appearance='simple'}
 To read and write CSV files instead, use `read_csv()` / `write_csv()` in the same way.
 :::
 
-### Counting rows with `count()` and `n()`
+### `rename()` to change column names
+
+The `rename()` _dplyr_ function is one of the package's simplest,
+but it is very useful when you want to change column names.
+
+The syntax to specify the new and old name within the function is `new_name = old_name`.
+For example, to rename the `gdpPercap` column:
+
+```{r}
+rename(.data = gapminder, gdp_per_capita = gdpPercap)
+```
+
+### `select()` to pick columns (variables)
+
+The `select()` _dplyr_ function subsets a data frame by including/excluding
+certain columns.
+By default, it only **includes the columns you specify**:
+
+```{r}
+gapminder |>
+  select(year, country, pop)
+```
+
+The **order of the columns** in the output data frame is exactly as you list them in
+`select()`, and doesn't need to be the same as in the input data frame.
+In other words, `select()` is also one way to reorder columns:
+in the example above, we made `year` appear before `country`.
+
+You can also **specify columns that should be excluded**,
+by prefacing their name with a `!` (or a `-`):
+
+```{r}
+# This will include all columns _except_ continent:
+gapminder |>
+  select(!continent)
+```
+
+::: {.callout-tip appearance='simple'}
+There are also ways to e.g. select _ranges_ of columns that are beyond the scope
+of this short workshop.
+Check the `select()` help by typing `?select` to learn more.
+:::
+
+### Counting rows with `count()`
 
 A common operation is simply counting the number of observations for each group.
-The _dplyr_ package comes with two related functions that help with this.
-
 For instance, to check the number of countries included in the dataset for the
 year 2002, you can use the `count()` function.
 It takes the name of one or more columns to define the groups we are interested in,
@@ -653,18 +659,6 @@ and can optionally sort the results in descending order with `sort = TRUE`:
 gapminder |>
     filter(year == 2002) |>
     count(continent, sort = TRUE)
-```
-
-If you need to use the number of observations in calculations,
-the `n()` function is useful.
-It will return the total number of observations in the "_current group_"
-as applicable --
-for instance, to get the standard error of life expectancy per continent:
-
-```{r}
-gapminder |>
-  group_by(continent) |>
-  summarize(se_life = sd(lifeExp) / sqrt(n()))
 ```
 
 ### Function name conflicts
@@ -712,7 +706,7 @@ But it would be preferred to make RStudio insert the `|>` pipe symbol:
 
 ![](./img/pipe-shortcut.png){fig-align="center"}
 
-### Learn more
+### Learn even more
 
 The material in this page was adapted from
 [this Carpentries lesson episode](https://swcarpentry.github.io/r-novice-gapminder/instructor/12-dplyr.html),
