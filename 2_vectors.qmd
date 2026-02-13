@@ -62,20 +62,20 @@ we'll write our code in a script:
 
 # 2.3 - Vectorization
 
-# Challenge 3 - Vectorizaion
+# Challenge 2
 
 # 2.4 - Exploring vectors
 
 # 2.5 - Extracting element from vectors
 
-# Challenge 3 - Indexing
+# Challenge 3
 
 # 3 - Data types ---------------------------------------------------------------
 # 3.1 - R's main data types
 
 # 3.2 - A vector can only contain one data type
 
-# Challenge 4 - Data types
+# Challenge 4
 
 # 3.3 - Manual type conversion
 
@@ -416,7 +416,7 @@ Type coercion can be the source of many surprises,
 and is one reason you need to be aware of these data types and R's behavior
 around them.
 
-### Manual Type Conversion
+### Manual type conversion
 
 Luckily, you are not just at the mercy of whatever R decides to do automatically,
 but can convert vectors using the `as.` group of functions:
