@@ -1,6 +1,6 @@
 ---
 title: "Workshop on R for Reproducibility"
-subtitle: "Friday February 13^th^, 2026 --- Ohio State University"
+subtitle: "Monday August 17^th^, 2026 --- Ohio State University"
 toc: false
 number-sections: false
 ---
@@ -16,7 +16,7 @@ number-sections: false
 | Time | Instructor | Topic & link |
 |----|----|----|
 | Before starting |  | [Install and set up R and RStudio](0_setup.qmd) |
-| 9:00 -- 9:20 am | Horacio | Pre-workshop survey (if only attending today), intro, logistics |
+| 9:00 -- 9:20 am | Horacio | Pre-workshop survey, intro, logistics |
 | 9:20 -- 10:15 am | Horacio | **1:** [Introduction to R and RStudio](1_intro.qmd) |
 | 10:15 -- 10:30 am |  | Coffee break {{< fa coffee >}} {{< fa stroopwafel >}} |
 | 10:30 -- 11:30 am | Jelmer | **2:** [Vectors and data types](2_vectors.qmd) |

@@ -26,8 +26,8 @@ website:
         - text: OSU Code Club {{< fa external-link >}}
           href: https://osu-codeclub.github.io
         - text: Full Carpentries workshop page {{< fa external-link >}}
-          href: https://imageomics.github.io/2026-02-09-osu-online/         
-        - text: Sister workshop on Version Control with Git {{< fa external-link >}}
+          href: https://imageomics.github.io/2026-08-17-osu-online/         
+        - text: Companion workshop on Version Control with Git {{< fa external-link >}}
           href: https://library.osu.edu/events/version-control-with-git
         - text: Other OSU coding activities {{< fa external-link >}}
           href: https://osu-codeclub.github.io/pages/other.html          
@@ -47,9 +47,9 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            url:  https://github.com/osu-codeclub/carpentries-feb-2026
+            url:  https://github.com/osu-codeclub/carpentries-aug-2026
           - text: Report an Issue
-            url:  https://github.com/osu-codeclub/carpentries-afeb-2026/issues/new?template=Blank+issue
+            url:  https://github.com/osu-codeclub/carpentries-aug-2026/issues/new?template=Blank+issue
 
 format:
   html:

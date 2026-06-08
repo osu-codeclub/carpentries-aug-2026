@@ -1,7 +1,14 @@
 ---
 title: "Creating publication quality graphics with `ggplot2`"
-author: "Software Carpentry / Jessica Cooperstone"
-# date: 2025-08-18
+author:
+  - name: Software Carpentry
+  - name: Jessica Cooperstone
+    orcid: 0000-0001-7920-0088
+    email: cooperstone.1@osu.edu
+    affiliation: 
+      - name: Horticulture and Crop Science, Ohio State University
+        url: https://cfaes.osu.edu/person/jessica-cooperstone 
+date: 2026-08-17
 editor_options: 
   chunk_output_type: console
 ---

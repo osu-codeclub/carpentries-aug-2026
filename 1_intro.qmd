@@ -1,7 +1,14 @@
 ---
 title: "Introduction to R and RStudio"
-author: "Software Carpentry / Horacio Lopez-Nicora"
-date: 2026-02-13
+author:
+  - name: Software Carpentry
+  - name: Horacio Lopez-Nicora
+    orcid: 0000-0002-9672-9589
+    email: lopeznicora.1@osu.edu
+    affiliation: 
+      - name: Plant Pathology, Ohio State University
+        url: https://plantpath.osu.edu/our-people/horacio-lopez-nicora
+date: 2026-08-17
 editor_options: 
   chunk_output_type: console
 ---
