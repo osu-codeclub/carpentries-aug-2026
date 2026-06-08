@@ -1,1 +1,1 @@
-Sitemap: https://osu-codeclub.github.io/carpentries-feb-2026/sitemap.xml
+Sitemap: https://osu-codeclub.github.io/carpentries-aug-2026/sitemap.xml

@@ -4,8 +4,8 @@ project:
 
 website:
   title: "R Workshop"
-  site-url: https://osu-codeclub.github.io/carpentries-feb-2026
-  repo-url: https://github.com/osu-codeclub/carpentries-feb-2026
+  site-url: https://osu-codeclub.github.io/carpentries-aug-2026
+  repo-url: https://github.com/osu-codeclub/carpentries-aug-2026
   page-navigation: true
   back-to-top-navigation: true
   navbar:
