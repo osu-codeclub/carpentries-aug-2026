@@ -19,7 +19,7 @@ and how to use R for reproducible data manipulation and visualization.
 
 If you are affiliated with Ohio State University in any capacity,
 you can attend this workshop for free by
-[registering here NEEDS UPDATING](https://library.osu.edu/events/r-for-scientific-reproducibility). You can find some more information about the workshop [here NEEDS UPDATING](https://imageomics.github.io/2026-08-17-osu-online/).
+[registering here](https://library.osu.edu/events/r-for-scientific-reproducibility-0). You can find some more information about the workshop [here NEEDS UPDATING](https://imageomics.github.io/2026-08-17-osu-online/).
 
 There are no prerequisites: this workshop is suitable for complete beginners
 in R and in coding in general.
@@ -70,5 +70,5 @@ The material on this website has been adapted from the
 [R for Reproducible Scientific Analysis](https://swcarpentry.github.io/r-novice-gapminder/)
 Software Carpentry lesson.
 
-A [sister workshop](https://library.osu.edu/events/version-control-with-git)
+A [companion workshop](https://library.osu.edu/events/version-control-with-git-0)
 is being held on August 21^th^ on version control with Git and GitHub.

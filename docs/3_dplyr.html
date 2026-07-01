@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>Data wrangling with dplyr – R Workshop</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,15 +73,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a14e345711173c227b21482e2eb4cc70.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-37a6e6b0f13a00704b76a90eaeaca18a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f4d103a79394fb6edac28e95ee86143b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -120,8 +122,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">R Workshop</span>
     </a>
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Full Carpentries workshop page <i class="fa-solid fa-external-link" aria-label="external-link"></i></span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://library.osu.edu/events/version-control-with-git">
+    <a class="dropdown-item" href="https://library.osu.edu/events/version-control-with-git-0">
  <span class="dropdown-text">Companion workshop on Version Control with Git <i class="fa-solid fa-external-link" aria-label="external-link"></i></span></a>
   </li>  
         <li>
@@ -596,8 +596,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 <p>Pay attention to the syntax: additional columns to sort by are additional arguments to the function, not part of the same argument. Other <em>dplyr</em> functions work equivalently in this regard.</p>
-<section id="challenge-1-arrange" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-1-arrange"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 1</strong>: <code>arrange()</code></h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-1-arrange" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-1-arrange"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 1</strong>: <code>arrange()</code></h4>
 <p>Which line of code would you use to find out which observation (country and year) has the highest per-capita GDP in the entire dataset?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A)</span></span>
@@ -774,8 +774,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 </div>
-<section id="challenge-2-find-the-mistakes" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-2-find-the-mistakes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 2:</strong> Find the mistakes</h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-2-find-the-mistakes" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-2-find-the-mistakes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 2:</strong> Find the mistakes</h4>
 <p>This pipeline is supposed to find the 3 countries with the lowest GDP per capita in 1997, sorted from lowest to highest. It has two errors. Find and fix them:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>gapminder</span>
@@ -808,8 +808,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </details>
 </section>
-<section id="challenge-3-find-the-extremes" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-3-find-the-extremes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3:</strong> Find the extremes</h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-3-find-the-extremes" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-3-find-the-extremes"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3:</strong> Find the extremes</h4>
 <p>Using <code>filter()</code>, <code>arrange()</code>, and the pipe, answer:</p>
 <ol type="A">
 <li><p>Which African country had the highest life expectancy in 2002?</p>
@@ -900,8 +900,8 @@ Section headers for your script <em>(Click to expand)</em>
 # ℹ 1,694 more rows</code></pre>
 </div>
 </div>
-<section id="challenge-4-absolute-gdp" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-4-absolute-gdp"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 4</strong>: Absolute GDP</h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-4-absolute-gdp" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-4-absolute-gdp"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 4</strong>: Absolute GDP</h4>
 <p>Use <code>mutate()</code> to create a new column <code>gdp_billion</code> that has the <strong>absolute</strong> GDP (i.e., not relative to population size) in <strong>units of billions</strong>.</p>
 <details>
 <summary>
@@ -967,8 +967,8 @@ Section headers for your script <em>(Click to expand)</em>
 </div>
 </div>
 <p><code>group_by()</code> implicitly splits a data frame into groups of rows: here, one group for observations from each continent. After that, operations like in <code>summarize()</code> will happen separately for each group, which is how we ended up with per-continent means.</p>
-<section id="challenge-5-mean-life-expectancy" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="challenge-5-mean-life-expectancy"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 5</strong>: Mean life expectancy</h4>
+<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-5-mean-life-expectancy" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-5-mean-life-expectancy"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 5</strong>: Mean life expectancy</h4>
 <p>Calculate the average life expectancy per country. Which country has the longest average life expectancy and which has the shortest average life expectancy?</p>
 <details>
 <summary>
