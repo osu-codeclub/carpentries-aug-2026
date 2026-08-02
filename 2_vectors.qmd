@@ -74,7 +74,7 @@ we'll write our code in a script:
    # 2.1 - Single-element vectors (and quoting)
 
    # Challenge 1:
-   # Which of the following option or options will produce r? 
+   # Which of the following option or options will producer? 
    # A) number1 <- "42"
    # B) color <- blue
    # C) animal <- "djfhjkhkjkhCGT"
@@ -90,9 +90,9 @@ we'll write our code in a script:
    # 2.3 - Vectorization
 
    # Challenge 3
-   # 1) Create a vector x with whole numbers 1 through 13,
+   # A) Create a vector x with whole numbers 1 through 13,
    #    then print the vector to check your results.
-   # 2) Subtract 0.5 from each element in x and save the result in vector y,
+   # B) Subtract 0.5 from each element in x and save the result in vector y,
    #    then print the vector to check your results.
 
    # 2.4 - Exploring vectors
@@ -363,7 +363,7 @@ then click **Run Code** to have your answer checked:
 
 #### {{< fa list-check >}} Instructions
 
-1. Create a vector `x` with whole numbers 1 through 13,
+A) Create a vector `x` with whole numbers 1 through 13,
    then print the vector to check your results.
 
 ```{webr}
@@ -403,7 +403,7 @@ x
 ::: {.panel-tabset}
 #### {{< fa list-check >}} Instructions
 
-2. Subtract 0.5 from each element in `x` and save the result in vector `y`,
+B) Subtract 0.5 from each element in `x` and save the result in vector `y`,
    then print the vector to check your results.
 
 ```{webr}

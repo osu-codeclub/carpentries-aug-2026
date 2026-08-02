@@ -59,8 +59,10 @@ website:
         menu:
           - text: Source Code
             url:  https://github.com/osu-codeclub/carpentries-aug-2026
+            target: _blank
           - text: Report an Issue
             url:  https://github.com/osu-codeclub/carpentries-aug-2026/issues/new?template=Blank+issue
+            target: _blank
 
 format:
   html:
@@ -75,6 +77,9 @@ format:
     number-depth: 3
     grid:
       body-width: 800px
+
+execute:
+  freeze: auto
 
 knitr:
   opts_chunk:
