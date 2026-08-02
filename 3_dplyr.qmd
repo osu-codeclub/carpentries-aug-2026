@@ -7,11 +7,37 @@ author:
     email: poelstra.1@osu.edu
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
-        url: https://mcic.osu.edu/bioinformatics
-date: 2026-08-17
-editor_options: 
-  chunk_output_type: console
+        url: https://go.osu.edu/bioinformatics-core
+date: 2026-06-08
+date-modified: last-modified
+engine: knitr
+format:
+  live-html:
+    theme: yeti
+    syntax-highlighting: atom-one
+    css:
+      - styles.css
+      - include/webex.css
+    include-after-body: include/webex.js
+    toc: true
+    number-sections: true
+    number-depth: 3
+    grid:
+      body-width: 800px
+webr:
+  cell-options:
+    autorun: true
 ---
+
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
+
+```{webr}
+#| label: setup
+#| include: false
+#| context: setup
+library(gapminder)
+library(dplyr)
+```
 
 -------
 
@@ -32,7 +58,7 @@ data visualization (next session of this workshop) or statistical analyses.
 
 ### Setting up
 
-Use a new script for this session --- much like in the previous session:
+Use a new script for this session, much like we did for the previous one:
 
 1. _Open a new R script_ (Click the **`+`** symbol in toolbar at the top, then click `R Script`)^[
    Or Click `File` => `New file` => `R Script`.].
@@ -45,44 +71,49 @@ Use a new script for this session --- much like in the previous session:
    like in the script I am showing you in the live session,
    then copy-and-paste the following into your script:
 
-<details><summary>Section headers for your script _(Click to expand)_</summary>
-```{r}
-# 1 - Introduction ----------------------------------------------------
-# 1.4 - Loading the tidyverse
+   <details><summary>Section headers for your script _(Click to expand)_</summary>
+   ```{r}
 
-# 2 - The gapminder dataset  ------------------------------------------
+   # TODO - UPDATE
 
-# 3 - arrange() -------------------------------------------------------
+   # 1 - Introduction ----------------------------------------------------
+   # 1.4 - Loading the tidyverse
 
-# Challenge 1
+   # 2 - The gapminder dataset  ------------------------------------------
+   
+   # Challenge 1
 
-# 4 - filter() --------------------------------------------------------
-# 4.1 - Filter based on one condition
+   # 3 - arrange() -------------------------------------------------------
 
-# 4.2 - Filter based on multiple conditions
+   # Challenge 2
 
-# 5 - The pipe --------------------------------------------------------
+   # 4 - filter() --------------------------------------------------------
+   # 4.1 - Filter based on one condition
 
-# Challenge 2
+   # 4.2 - Filter based on multiple conditions
 
-# Challenge 3
+   # 5 - The pipe --------------------------------------------------------
 
-# 6 - mutate() --------------------------------------------------------
+   # Challenge 3
 
-# Challenge 4
+   # Challenge 4
 
-# 7 - summarize() -----------------------------------------------------
+   # 6 - mutate() --------------------------------------------------------
 
-# Challenge 5
-```
+   # Challenge 5
 
-</details>
+   # 7 - summarize() -----------------------------------------------------
+
+   # Challenge 6
+   ```
+
+   </details>
 
 ### The _dplyr_ package and the tidyverse
 
 One of R's most powerful features is its ability to deal with **tabular data**:
 data with rows and columns like you are familiar with from Excel spreadsheets
-and so on -- for example:
+and so on --- for example:
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -103,12 +134,12 @@ In this session, we'll cover these commonly used _dplyr_ functions:
 _dplyr_ has many more functions.
 Some of these are more advanced than those we'll cover today,
 while others are conceptually simpler
-(e.g. `rename()` to change column names and `select()` to select columns)
+(e.g. `rename()` to change column names and `select()` to select columns),
 and we encourage you to [explore](#bonus-material-for-self-study) these
 [on your own](https://dplyr.tidyverse.org/articles/dplyr.html). 
 
 _dplyr_ belongs to a **family of R packages for data science called the**
-&&["tidyverse"](https://www.tidyverse.org).**
+["tidyverse"](https://www.tidyverse.org).**
 Another tidyverse package we'll cover in today's workshop is _ggplot2_
 for making plots.
 
@@ -124,7 +155,7 @@ library(tidyverse)
 ```
 
 The output tells you which packages have been loaded as part of the tidyverse.
-(For now, you don't have to worry about the
+(For now, you don't have to pay attention to or worry about the
 ["Conflicts" section](#function-name-conflicts).)
 
 ## The `gapminder` dataset
@@ -186,6 +217,13 @@ e.g. the data types of columns are shown,
 and only a limited number of rows are printed.].
 :::
 
+::: exercise
+#### {{< fa user-edit >}} **Challenge 1: Explore the `gapminder` dataset**
+
+TODO
+
+:::
+
 ## `arrange()`
 
 The `arrange()` function is like sorting functionality in Excel:
@@ -195,7 +233,8 @@ never just of individual columns since that would scramble the data.
 
 `gapminder` is currently first sorted alphabetically by `country`,
 and next by `year`.
-But you may, for example, want to sort by population size instead:
+But you may, for example, want to sort by population size instead,
+which you can do with `arrange()` as follows:
 
 ```{r}
 gm_arranged <- arrange(.data = gapminder, pop)
@@ -209,12 +248,18 @@ let's break down the syntax of the `arrange()` function:
 - The second argument is the column to sort by,
   which we specify without an argument name.
 
-Also, ***like all dplyr functions, `arrange()` outputs a new data frame,***
-***and does not modify the input data frame.***
+::: callout-note
+
+Like all _dplyr_ functions, `arrange()` outputs a new data frame,
+and **does not modify the input data frame.**
 In this case, we chose to assign the output to a new object called `gm_arranged`.
 
-<details><summary>{{< fa user-edit >}} What would have happened if we had assigned the output to `gapminder`?</summary>
+<details><summary>[{{< fa comments >}}]{style="color: darkgreen;"} What would have happened if we had assigned the output to `gapminder`?</summary>
+In that case, the original dataframe would have been overwritten with the sorted version.
 </details>
+
+<hr style="height:1pt; visibility:hidden;" />
+:::
 
 Now let's look at the result of the sorting:
 
@@ -254,21 +299,42 @@ not part of the same argument.
 Other _dplyr_ functions work equivalently in this regard.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 1**: `arrange()`
+#### {{< fa user-edit >}} **Challenge 2: `arrange()`**
 
-Which line of code would you use to find out which observation (country and year)
-has the highest per-capita GDP in the entire dataset?
+One observation (row) in the `gapminder` dataset has the highest per-capita GDP.
+Which line of code would you use to find out which row that is?
 
-```{r, eval=FALSE}
-# A)
-arrange(.data = gapminder, desc(gdpPercap), year, country)
-# B)
-arrange(.data = gapminder, country, year, gdpPercap)
-# C)
-arrange(.data = gapminder, desc(gdpPercap))
-# D)
-arrange(.data = gapminder, gdpPercap)
+Try it, and report which row (which country and year) you found.
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Quiz
+
+```{r}
+#| echo: false
+#| results: asis
+cat(longmcq(c(
+  '`arrange(.data = gapminder, desc(gdpPercap), year, country)`',
+  '`arrange(.data = gapminder, country, year, gdpPercap)`',
+  answer = '`arrange(.data = gapminder, desc(gdpPercap))`',
+  '`arrange(.data = gapminder, gdpPercap)`'
+)))
 ```
+
+#### {{< fa circle-info >}} Explanation
+
+While both the first and third options will give you the row with the highest per-capita GDP,
+the first option will also sort the entire dataset by year and country,
+which is not necessary to answer the question.
+
+You'll want to sort descendingly by `gdpPercap` to get the row with the highest value at the top.
+
+```{r}
+arrange(.data = gapminder, desc(gdpPercap))
+```
+
+Kuwait in 1957 had the highest per-capita GDP in the dataset, at $113,523.
+:::
 :::
 
 ## `filter()`
@@ -286,7 +352,8 @@ life expectancy exceeds 80 years
 filter(.data = gapminder, lifeExp > 80)
 ```
 
-<details><summary>{{< fa user-edit >}} How many rows were output?</summary>
+<details><summary>[{{< fa comments >}}]{style="color: darkgreen;"} How many rows were output?</summary>
+As is printed in the first line of the output, 21 rows were output.
 </details>
 
 As the example above demonstrated,
@@ -315,6 +382,9 @@ filter(.data = gapminder, continent == "Asia", lifeExp > 80)
 Like above, by default, multiple conditions are combined using a Boolean ***AND***.
 In other words, in a given row, _each_ condition must be met to output the row.
 
+::: {.callout-note collapse="true"}
+#### What about a Boolean ***OR***? _(Click to expand)_
+
 If you want to combine conditions using a Boolean ***OR***,
 where only one of the conditions needs to be met,
 use a `|` (vertical bar) between the conditions:
@@ -323,6 +393,7 @@ use a `|` (vertical bar) between the conditions:
 # Keep rows with a high life expectancy and/or a high GDP:
 filter(.data = gapminder, lifeExp > 80 | gdpPercap > 100000)
 ```
+:::
 
 ## The pipe (`|>`)
 
@@ -376,25 +447,49 @@ and to keep the subsequent line(s) _indented_ as RStudio will automatically do.
 :::
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 2:** Find the mistakes
+#### {{< fa user-edit >}} **Challenge 3: Find the mistakes**
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Instructions
 
 This pipeline is supposed to find the 3 countries with the lowest GDP per capita
 in 1997, sorted from lowest to highest.
 It has two errors. Find and fix them:
 
-```{r, eval=FALSE}
+```{webr}
+#| autorun: false
+#| caption: ""
+#| exercise: find_errors
 gapminder
-  filter(year = 1997) |>
+filter(year = 1997) |>
   arrange(gdpPercap) |>
   head(n = 3)
 ```
 
-<details><summary>_Click for the solution_</summary>
+```{webr}
+#| exercise: find_errors
+#| check: true
+if (
+  identical(
+    .result,
+    gapminder |> filter(year == 1997) |> arrange(gdpPercap) |> head(n = 3)
+  )
+) {
+  list(correct = TRUE, message = "Nice work, that is the correct answer!")
+} else {
+  list(correct = FALSE, message = "That's incorrect, sorry.")
+}
+```
 
-1. Line 1: Missing pipe `|>` after gapminder
-2. Line 2: Should use `==` (not `=`) for comparison
+#### {{< fa circle-check >}} Solution
 
-Corrected code:
+**The two errors are:**
+
+- Line 1: Missing pipe `|>` after gapminder
+- Line 2: Should use `==` (not `=`) to test for equality
+
+**Corrected code:**
 
 ```{r}
 gapminder |>
@@ -403,44 +498,51 @@ gapminder |>
   head(n = 3)
 ```
 </details>
+
+:::
 :::
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 3:** Find the extremes
+#### {{< fa user-edit >}} **Challenge 4: Find the extremes**
 
-Using `filter()`, `arrange()`, and the pipe, answer:
+Using `filter()`, `arrange()`, and the pipe (`|>`),
+answer the following questions about the gapminder dataset:
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Instructions
 
 A) Which African country had the highest life expectancy in 2002?
 
-   <details><summary>_Click for the solution_</summary>
+#### {{< fa circle-check >}} Solution
 
-   (We'll use the same trick with `head()` like in the exercise above
-   to _only_ see the top 1 country, but this is not strictly necessary.) 
+We'll use the same trick with `head()` like in the exercise above
+to _only_ see the top 1 country, but this is not strictly necessary:
    
-   ```{r}
-   gapminder |>
-     filter(continent == "Africa", year == 2002) |>
-     arrange(desc(lifeExp)) |>
-     head(n = 1)
-   ```
-  
-   </details>
+```{r}
+gapminder |>
+  filter(continent == "Africa", year == 2002) |>
+  arrange(desc(lifeExp)) |>
+  head(n = 1)
+```
+
+:::
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Instructions
 
 B) What was the smallest population recorded in Asia across all years?
 
-   <details><summary>_Click for the solution_</summary>
+#### {{< fa circle-check >}} Solution
    
-   (We'll use the same trick with `head()` like in the exercise above
-   to _only_ see the bottom 1 country, but this is not strictly necessary.) 
+```{r}
+gapminder |>
+  filter(continent == "Asia") |>
+  arrange(pop) |>
+  head(n = 1)
+```
   
-   ```{r}
-   gapminder |>
-     filter(continent == "Asia") |>
-     arrange(pop) |>
-     head(n = 1)
-   ```
-  
-   </details>
+:::
 :::
 
 ## `mutate()`
@@ -467,13 +569,47 @@ gapminder |>
 ```
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 4**: Absolute GDP
+#### {{< fa user-edit >}} **Challenge 5: Absolute GDP**
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Instructions
 
 Use `mutate()` to create a new column `gdp_billion` that has the
 **absolute** GDP (i.e., not relative to population size)
 in **units of billions**.
 
-<details><summary>_Click for the solution_</summary>
+```{webr}
+#| autorun: false
+#| caption: ""
+#| exercise: abs_gdp
+gapminder |>
+  mutate(______)
+```
+
+```{webr}
+#| exercise: abs_gdp
+#| check: true
+if (
+  identical(
+    .result,
+    gapminder |> mutate(gdp_billion = gdpPercap * pop / 10^9)
+  )
+) {
+  list(correct = TRUE, message = "Nice work, that is the correct answer!")
+} else {
+  list(correct = FALSE, message = "That's incorrect, sorry.")
+}
+```
+
+#### {{< fa lightbulb >}} Hints
+
+```{r, eval=FALSE}
+gapminder |>
+  mutate(gdp_billion = gdpPercap * ______ / ______)
+```
+
+#### {{< fa circle-check >}} Solution
 
 You need to do two things, which can be combined into a single line:
 
@@ -483,9 +619,11 @@ You need to do two things, which can be combined into a single line:
 
 ```{r}
 gapminder |>
-    mutate(gdp_billion = gdpPercap * pop / 10^9)
+  mutate(gdp_billion = gdpPercap * pop / 10^9)
 ```
 </details>
+
+:::
 :::
 
 ## `summarize()`
@@ -520,284 +658,82 @@ After that, operations like in `summarize()` will happen separately for each gro
 which is how we ended up with per-continent means.
 
 :::exercise
-#### {{< fa user-edit >}} **Challenge 5**: Mean life expectancy
+#### {{< fa user-edit >}} **Challenge 6: Mean life expectancy**
 
-Calculate the average life expectancy per country.
-Which country has the longest average life expectancy and which has the shortest
-average life expectancy?
+::: {.panel-tabset}
 
-<details><summary>_Click for some hints_</summary>
-- Since you'll need to examine your output in two ways,
-  it makes sense to store the output of the life expectancy calculation in a dataframe.
+#### {{< fa list-check >}} Instructions
 
-- Next, an easy way to get rows with lowest and highest values in a column is to
-  simply sort by that column and examining the output.
-</details>
+A) Calculate the average life expectancy for each country and store the result in
+   a new dataframe.
 
-<details><summary>_Click for the solution_</summary>
+```{webr}
+#| autorun: false
+#| caption: ""
+#| exercise: life_exp
+gapminder |>
+  ______ |>
+  ______
+```
+
+```{webr}
+#| exercise: life_exp
+#| check: true
+if (
+  identical(
+    .result,
+    lifeExp_bycountry <- gapminder |> group_by(country) |> summarize(mean_lifeExp = mean(lifeExp))
+  )
+) {
+  list(correct = TRUE, message = "Nice work, that is the correct answer!")
+} else {
+  list(correct = FALSE, message = "That's incorrect, sorry.")
+}
+```
+
+#### {{< fa lightbulb >}} Hints
+
+```{r, eval=FALSE}
+lifeExp_bycountry <- gapminder |>
+  group_by(______) |>
+  summarize(mean_lifeExp = ______)
+```
+
+#### {{< fa circle-check >}} Solution
 
 First, create a dataframe with the mean life expectancy by country:
 
 ```{r}
 lifeExp_bycountry <- gapminder |>
-   group_by(country) |>
-   summarize(mean_lifeExp = mean(lifeExp))
+  group_by(country) |>
+  summarize(mean_lifeExp = mean(lifeExp))
 ```
 
-Then, arrange that dataframe in two directions to see the countries with the
+:::
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Instructions
+
+B) Use the dataframe you just created to find out which country has the longest average
+   life expectancy and which has the shortest.
+
+#### {{< fa circle-check >}} Solution
+
+Arrange the dataframe in two directions to see the countries with the
 longest and shortest life expectancy.
 You could optionally pipe into `head()` to only see the top `n`, here top 1:
 
 ```{r}
 lifeExp_bycountry |>
-   arrange(mean_lifeExp) |>
-   head(n = 1)
+  arrange(mean_lifeExp) |>
+  head(n = 1)
 
 lifeExp_bycountry |>
-   arrange(desc(mean_lifeExp)) |>
-   head(n = 1)
+  arrange(desc(mean_lifeExp)) |>
+  head(n = 1)
 ```
-</details>
+
+So, **Sierra Leone** has the shortest average life expectancy (36.8 years),
+and **Iceland** has the longest average life expectancy (76.5 years).
 :::
-
-<br>
-
-------
-
-## Bonus material for self-study
-
-### Writing and reading tabular data to and from files
-
-When working with your own data in R,
-you'll usually need to read data from files into your R environment,
-and conversely, to write data that is in your R environment to files.
-
-While it's possible to make R interact with Excel spreadsheet files^[
-Using the [readxl](https://readxl.tidyverse.org/) package.
-This is installed as part of the tidyverse but is not a _core_ tidyverse package
-and therefore needs to be loaded separately: `library(readxl)`.
-], storing your data in **plain-text files** generally benefits reproducibility.
-Tabular plain text files can be stored using:
-
-- A _Tab_ as the column delimiter
-  (often called TSV files, and stored with a `.tsv` extension)
-- A _comma_ as the column delimiter
-  (often called CSV files, and stored with a `.csv` extension).
-
-To practice writing and reading data to and from TSV files,
-the examples below use functions from the _readr_ package.
-This package is part of the core tidyverse and therefore already loaded into
-your environment.
-
-#### Writing to files
-
-To write the `gapminder` data frame to a TSV file,
-use the `write_tsv()` function with argument `x` for the R object
-and argument `file` for the file path:
-
-```{r}
-write_tsv(x = gapminder, file = "gapminder.tsv")
-```
-
-Because we simply provided a file name, the file will have been written in your
-R working directory^[
-Recall that you can see where that is at the top of the Console tab, or by running `getwd()`.
-].
-
-If you want to take a look at the file you just created,
-you can find it in RStudio's **Files** tab and click on it,
-which will open it in the editor panel.
-Of course, you could also find it in your computer's file browser and open it
-in different ways.
-
-::: {.callout-note collapse="true"}
-### Want to write to a different folder on your computer? _(Click to expand)_
-
-The `file` argument to `write_tsv()` takes a file _path_,
-meaning that you can specify any location on your computer for it,
-in addition to the file name.
-
-For example, if you had a folder called `results` in your current working directory,
-you could save the file in there like so:
-
-```{r, eval=FALSE}
-write_tsv(x = gapminder, file = "results/gapminder.tsv")
-```
-
-_Note that a forward slash `/` as a folder delimiter will work regardless of your_
-_operating system_
-_(even though Windows natively delimits folder by a backslash `\`)._
-
-Finally,
-if you want to store the file in a totally different place than your working dir,
-it's good to know that you can also use a so-called absolute (or "full") path.
-For example:
-
-```{r, eval=FALSE}
-write_tsv(x = gapminder, file = "/Users/poelstra.1/Desktop/gapminder.tsv")
-```
 :::
-
-#### Reading from files
-
-To practice reading data from a file,
-use the `read_tsv()` function on the file you just created: 
-
-```{r}
-gapminder_reread <- read_tsv(file = "gapminder.tsv")
-```
-
-Note that this function is rather chatty,
-telling you how many rows and columns it read, and what their data types are.
-Let's check the resulting object:
-
-```{r}
-gapminder_reread
-```
-
-This looks good!
-Do note that the column's data types are not identical to what they were
-(`year` and `pop` are saved as `double` rather than `integer`,
-and `country` and `continent` as `character` rather than `factor`).
-This is largely expected because that kind of metadata is not stored in a plain-text
-TSV, so `read_tsv()` will by default simply make best guesses as to the types.
-
-Alternatively, you could tell `read_tsv()` what the column types should be,
-using the `col_types` argument
-(with abbreviations `f` for `factor`, `i` for `integer`, `d` for `double` ---
-run `?read_tsv` for more info):
-
-```{r}
-read_tsv(file = "gapminder.tsv", col_types = "ffidi")
-```
-
-::: {.callout-note appearance='simple'}
-To read and write CSV files instead, use `read_csv()` / `write_csv()` in the same way.
-:::
-
-### `rename()` to change column names
-
-The `rename()` _dplyr_ function is one of the package's simplest,
-but it is very useful when you want to change column names.
-
-The syntax to specify the new and old name within the function is `new_name = old_name`.
-For example, to rename the `gdpPercap` column:
-
-```{r}
-rename(.data = gapminder, gdp_per_capita = gdpPercap)
-```
-
-### `select()` to pick columns (variables)
-
-The `select()` _dplyr_ function subsets a data frame by including/excluding
-certain columns.
-By default, it only **includes the columns you specify**:
-
-```{r}
-gapminder |>
-  select(year, country, pop)
-```
-
-The **order of the columns** in the output data frame is exactly as you list them in
-`select()`, and doesn't need to be the same as in the input data frame.
-In other words, `select()` is also one way to reorder columns:
-in the example above, we made `year` appear before `country`.
-
-You can also **specify columns that should be excluded**,
-by prefacing their name with a `!` (or a `-`):
-
-```{r}
-# This will include all columns _except_ continent:
-gapminder |>
-  select(!continent)
-```
-
-::: {.callout-tip appearance='simple'}
-There are also ways to e.g. select _ranges_ of columns that are beyond the scope
-of this short workshop.
-Check the `select()` help by typing `?select` to learn more.
-:::
-
-### Counting rows with `count()`
-
-A common operation is simply counting the number of observations for each group.
-For instance, to check the number of countries included in the dataset for the
-year 2002, you can use the `count()` function.
-It takes the name of one or more columns to define the groups we are interested in,
-and can optionally sort the results in descending order with `sort = TRUE`:
-
-```{r}
-gapminder |>
-    filter(year == 2002) |>
-    count(continent, sort = TRUE)
-```
-
-### Function name conflicts
-
-When you loaded the tidyverse, the output included a  "Conflicts" section that
-may have seemed ominous:
-
-```r-out-solo
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-```
-
-What this means is that two tidyverse functions, `filter()` and `lag()`,
-have the same names as two functions from the _stats_ package that were already
-in your R environment.
-
-Those stats package functions are part of what is often referred to as "base R":
-core R functionality that is always available (loaded) when you start R.
-
-Due to this function name conflict/collision,
-the `filter()` function from _dplyr_ "masks" the `filter()` function from _stats_.
-Therefore, if you write a command with `filter()`,
-it will use the _dplyr_ function and not the _stats_ function.
-
-You _can_ use a "masked" function,
-by prefacing it with its package name as follows: `stats::filter()`.
-
-### Using the pipe keyboard shortcut
-
-The following RStudio keyboard shortcut will insert a pipe symbol:
-<kbd>Ctrl/Cmd</kbd> + <kbd>Shift</kbd> + <kbd>M</kbd>.
-
-However, by default this (still) inserts an older pipe symbol, `%>%`.
-As long as you've loaded the tidyverse^[
-This symbol only works when you have one of the tidyverse packages loaded.
-], it would not really be a problem to just use `%>%` instead of `|>`.
-But it would be preferred to make RStudio insert the `|>` pipe symbol:
-
-1. Click `Tools` > `Global Options` > `Code` tab on the right
-2. Check the box "Use native pipe operator" as shown below
-3. Click `OK` at the bottom of the options dialog box to apply the change and
-   close the box.  
-
-![](./img/pipe-shortcut.png){fig-align="center"}
-
-### Learn even more
-
-The material in this page was adapted from
-[this Carpentries lesson episode](https://swcarpentry.github.io/r-novice-gapminder/instructor/12-dplyr.html),
-which has a lot more content than we were able to cover today.
-
-Regarding data wrangling specifically,
-here are two particularly useful additional skills to learn:
-
-- Pivoting/reshaping ---
-  moving between 'wide' and 'long' data formats with `pivot_wider()` and
-  `pivot_longer()`. This is covered in
-  [episode 13 of the focal Carpentries lesson](https://swcarpentry.github.io/r-novice-gapminder/instructor/13-tidyr.html).
-
-- Joining/merging ---
-  combining multiple dataframes based on one or more shared columns.
-  This can be done with _dplyr_'s `join_*()` functions --
-  see for example [this chapter in R for Data Science](https://r4ds.hadley.nz/joins.html).
-  
-<br>
-
-```{r, include=FALSE, echo=FALSE}
-file.remove("gapminder.tsv")
-```

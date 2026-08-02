@@ -1,5 +1,7 @@
 /* css styles */
 
+/* --------------------------------------------------------------------------/*
+/* Figure caption */
 figure figcaption {
   text-align: center;
 }
@@ -9,11 +11,13 @@ figure figcaption {
 h2 {
   margin-top: 50px;
 }
+
 h3 {
   margin-top: 40px;
   font-size: 1.4em;
   font-weight: normal;
 }
+
 h4 {
   font-size: 1.3em;
   margin-top: 30px;
@@ -22,85 +26,199 @@ h4 {
 /* --------------------------------------------------------------------------/*
 /* Code boxes */
 .cell-output {
-    background-color: #e4e7ed;
-    padding: 5px 5px 0px 10px;
-    border-radius: 0px;
-    border-style: none;
-    border-width: 1px;
-    border-left-width: 2px;
-    border-left-style: solid;
-    border-left-color: #030303;
-    margin: -18px 0px 25px 0px;
-    font-style: italic;
-    color: rgb(141, 141, 143); !important
+  background-color: #e4e7ed;
+  padding: 5px 5px 0px 10px;
+  border-radius: 0px;
+  border-style: none;
+  border-width: 1px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #030303;
+  margin: -18px 0px 25px 0px;
+  font-style: italic;
+  color: rgb(141, 141, 143);
+  !important
 }
 
 /* Regular R output: */
 .regular-r-output {
-  color: rgb(141, 141, 143); !important
+  color: rgb(141, 141, 143);
+  !important
 }
 
 /* Warning R output: */
 .warning-r-output {
-  color: darkorange; !important
+  color: darkorange;
+  !important
 }
 
 /* Error R output: */
 .error-r-output {
-  color: red; !important
+  color: red;
+  !important
 }
 
 /* For manual/fake R output boxes: */
 .r-out {
-    background-color: #e4e7ed;
-    padding: 5px 5px 0px 10px;
-    border-radius: 0px;
-    border-style: none;
-    border-width: 1px;
-    border-left-width: 2px;
-    border-left-style: solid;
-    border-left-color: #030303;
-    margin: -18px 0px 25px 0px;
-    font-style: italic;
-    color: rgb(141, 141, 143);
+  background-color: #e4e7ed;
+  padding: 5px 5px 0px 10px;
+  border-radius: 0px;
+  border-style: none;
+  border-width: 1px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #030303;
+  margin: -18px 0px 25px 0px;
+  font-style: italic;
+  color: rgb(141, 141, 143);
 }
 
 /* For manual/fake R output boxes that are by themselves (not below source boxes): */
 .r-out-solo {
-    background-color: #e4e7ed;
-    padding: 5px 5px 5px 10px;
-    border-radius: 0px;
-    border-style: none;
-    border-width: 1px;
-    border-left-width: 2px;
-    border-left-style: solid;
-    border-left-color: #030303;
-    margin: 0px 0px 20px 0px;
-    font-style: italic;
-    color: rgb(141, 141, 143);
+  background-color: #e4e7ed;
+  padding: 5px 5px 5px 10px;
+  border-radius: 0px;
+  border-style: none;
+  border-width: 1px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #030303;
+  margin: 0px 0px 20px 0px;
+  font-style: italic;
+  color: rgb(141, 141, 143);
+}
+
+/* --------------------------------------------------------------------------/*
+/* webR output boxes (interactive quarto-webr code cells) --
+   styled to match the static R output boxes above.
+   Uses :has() to collapse to nothing before a cell has been run
+   (quarto-webr always renders an empty <pre> placeholder, just hidden). */
+.qwebr-output-code-area {
+  background-color: #e4e7ed;
+  padding: 5px 5px 5px 30px;
+  border-radius: 0px;
+  border-style: none;
+  border-width: 1px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #030303;
+  margin: 0px 0px 20px 0px;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.qwebr-output-code-area pre {
+  margin: 0;
+}
+
+.qwebr-output-code-area:has(pre[style*="visibility: hidden"]) {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin: 0px 0px 20px 0px;
+}
+
+body.quarto-light .qwebr-output-code-stdout,
+body.quarto-dark .qwebr-output-code-stdout {
+  color: rgb(141, 141, 143) !important;
+}
+
+/* --------------------------------------------------------------------------/*
+/* quarto-live exercise editor boxes: pale gray background throughout,
+   including the CodeMirror code area (matches old webR editor styling) */
+.exercise-editor {
+  background-color: #F0F0F0;
+}
+
+.exercise-editor .cm-editor,
+.exercise-editor .cm-gutters {
+  background-color: #F0F0F0 !important;
+}
+
+.exercise-editor .cm-editor {
+  font-size: 0.85em;
+}
+
+/* Remove CodeMirror's active-line highlight (light blue by default) */
+.exercise-editor .cm-activeLine,
+.exercise-editor .cm-activeLineGutter {
+  background-color: transparent !important;
 }
 
 /* --------------------------------------------------------------------------/*
 /* Exercise boxes */
 .exercise {
   padding: 0em 1em 0.5em 1em;
-  margin: 0.5em 0.5em 0.5em 0.5em;
-  color: #12433A; /*#1f5386; */
-  border: solid 2px #7a767a;
+  margin: 1.5em 0.5em 1.5em 0.5em;
+  color: #12433A;
+  border: solid 1.5px #008CBA;
+  border-left: solid 4px #008CBA;
   border-radius: 25px;
+}
+
+/* Challenge/exercise heading: blue text with a blue rule underneath,
+   applied automatically to the first heading in every .exercise box */
+.exercise h4:first-of-type {
+  color: #008CBA;
+  border-bottom: 1.5px solid #008CBA;
+  padding-bottom: 0.3em;
+  margin-top: 1em;
+  margin-bottom: 1.2em;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Observable Inputs.radio()/checkbox(): stack options vertically instead of
+   the library's default side-by-side layout */
+form div>label:has(> input[type="radio"]),
+form div>label:has(> input[type="checkbox"]) {
+  display: block;
+  margin: 0.3em 0;
+}
+
+/* --------------------------------------------------------------------------/*
+/* Tabset panels (::: {.panel-tabset}) - darker, thicker border */
+.panel-tabset {
+  margin-top: 1.2em;
+}
+
+.panel-tabset .nav-tabs {
+  border-bottom-color: #999999;
+  border-bottom-width: 1.5px;
+}
+
+.panel-tabset .nav-tabs .nav-link.active {
+  border-color: #999999 #999999 #fff;
+  border-width: 1.5px;
+}
+
+.panel-tabset .tab-content {
+  border: 1.5px solid #999999;
+  border-top: none;
+  padding: 20px 10px 10px 10px;
+  border-radius: 0px 0px 5px 5px;
+}
+
+/* webR/pyodide interactive code editor header (with Start Over/Run Code
+   buttons): match the pale gray background of regular code boxes */
+.card.exercise-editor .card-header {
+  background-color: #f8f9fa;
 }
 
 /* --------------------------------------------------------------------------/*
 /* details sections */
-details > summary {
+details>summary {
   padding-top: 4px;
   padding-right: 10px;
   padding-bottom: 4px;
-  padding-left: 10px;
-  background-color: #EDEFE8; /* #f1f6f1; F4F4F4;
+  padding-left: 16px;
+  margin-left: -6px;
+  background-color: #EDEFE8;
   border: none;
-  border-radius: 25px;
-  /*box-shadow: 3px 3px 4px black;*/
+  border-radius: 3px;
+}
+
+details[open]>summary {
+  margin-bottom: 10px;
 }
 
 details {
@@ -109,10 +227,10 @@ details {
   padding-top: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
-  padding-left: 10px;
-  margin-top: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
+  padding-left: 6px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 5px;
   border-width: 1px;
   border-left-width: 3px;
   border-style: solid;

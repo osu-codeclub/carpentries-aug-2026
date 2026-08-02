@@ -13,18 +13,18 @@ number-sections: false
 ### Schedule
 </center>
 
-| Time | Instructor | Topic & link |
-|----|----|----|
-| Before starting |  | [Install and set up R and RStudio](0_setup.qmd) |
-| 9:00 -- 9:20 am | Horacio | Pre-workshop survey, intro, logistics |
-| 9:20 -- 10:15 am | Horacio | **1:** [Introduction to R and RStudio](1_intro.qmd) |
-| 10:15 -- 10:30 am |  | Coffee break {{< fa coffee >}} {{< fa stroopwafel >}} |
-| 10:30 -- 11:30 am | Jelmer | **2:** [Vectors and data types](2_vectors.qmd) |
-| 11:30 am -- 12:15 pm |  | Lunch break {{< fa bread-slice >}} {{< fa pizza-slice >}} |
-| 12:15 -- 1:15 pm | Jelmer | **3:** [Data wrangling with *dplyr* ](3_dplyr.qmd) |
-| 1:15 -- 1:30 pm |  | Coffee break {{< fa coffee >}} {{< fa stroopwafel >}} |
-| 1:30 -- 2:50 pm | Jessica | **4:** [Data visualization with *ggplot2*](4_ggplot.qmd) |
-| 2:50 -- 3:00 pm |  | Post-workshop survey |
+| Time                | Instructor | Topic & link                                              |
+| ------------------- | ---------- | --------------------------------------------------------- |
+| Before starting     |            | [Install and set up R and RStudio](0_setup.qmd)           |
+| 9:00–9:20 am        | Horacio    | Pre-workshop survey, intro, logistics                     |
+| 9:20–10:15 am       | Horacio    | **1:** [Introduction to R and RStudio](1_intro.qmd)       |
+| 10:15–10:30 am      |            | Coffee break {{< fa coffee >}} {{< fa stroopwafel >}}     |
+| 10:30–11:30 am      | Jelmer     | **2:** [Vectors and data types](2_vectors.qmd)            |
+| 11:30 am – 12:15 pm |            | Lunch break {{< fa bread-slice >}} {{< fa pizza-slice >}} |
+| 12:15–1:15 pm       | Jelmer     | **3:** [Data wrangling with *dplyr* ](3_dplyr.qmd)        |
+| 1:15–1:30 pm        |            | Coffee break {{< fa coffee >}} {{< fa stroopwafel >}}     |
+| 1:30 -- 2:50 pm     | Jessica    | **4:** [Data visualization with *ggplot2*](4_ggplot.qmd)  |
+| 2:50 -- 3:00 pm     |            | Post-workshop survey                                      |
 
 : {.striped .hover}
 

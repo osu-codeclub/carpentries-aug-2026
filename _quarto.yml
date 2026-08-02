@@ -23,24 +23,35 @@ website:
     right:
       - text: "To learn more"
         menu:
+        - text: Bonus material
+          href: bonus.qmd
+        - text: "------------------"
         - text: OSU Code Club {{< fa external-link >}}
           href: https://osu-codeclub.github.io
+          target: _blank
         - text: Full Carpentries workshop page {{< fa external-link >}}
-          href: https://cfaes-bioinfo.github.io/2026-08-17-osu-online/       
+          href: https://cfaes-bioinfo.github.io/2026-08-17-osu-online
+          target: _blank
         - text: Companion workshop on Version Control with Git {{< fa external-link >}}
           href: https://library.osu.edu/events/version-control-with-git-0
+          target: _blank
         - text: Other OSU coding activities {{< fa external-link >}}
-          href: https://osu-codeclub.github.io/pages/other.html          
+          href: https://osu-codeclub.github.io/pages/other.html
+          target: _blank
         - text: "------------------"
         - text: OSU Research Commons {{< fa external-link >}}
           href: https://library.osu.edu/researchcommons
+          target: _blank
         - text: The Carpentries {{< fa external-link >}}
           href: https://carpentries.org
+          target: _blank
         - text: "------------------"
         - text: The full focal Carpentries lesson {{< fa external-link >}}
-          href: https://swcarpentry.github.io/r-novice-gapminder/
+          href: https://swcarpentry.github.io/r-novice-gapminder
+          target: _blank
         - text: R for Data Science ebook {{< fa external-link >}}
           href: https://r4ds.hadley.nz
+          target: _blank
       - text: About
         href: about.qmd
     tools:
@@ -54,8 +65,11 @@ website:
 format:
   html:
     theme: yeti
-    highlight-style: atom-one
-    css: styles.css
+    syntax-highlighting: atom-one
+    css:
+      - styles.css
+      - include/webex.css
+    include-after-body: include/webex.js
     toc: true
     number-sections: true
     number-depth: 3
