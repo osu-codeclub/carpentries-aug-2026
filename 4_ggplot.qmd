@@ -9,10 +9,29 @@ author:
       - name: Horticulture and Crop Science, Ohio State University
         url: https://cfaes.osu.edu/person/jessica-cooperstone 
 date: 2026-08-17
-editor_options: 
-  chunk_output_type: console
+engine: knitr
+format:
+  live-html:
+    theme: yeti
+    syntax-highlighting: atom-one
+    css:
+      - styles.css
+      - include/webex.css
+    include-after-body: include/webex.js
+    toc: true
+    number-sections: true
+    number-depth: 3
+    grid:
+      body-width: 800px
+webr:
+  cell-options:
+    autorun: true
+  packages:
+    - tidyverse
+    - gapminder
 ---
 
+{{< include ./_extensions/r-wasm/live/_knitr.qmd >}}
 -------
 
 <br>
@@ -219,15 +238,54 @@ gapminder |>
   geom_point()
 ```
 
--------
 
 ### Challenge 1
 
+<hr style="height:1pt; visibility:hidden;" />
+
+::: exercise
+#### {{< fa user-edit >}} **Challenge 1: Modifying a plot**
+
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
+:::
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Code
+
 Modify the plot we've made so that you can see the relationship between life expectancy and year.
+Once you have your answer, feel free to try them out to see what happens.
 
-<details><summary>Click for the solution</summary>
+```{webr}
+#| autorun: false
+#| caption: ""
+# here is our previous plot
+gapminder |>
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point()
+```
 
-Map `x = year` and `y = lifeExp`, and use `geom_point()` since we want a scatterplot.
+```{webr}
+#| autorun: false
+#| caption: ""
+# now you try!
+gapminder |> 
+  ggplot(aes(x = ____, y = ____)) + 
+  geom_??()
+
+
+```
+
+#### {{< fa lock >}} Need a hint?
+
+Try mapping `x = year` and `y = lifeExp`.
+
+#### {{< fa circle-info >}} Explanation
+
+Adjust the existing plot by mapping `x = year` and `y = lifeExp`, and use `geom_point()` since we want a scatterplot. We pipe the dataframe `gapminder` to provide the underlying data for creating the plot.
+
 ```{r}
 gapminder |>
   ggplot(aes(x = year, y = lifeExp)) +
@@ -236,27 +294,48 @@ gapminder |>
 
 Note the plot looks a little weird since each point is a country, so for every year, we have an average life expectancy for each country.
 
-</details>
+<hr style="height:1pt; visibility:hidden;" />
 
--------
+
+:::
+:::
 
 ### Challenge 2
 
-Modify to color your points by continent.
+<hr style="height:1pt; visibility:hidden;" />
 
-<details><summary>Need a hint?</summary>
+::: exercise
+#### {{< fa user-edit >}} **Challenge 2: Coloring by a variable**
 
-Try using the argument `color` within your aesthetic mappings.
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
+:::
 
-</details>
+::: {.panel-tabset}
 
-<details><summary>Need another hint?</summary>
+#### {{< fa list-check >}} Code
+
+Modify your plot to color your points by continent.
+
+```{webr}
+#| autorun: false
+#| caption: ""
+# paste your code from Challenge 1
+
+```
+
+#### {{< fa lock >}} Need a hint?
+
+Try using the argument`color` within your aesthetic mappings.
+
+#### {{< fa lock >}} Need another hint?
 
 Try setting `color = continent` within your aesthetic mappings.
 
-</details>
+#### {{< fa circle-info >}} Explanation
 
-<details><summary>Click for the solution</summary>
+Adjust the existing plot by adding `color = continent` to color observation based on its value in the column `continent`.
 
 ```{r}
 gapminder |>
@@ -266,9 +345,11 @@ gapminder |>
 
 You can better see here that each point is actually a different country now that they are colored by continent.
 
-</details>
+<hr style="height:1pt; visibility:hidden;" />
 
--------
+
+:::
+:::
 
 ## Adding more layers
 
@@ -311,36 +392,55 @@ gapminder |>
 We can see that now only the points are colored by continent, and the lines are all black (the default color for one group).
 
 
--------
-
 ### Challenge 3
-Change the order of the point and line layers - what happens?
 
-<details><summary>Click for the solution</summary>
+<hr style="height:1pt; visibility:hidden;" />
 
-Points then lines (points are on the bottom)
-```{r}
-gapminder |>
-  ggplot(aes(x = year, y = lifeExp, group = country)) +
-  geom_point() +
-  geom_line(aes(color = continent))
-```
+::: exercise
+#### {{< fa user-edit >}} **Challenge 3: Adjusting code order**
 
-Lines then points (lines are on the bottom)
-```{r}
-gapminder |>
-  ggplot(aes(x = year, y = lifeExp, group = country)) +
-  geom_line(aes(color = continent)) +
-  geom_point() 
-```
-
-::: {.callout-note}
-The layers are added in the order you indicate, so if you change the order, your plot will change. You can see because `geom_line()` comes below `geom_point()`, the lines are placed on top of the points.
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
 :::
 
-</details>
+::: {.panel-tabset}
 
--------
+#### {{< fa list-check >}} Code
+
+Change the order of the point and line layers - what happens?
+
+```{webr}
+#| autorun: false
+#| caption: ""
+# point then line
+gapminder |> 
+  ggplot(aes(x = year, y = lifeExp, group = country)) +
+  geom_point(aes(color = continent)) +
+  geom_line()
+```
+
+```{webr}
+#| autorun: false
+#| caption: ""
+# line then point
+gapminder |> 
+  ggplot(aes(x = year, y = lifeExp, group = country)) +
+  geom_line() +
+  geom_point(aes(color = continent))
+```
+
+#### {{< fa circle-info >}} Explanation
+
+Code is run in the order it is provided, with each subsequent layer placed on **top** of the one that came before. So, when you write your code with points first, then lines lower down, the lines will be on top of the points.
+
+We can see that in this situation since `color` is mapped only to the `geom_point()` layer.
+
+<hr style="height:1pt; visibility:hidden;" />
+
+
+:::
+:::
 
 ## Transformations and statistics
 
@@ -391,25 +491,51 @@ gapminder |>
               se = FALSE) # turn off plotting of a confident internal
 ```
 
--------
 
 ### Challenge 4A
 
-Modify the color and the size of the points in the previous example. You'll also probably want to make the linewidth less ridiculous.
+<hr style="height:1pt; visibility:hidden;" />
 
-<details><summary>Need a hint?</summary>
+::: exercise
+#### {{< fa user-edit >}} **Challenge 4A: Modifying color and size**
 
-Don't put `color` and `size` inside `aes()`.
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
+:::
 
-</details>
+::: {.panel-tabset}
 
-<details><summary>Want another hint?</summary>
+#### {{< fa list-check >}} Code
 
-The equivalent of `linewidth` for points is `size`.
+Modify the color and the size of the points in the previous example. You’ll also probably want to make the linewidth less ridiculous.
 
-</details>
+```{webr}
+#| autorun: false
+#| caption: ""
+# our previous example
+gapminder |>
+  ggplot(aes(x = gdpPercap, y = lifeExp)) +
+  geom_point(alpha = 0.5) + # not inside the aes
+  scale_x_log10() +
+  geom_smooth(method = "lm", # smooth with a linear model ie "lm"
+              linewidth = 3, # set line width
+              se = FALSE) # turn off plotting of a confident internal
 
-<details><summary>Click for the solution</summary>
+
+```
+
+#### {{< fa lock >}} Need a hint?
+
+Don't put `color` and `size` inside your `aes()`.
+
+#### {{< fa lock >}} Need another hint?
+
+The equivalent for `linewidth` for points is called `size`.
+
+#### {{< fa circle-info >}} Explanation
+
+Adjust the existing plot by setting `color` and `size` inside `geom_point()` - both are outside of an `aes()` statement because in this case, we are not mapping a variable to an aesthetic, we are simply setting a parameter of the plot.
 
 ```{r}
 gapminder |>
@@ -419,29 +545,52 @@ gapminder |>
   geom_smooth(method = "lm", linewidth = 1) 
 ```
 
-</details>
+<hr style="height:1pt; visibility:hidden;" />
 
--------
+
+:::
+:::
 
 ### Challenge 4B
 
-Modify the plot from 4A so points are a different shape and colored by continent with new trendlines
+<hr style="height:1pt; visibility:hidden;" />
 
-<details><summary>Need a hint?</summary>
+::: exercise
+#### {{< fa user-edit >}} **Challenge 4B: Changing shape and adding coloring**
 
-Don't put `color` and `size` inside `aes()`.
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
+:::
 
-</details>
+::: {.panel-tabset}
 
-<details><summary>Want another hint?</summary>
+#### {{< fa list-check >}} Code
 
-The equivalent of `linewidth` for points is `size`.
+Modify the plot from 4A so points are a different shape and colored by continent with new trendlines.
 
-</details>
+```{webr}
+#| autorun: false
+#| caption: ""
+# paste in your code from 4A
 
-<details><summary>Click for the solution</summary>
 
-All points are now triangles. You can find info on the shape codes [here](https://www.datanovia.com/en/blog/pch-in-r-best-tips/).
+
+```
+
+#### {{< fa lock >}} Need a hint?
+
+Map `continent` to `color`.
+
+#### {{< fa lock >}} Need another hint?
+
+You can learn more about shape codes [here](https://ggplot2.tidyverse.org/reference/scale_shape.html#details).
+
+#### {{< fa circle-info >}} Explanation
+
+Adjust the existing plot by setting `color` and `size` inside `geom_point()` - both are outside of an `aes()` statement because in this case, we are not mapping a variable to an aesthetic, we are simply setting a parameter of the plot.
+
+All points are now triangles.
 ```{r}
 gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
@@ -471,9 +620,11 @@ gapminder |>
   geom_smooth(method = "lm", linewidth = 1) # smooth with a linear model ie "lm"
 ```
 
-</details>
+<hr style="height:1pt; visibility:hidden;" />
 
-------
+
+:::
+:::
 
 ## Multi-panel figures
 
@@ -610,23 +761,43 @@ ggsave(filename = "results/lifeExp.png", # file path and name
 To learn more about the arguments in `ggsave()` you can always run `?ggsave()`.
 :::
 
+
 ### Challenge 5
+
+<hr style="height:1pt; visibility:hidden;" />
+
+::: exercise
+#### {{< fa user-edit >}} **Challenge 5: New plots with adjusted theming**
+
+::: {.callout-tip appearance="simple"}
+You can run the code below here on the website
+by clicking the **Run Code** button!
+:::
+
+::: {.panel-tabset}
+
+#### {{< fa list-check >}} Code
 
 Create some box plots that compare life expectancy between the continents over the time period provided. Try and make your plot look nice, add labels and adjust the theme!
 
-<details><summary>Need a hint?</summary>
+```{webr}
+#| autorun: false
+#| caption: ""
+# add your code here
+
+
+
+```
+
+#### {{< fa lock >}} Need a hint?
 
 The geom for making a boxplot is `geom_boxplot()`.
 
-</details>
+#### {{< fa lock >}} Need another hint?
 
-<details><summary>Want another hint?</summary>
+Set labels within `labs().` Adjust theming with `theme()`, and you can learn more about all the variables that can be set in `theme()` [here](https://ggplot2.tidyverse.org/reference/index.html#themes). Check out the [complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
-Set labels within `labs().` Adjust theming with `theme()`. Check out the [complete themes](https://ggplot2.tidyverse.org/reference/ggtheme.html).
-
-</details>
-
-<details><summary>Click for the solution</summary>
+#### {{< fa circle-info >}} Explanation
 
 ```{r}
 gapminder |>
@@ -638,12 +809,12 @@ gapminder |>
         axis.text.x = element_blank(), # remove x-axis labels
         axis.ticks.x = element_blank()) + # remove x-axis ticks
   labs(y = "Life Expectancy (years)",
-       fill = "Continent") # change the label on top of the legend
+       fill = "Continent",  # change the label on top of the legend
+       title = "Life expectancy across continents from 1952-2007") # add title
 ```
 
-</details>
+<hr style="height:1pt; visibility:hidden;" />
 
-------
 
-  
-
+:::
+:::
