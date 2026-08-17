@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,10 +42,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-eec68b17241c1efd3eae2de50d816e3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4d103a79394fb6edac28e95ee86143b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c3ad75e2e9225c375cbc41480a245394.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -97,36 +100,35 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./0_setup.html"> 
-<span class="menu-text">0: Installation</span></a>
+<span class="menu-text">Installation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./1_intro.html"> 
-<span class="menu-text">1: Intro</span></a>
+<span class="menu-text"><strong>1: Intro</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./2_vectors.html"> 
-<span class="menu-text">2: Vectors and Data Types</span></a>
+<span class="menu-text"><strong>2: Vectors and Data Types</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./3_dplyr.html"> 
-<span class="menu-text">3: Data Wrangling</span></a>
+<span class="menu-text"><strong>3: Data Wrangling</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./4_ggplot.html"> 
-<span class="menu-text">4: Data Visualization</span></a>
+<span class="menu-text"><strong>4: Data Visualization</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./bonus.html"> 
+<span class="menu-text">Bonus material</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-to-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">To learn more</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Learn more</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-to-learn-more">    
-        <li>
-    <a class="dropdown-item" href="./bonus.html">
- <span class="dropdown-text">Bonus material</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-learn-more">    
         <li>
     <a class="dropdown-item" href="https://osu-codeclub.github.io" target="_blank">
  <span class="dropdown-text">OSU Code Club <i class="fa-solid fa-external-link" aria-label="external-link"></i></span></a>
@@ -218,6 +220,12 @@ ul.task-list li input[type="checkbox"] {
 
     
   
+    <div>
+    <div class="quarto-title-meta-heading">Page last modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">August 16, 2026</p>
+    </div>
+  </div>
     
   </div>
   
@@ -239,26 +247,25 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="instructors-and-organizers">Instructors and organizers</h3>
 <p>This workshop is taught by the organizers of <a href="https://osu-codeclub.github.io">OSU Code Club</a>:</p>
 <ul>
-<li><p><strong>Horacio Lopez-Nicora</strong> <a href="mailto:lopez-nicora.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> – Associate Professor in the department of <a href="https://plantpath.osu.edu">Plant Pathology</a></p></li>
-<li><p><strong>Jelmer Poelstra</strong> <a href="mailto:poelstra.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> – Bioinformatics &amp; Microscopy Lead at the CFAES <a href="https://mcic.osu.edu">Molecular and Cellular Imaging Center (MCIC)</a></p></li>
-<li><p><strong>Jessica Cooperstone</strong> <a href="mailto:cooperstone.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> – Associate Professor in the departments of <a href="https://hcs.osu.edu">Horticulture &amp; Crop Science</a>, and <a href="https://fst.osu.edu">Food Science &amp; Technology</a></p></li>
+<li><p><strong>Horacio Lopez-Nicora</strong> <a href="mailto:lopez-nicora.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> — Associate Professor in the department of <a href="https://plantpath.osu.edu">Plant Pathology</a></p></li>
+<li><p><strong>Jelmer Poelstra</strong> <a href="mailto:poelstra.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> — Lead of the <a href="https://go.osu.edu/bioinformatics-core">CFAES Bioinformatics Core</a>, <a href="https://cfaes.osu.edu/research/research-and-analytical-service-cores">RASC</a></p></li>
+<li><p><strong>Jessica Cooperstone</strong> <a href="mailto:cooperstone.1@osu.edu"><i class="fa-solid fa-envelope" aria-label="envelope"></i></a> — Associate Professor in the departments of <a href="https://hcs.osu.edu">Horticulture &amp; Crop Science</a>, and <a href="https://fst.osu.edu">Food Science &amp; Technology</a></p></li>
 </ul>
 <p>The following <strong>helpers</strong> will be assisting participants:</p>
 <ul>
 <li>Kelsey Badger</li>
-<li>Menuka Bhandar</li>
-<li>Elizabeth Campolongo</li>
 <li>Brandon Scholten</li>
-<li>Matt Thompson</li>
 <li>Net Zhang</li>
+<li>Ishika Aahna</li>
+<li>Mandy Lan</li>
 </ul>
-<p>This workshop is organized by <strong>Kelsey Badger</strong> at the <a href="https://library.osu.edu/researchcommons">OSU Research Commons</a>, and Matthew Thompson and Elizabeth Campolongo at the <a href="https://imageomics.osu.edu/">OSU Imageomics Institute</a>.</p>
+<p>This workshop is organized in collaboration with <strong>Kelsey Badger</strong> at the <a href="https://library.osu.edu/researchcommons">OSU Research Commons</a>, and <strong>Matthew Thompson</strong> and <strong>Elizabeth Campolongo</strong> at the <a href="https://imageomics.osu.edu/">OSU Imageomics Institute</a>.</p>
 </section>
 <section id="the-carpentries" class="level3">
 <h3 class="anchored" data-anchor-id="the-carpentries">The Carpentries</h3>
 <p><strong>This is a <a href="https://carpentries.org/">Carpentries</a> workshop.</strong> The Carpentries project comprises the Software Carpentry, Data Carpentry, and Library Carpentry communities of Instructors, Trainers, Maintainers, helpers, and supporters who share a mission to teach foundational computational and data science skills to researchers.</p>
 <p>The material on this website has been adapted from the <a href="https://swcarpentry.github.io/r-novice-gapminder/">R for Reproducible Scientific Analysis</a> Software Carpentry lesson.</p>
-<p>A <a href="https://library.osu.edu/events/version-control-with-git-0">companion workshop</a> is being held on August 21<sup>th</sup> on version control with Git and GitHub.</p>
+<p>A <a href="https://library.osu.edu/events/version-control-with-git-0">companion workshop</a> is being held on August 21<sup>st</sup> on version control with Git and GitHub.</p>
 
 
 </section>

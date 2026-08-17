@@ -8,7 +8,11 @@ author:
     affiliation: 
       - name: Horticulture and Crop Science, Ohio State University
         url: https://cfaes.osu.edu/person/jessica-cooperstone 
-date: 2026-08-17
+date: 2026-06-17
+date-modified: last-modified
+language:
+  title-block-published: "Presented on"
+  title-block-modified: "Page last modified"
 engine: knitr
 format:
   live-html:
@@ -79,65 +83,42 @@ here is how to create and save a new R script:
 ```{r}
 # 2 Looking at our data and getting set up--------------------------------------
 
-
-
 # 3 Building our plot-----------------------------------------------------------
 
-
-
 ## Challenge 1------------------------------------------------------------------
-# Modify the plot we’ve made so that you can see the relationship between life 
+# Modify the plot we’ve made so that you can see the relationship between life
 # expectancy and year.
-
-
 
 ## Challenge 2------------------------------------------------------------------
 # Modify to color your points by continent.
 
-
 # 4 Adding more layers----------------------------------------------------------
-
-
 
 ## Challenge 3------------------------------------------------------------------
 # Change the order of the point and line layers - what happens?
 
-
-
 # 5 Transformations and statistics----------------------------------------------
 
-
-
 ## Challenge 4A-----------------------------------------------------------------
-# Modify the color and the size of the points in the previous example. 
+# Modify the color and the size of the points in the previous example.
 # You’ll also probably want to make the linewidth less ridiculous.
 
-
 ## Challenge 4B-----------------------------------------------------------------
-# Modify the plot from 4A so points are a different shape 
+# Modify the plot from 4A so points are a different shape
 # and colored by continent with new trendlines
-
 
 # 6 Multi-panel figures---------------------------------------------------------
 
-
-
 # 7 Modifying text--------------------------------------------------------------
-
-
 
 # 8 Adjusting theming-----------------------------------------------------------
 
-
-
 # 9 Exporting a plot------------------------------------------------------------
-
-
 
 ## Challenge 5------------------------------------------------------------------
 
-# Create some box plots that compare life expectancy between the continents over 
-# the time period provided. Try and make your plot look nice, add labels 
+# Create some box plots that compare life expectancy between the continents over
+# the time period provided. Try and make your plot look nice, add labels
 # and adjust the theme!
 
 ```
@@ -339,7 +320,7 @@ Adjust the existing plot by adding `color = continent` to color observation base
 
 ```{r}
 gapminder |>
-  ggplot(aes(x = year, y = lifeExp, color = continent)) + 
+  ggplot(aes(x = year, y = lifeExp, color = continent)) +
   geom_point()
 ```
 
@@ -366,14 +347,14 @@ The plot is jumping around a lot since for each year, we have life expectancy da
 We might want to have one line for each country, we can do this by specifying `group = country` within our aesthetic mappings.
 
 ```{r}
-gapminder |> 
+gapminder |>
   ggplot(aes(x = year, y = lifeExp, color = continent, group = country)) +
   geom_line()
 ```
 
 A nice thing about `ggplot` is that you don't actually need to decide if you want to have lines or points, you can have both!
 ```{r}
-gapminder |> 
+gapminder |>
   ggplot(aes(x = year, y = lifeExp, color = continent, group = country)) +
   geom_line() +
   geom_point()
@@ -383,7 +364,7 @@ Now we see a point for each observation and each point and line is colored based
 
 You can also set your mappings globally (within `ggplot()`) or locally (within a specific geom). Let's see what the difference is. Let's see what happens when we move `color = continent` into `geom_point(aes(color = continent))`.
 ```{r}
-gapminder |> 
+gapminder |>
   ggplot(aes(x = year, y = lifeExp, group = country)) +
   geom_point(aes(color = continent)) +
   geom_line()
@@ -486,9 +467,11 @@ gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5) + # not inside the aes
   scale_x_log10() +
-  geom_smooth(method = "lm", # smooth with a linear model ie "lm"
-              linewidth = 3, # increase thickness of the line
-              se = FALSE) # turn off plotting of a confident internal
+  geom_smooth(
+    method = "lm", # smooth with a linear model ie "lm"
+    linewidth = 3, # increase thickness of the line
+    se = FALSE
+  ) # turn off plotting of a confident internal
 ```
 
 
@@ -542,7 +525,7 @@ gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.5, color = "purple", size = 0.5) + # outside the aes
   scale_x_log10() +
-  geom_smooth(method = "lm", linewidth = 1) 
+  geom_smooth(method = "lm", linewidth = 1)
 ```
 
 <hr style="height:1pt; visibility:hidden;" />
@@ -594,8 +577,10 @@ All points are now triangles.
 ```{r}
 gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point(shape = 17, # 17 is a closed triangle
-             alpha = 0.5) + 
+  geom_point(
+    shape = 17, # 17 is a closed triangle
+    alpha = 0.5
+  ) +
   scale_x_log10() +
   geom_smooth(method = "lm", linewidth = 1) # smooth with a linear model ie "lm"
 ```
@@ -604,9 +589,11 @@ All points are now open triangles, we are setting continent to `fill` and making
 ```{r}
 gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp, fill = continent)) +
-  geom_point(shape = 24, # open triangle
-             alpha = 0.5, 
-             color = "black") + # color controls outside, fill controls inside
+  geom_point(
+    shape = 24, # open triangle
+    alpha = 0.5,
+    color = "black"
+  ) + # color controls outside, fill controls inside
   scale_x_log10() +
   geom_smooth(method = "lm", linewidth = 1) # smooth with a linear model ie "lm"
 ```
@@ -615,7 +602,7 @@ Mapping `shape` to `continent`
 ```{r}
 gapminder |>
   ggplot(aes(x = gdpPercap, y = lifeExp, color = continent)) +
-  geom_point(aes(shape = continent), alpha = 0.5) + 
+  geom_point(aes(shape = continent), alpha = 0.5) +
   scale_x_log10() +
   geom_smooth(method = "lm", linewidth = 1) # smooth with a linear model ie "lm"
 ```
@@ -651,7 +638,7 @@ Faceting allows us to better see each country on its own.
 gapminder_americas |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line() +
-  facet_wrap(vars(country))  # make facets by country
+  facet_wrap(vars(country)) # make facets by country
 ```
 
 -------
@@ -664,10 +651,11 @@ gapminder_americas |>
   ggplot(aes(x = year, y = lifeExp)) +
   geom_line() +
   facet_wrap(vars(country)) + # make facets by country
-  labs(x = "Year",              # x axis title
-       y = "Life expectancy",   # y axis title
-       title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
-      )
+  labs(
+    x = "Year", # x axis title
+    y = "Life expectancy", # y axis title
+    title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
+  )
 ```
 
 -------
@@ -687,10 +675,11 @@ gapminder_americas |>
   geom_line() +
   facet_wrap(vars(country)) + # make facets by country
   theme(axis.text.x = element_text(angle = 45)) + # years on the x on a 45 deg angle
-  labs(x = "Year",              # x axis title
-       y = "Life expectancy",   # y axis title
-       title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
-      ) +
+  labs(
+    x = "Year", # x axis title
+    y = "Life expectancy", # y axis title
+    title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
+  ) +
   theme_bw() # change to a black and white theme
 ```
 
@@ -703,16 +692,21 @@ gapminder_americas |>
   geom_line() +
   facet_wrap(vars(country)) + # make facets by country
   theme(axis.text.x = element_text(angle = 45)) + # years on the x on a 45 deg angle
-  labs(x = "Year",              # x axis title
-       y = "Life expectancy",   # y axis title
-       title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
-      ) +
+  labs(
+    x = "Year", # x axis title
+    y = "Life expectancy", # y axis title
+    title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
+  ) +
   theme_bw() + # change to a black and white theme
-  theme(text = element_text(family = "AppleGothic"), # change all fonts
-        strip.background = element_rect(color = "red", fill = "black"), # strip text outline red, fill black
-        strip.text = element_text(color = "white"), # strip text white
-        axis.text.x = element_text(angle = 45, # years on the x on a 45 deg angle
-                                   vjust = 0.7)) # scoot year numbers down a lil
+  theme(
+    text = element_text(family = "AppleGothic"), # change all fonts
+    strip.background = element_rect(color = "red", fill = "black"), # strip text outline red, fill black
+    strip.text = element_text(color = "white"), # strip text white
+    axis.text.x = element_text(
+      angle = 45, # years on the x on a 45 deg angle
+      vjust = 0.7
+    )
+  ) # scoot year numbers down a lil
 ```
 
 ::: {.callout-note}
@@ -734,27 +728,34 @@ life_exp_americas_plot <- gapminder_americas |>
   geom_line() +
   facet_wrap(vars(country)) + # make facets by country
   theme(axis.text.x = element_text(angle = 45)) + # years on the x on a 45 deg angle
-  labs(x = "Year",              # x axis title
-       y = "Life expectancy",   # y axis title
-       title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
-      ) +
+  labs(
+    x = "Year", # x axis title
+    y = "Life expectancy", # y axis title
+    title = "Figure 1. Life expectancy in the Americas from 1952-2007", # main title of figure
+  ) +
   theme_bw() + # change to a black and white theme
-  theme(text = element_text(family = "AppleGothic"), # change all fonts
-        strip.background = element_rect(color = "red", fill = "black"), # strip text outline red, fill black
-        strip.text = element_text(color = "white"), # strip text white
-        axis.text.x = element_text(angle = 45, # years on the x on a 45 deg angle
-                                   vjust = 0.7)) # scoot year numbers down a lil
+  theme(
+    text = element_text(family = "AppleGothic"), # change all fonts
+    strip.background = element_rect(color = "red", fill = "black"), # strip text outline red, fill black
+    strip.text = element_text(color = "white"), # strip text white
+    axis.text.x = element_text(
+      angle = 45, # years on the x on a 45 deg angle
+      vjust = 0.7
+    )
+  ) # scoot year numbers down a lil
 ```
 
 Then we can save it. I am indicating here to save the plot in a folder called `results` in my working directory, as a file called `lifeExp.png`. If you want your file to go within a folder, you have to first create that folder.
 
 ```{r, eval=FALSE}
-ggsave(filename = "results/lifeExp.png", # file path and name
-       plot = life_exp_americas_plot,  # what to save
-       width = 18, 
-       height = 12, 
-       dpi = 300, # dots per inch,  ie resolution
-       units = "cm") # units for width and height
+ggsave(
+  filename = "results/lifeExp.png", # file path and name
+  plot = life_exp_americas_plot, # what to save
+  width = 18,
+  height = 12,
+  dpi = 300, # dots per inch,  ie resolution
+  units = "cm"
+) # units for width and height
 ```
 
 ::: {.callout-note}
@@ -804,13 +805,17 @@ gapminder |>
   ggplot(aes(x = continent, y = lifeExp, fill = continent)) +
   geom_boxplot() +
   facet_wrap(vars(year)) +
-  theme_classic() + # my favorite complete theme 
-  theme(axis.title.x = element_blank(), # remove x-axis title
-        axis.text.x = element_blank(), # remove x-axis labels
-        axis.ticks.x = element_blank()) + # remove x-axis ticks
-  labs(y = "Life Expectancy (years)",
-       fill = "Continent",  # change the label on top of the legend
-       title = "Life expectancy across continents from 1952-2007") # add title
+  theme_classic() + # my favorite complete theme
+  theme(
+    axis.title.x = element_blank(), # remove x-axis title
+    axis.text.x = element_blank(), # remove x-axis labels
+    axis.ticks.x = element_blank()
+  ) + # remove x-axis ticks
+  labs(
+    y = "Life Expectancy (years)",
+    fill = "Continent", # change the label on top of the legend
+    title = "Life expectancy across continents from 1952-2007"
+  ) # add title
 ```
 
 <hr style="height:1pt; visibility:hidden;" />

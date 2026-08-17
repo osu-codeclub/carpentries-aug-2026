@@ -2,6 +2,9 @@ project:
   type: website
   output-dir: docs
 
+filters:
+  - scripts/page-nav.lua
+
 website:
   title: "R Workshop"
   site-url: https://osu-codeclub.github.io/carpentries-aug-2026
@@ -10,22 +13,21 @@ website:
   back-to-top-navigation: true
   navbar:
     left:
-      - text: "0: Installation"
+      - text: "Installation"
         href: 0_setup.qmd
-      - text: "1: Intro"
+      - text: "**1: Intro**"
         href: 1_intro.qmd
-      - text: "2: Vectors and Data Types"
+      - text: "**2: Vectors and Data Types**"
         href: 2_vectors.qmd
-      - text: "3: Data Wrangling"
+      - text: "**3: Data Wrangling**"
         href: 3_dplyr.qmd
-      - text: "4: Data Visualization"
+      - text: "**4: Data Visualization**"
         href: 4_ggplot.qmd
+      - text: "Bonus material"
+        href: bonus.qmd
     right:
-      - text: "To learn more"
+      - text: "Learn more"
         menu:
-        - text: Bonus material
-          href: bonus.qmd
-        - text: "------------------"
         - text: OSU Code Club {{< fa external-link >}}
           href: https://osu-codeclub.github.io
           target: _blank

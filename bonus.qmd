@@ -1,17 +1,16 @@
 ---
 title: "Bonus material for self-study"
 author:
-  - name: Software Carpentry
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
     email: poelstra.1@osu.edu
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://go.osu.edu/bioinformatics-core
-date: 2026-07-15
+  - name: Software Carpentry
 date-modified: last-modified
-editor_options:
-  chunk_output_type: console
+language:
+  title-block-modified: "Page last modified"
 engine: knitr
 format:
   live-html:
@@ -39,35 +38,35 @@ webr:
 
 ## Bonus material for [Session 2](/2_vectors.qmd)
 
-### Extracting elements from vectors
+### Extracting items from vectors
 
 ```{r}
 num_vec <- c(2, 6, 3, 41)
 ```
 
-Extracting element from objects like vectors is often called ***indexing***.
+Extracting item from objects like vectors is often called ***indexing***.
 In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd> 
 --- for example:
 
-- Get the second element with `[2]`^[
+- Get the second item with `[2]`^[
   R uses 1-based indexing, which means it starts counting at 1 like humans do.
-  Index 2 therefore simply corresponds to the second element.
+  Index 2 therefore simply corresponds to the second item.
   Python and several other languages use 0-based indexing,
-  which starts counting at 0 such that the second element corresponds to index 1.
+  which starts counting at 0 such that the second item corresponds to index 1.
   ]:
 
   ```{r}
   num_vec[2]
   ```
 
-- Get the second through the fourth elements with `[2:4]`:
+- Get the second through the fourth items with `[2:4]`:
 
   ```{r}
   num_vec[2:4]
   ```
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 3**: Indexing
+#### {{< fa user-edit >}} **Challenge 3**: Indexing {#challenge3-indexing}
 
 <hr style="height:1pt; visibility:hidden;" />
 
@@ -83,7 +82,7 @@ In R, we can do this using "bracket notation" with square brackets <kbd>[ ]</kbd
 
 #### {{< fa circle-check >}} Solution
 
-This extracts the first and third elements of the `fruits` vector, returning:
+This extracts the first and third items of the `fruits` vector, returning:
 
 ```{r}
 fruits <- c("apple", "banana", "cherry", "pineapple")
@@ -118,7 +117,7 @@ The answer is: "D) Something else".
 fruits[5]
 ```
 
-It returns `NA`, for missing data, because there is no fifth element in the vector.
+It returns `NA`, for missing data, because there is no fifth item in the vector.
 
 Option C, an error, is a good guess as well,
 but R is designed to be forgiving in this case and returns `NA` instead of an error.
@@ -126,27 +125,27 @@ but R is designed to be forgiving in this case and returns `NA` instead of an er
 :::
 :::
 
-### Changing vector elements using indexing
+### Changing vector items using indexing
 
-Above, we saw how you can _extract_ elements of a vector using indexing.
-To _change_ elements in a vector,
+Above, we saw how you can _extract_ items of a vector using indexing.
+To _change_ items in a vector,
 simply use the bracket on the other side of the arrow -- for example:
 
-- Change the first element to `30`:
+- Change the first item to `30`:
 
   ```{r}
   num_vec[1] <- 30
   num_vec
   ```
 
-- Change the last element to `0`:
+- Change the last item to `0`:
 
   ```{r}
   num_vec[length(num_vec)] <- 0
   num_vec
   ```
   
-- Change the second element to the mean value of the vector:
+- Change the second item to the mean value of the vector:
 
   ```{r}
   num_vec[2] <- mean(num_vec)
@@ -259,7 +258,7 @@ vector_NA <- c(1, 3, NA, 7)
 vector_NA
 ```
 
-Notably, many functions operating on vectors will return `NA` if **any** element
+Notably, many functions operating on vectors will return `NA` if **any** item
 in the vector is `NA`:
 
 ```{r}
@@ -316,7 +315,7 @@ To learn more about data types and data structures, see
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Bonus Challenge** {-}
+#### {{< fa user-edit >}} **Bonus Challenge** {- #bonus-challenge}
 
 An important part of every data analysis is cleaning input data.
 Here, you will clean a cat data set that has an added observation with a
@@ -658,3 +657,5 @@ here are two particularly useful additional skills to learn:
 ```{r, include=FALSE, echo=FALSE}
 file.remove("gapminder.tsv")
 ```
+
+<br>

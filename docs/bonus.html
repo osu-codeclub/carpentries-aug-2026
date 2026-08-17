@@ -2,23 +2,25 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Software Carpentry">
 <meta name="author" content="Jelmer Poelstra">
-<meta name="dcterms.date" content="2026-07-15">
+<meta name="author" content="Software Carpentry">
 
 <title>Bonus material for self-study – R Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -77,10 +79,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-6d40f8af7092f34acea1908532066003.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-eec68b17241c1efd3eae2de50d816e3e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f4d103a79394fb6edac28e95ee86143b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-c3ad75e2e9225c375cbc41480a245394.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/live-runtime/live-runtime.js" type="module"></script>
 <link href="site_libs/quarto-contrib/live-runtime/live-runtime.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
@@ -139,36 +141,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./0_setup.html"> 
-<span class="menu-text">0: Installation</span></a>
+<span class="menu-text">Installation</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./1_intro.html"> 
-<span class="menu-text">1: Intro</span></a>
+<span class="menu-text"><strong>1: Intro</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./2_vectors.html"> 
-<span class="menu-text">2: Vectors and Data Types</span></a>
+<span class="menu-text"><strong>2: Vectors and Data Types</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./3_dplyr.html"> 
-<span class="menu-text">3: Data Wrangling</span></a>
+<span class="menu-text"><strong>3: Data Wrangling</strong></span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./4_ggplot.html"> 
-<span class="menu-text">4: Data Visualization</span></a>
+<span class="menu-text"><strong>4: Data Visualization</strong></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./bonus.html" aria-current="page"> 
+<span class="menu-text">Bonus material</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-to-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">To learn more</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-learn-more" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Learn more</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-to-learn-more">    
-        <li>
-    <a class="dropdown-item" href="./bonus.html">
- <span class="dropdown-text">Bonus material</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-learn-more">    
         <li>
     <a class="dropdown-item" href="https://osu-codeclub.github.io" target="_blank">
  <span class="dropdown-text">OSU Code Club <i class="fa-solid fa-external-link" aria-label="external-link"></i></span></a>
@@ -242,8 +243,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#bonus-material-for-session-2" id="toc-bonus-material-for-session-2" class="nav-link active" data-scroll-target="#bonus-material-for-session-2"><span class="header-section-number">1</span> Bonus material for Session 2</a>
   <ul class="collapse">
-  <li><a href="#extracting-elements-from-vectors" id="toc-extracting-elements-from-vectors" class="nav-link" data-scroll-target="#extracting-elements-from-vectors"><span class="header-section-number">1.1</span> Extracting elements from vectors</a></li>
-  <li><a href="#changing-vector-elements-using-indexing" id="toc-changing-vector-elements-using-indexing" class="nav-link" data-scroll-target="#changing-vector-elements-using-indexing"><span class="header-section-number">1.2</span> Changing vector elements using indexing</a></li>
+  <li><a href="#extracting-items-from-vectors" id="toc-extracting-items-from-vectors" class="nav-link" data-scroll-target="#extracting-items-from-vectors"><span class="header-section-number">1.1</span> Extracting items from vectors</a></li>
+  <li><a href="#changing-vector-items-using-indexing" id="toc-changing-vector-items-using-indexing" class="nav-link" data-scroll-target="#changing-vector-items-using-indexing"><span class="header-section-number">1.2</span> Changing vector items using indexing</a></li>
   <li><a href="#the-data-frame-data-structure" id="toc-the-data-frame-data-structure" class="nav-link" data-scroll-target="#the-data-frame-data-structure"><span class="header-section-number">1.3</span> The data frame data structure</a></li>
   <li><a href="#extracting-columns-from-a-data-frame" id="toc-extracting-columns-from-a-data-frame" class="nav-link" data-scroll-target="#extracting-columns-from-a-data-frame"><span class="header-section-number">1.4</span> Extracting columns from a data frame</a></li>
   <li><a href="#more-on-the-logical-data-type" id="toc-more-on-the-logical-data-type" class="nav-link" data-scroll-target="#more-on-the-logical-data-type"><span class="header-section-number">1.5</span> More on the <code>logical</code> data type</a></li>
@@ -278,12 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Software Carpentry </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-      </div>
-    <div class="quarto-title-meta-contents">
-    <p class="author">Jelmer Poelstra <a href="mailto:poelstra.1@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-3514-7462" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <p class="author">Jelmer Poelstra <a href="mailto:poelstra.1@osu.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0002-3514-7462" class="quarto-title-author-orcid" aria-label="ORCID profile for Jelmer Poelstra"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -292,22 +288,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             </a>
           </p>
       </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Software Carpentry </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+      </div>
   </div>
 
 <div class="quarto-title-meta">
 
       
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 15, 2026</p>
-    </div>
-  </div>
   
     <div>
-    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-heading">Page last modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">August 5, 2026</p>
+      <p class="date-modified">August 16, 2026</p>
     </div>
   </div>
     
@@ -322,21 +317,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><br></p>
 <section id="bonus-material-for-session-2" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="bonus-material-for-session-2"><span class="header-section-number">1</span> Bonus material for <a href="./2_vectors.html">Session 2</a></h2>
-<section id="extracting-elements-from-vectors" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="extracting-elements-from-vectors"><span class="header-section-number">1.1</span> Extracting elements from vectors</h3>
+<section id="extracting-items-from-vectors" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="extracting-items-from-vectors"><span class="header-section-number">1.1</span> Extracting items from vectors</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>num_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">3</span>, <span class="dv">41</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Extracting element from objects like vectors is often called <strong><em>indexing</em></strong>. In R, we can do this using “bracket notation” with square brackets <kbd>[ ]</kbd> — for example:</p>
+<p>Extracting item from objects like vectors is often called <strong><em>indexing</em></strong>. In R, we can do this using “bracket notation” with square brackets <kbd>[ ]</kbd> — for example:</p>
 <ul>
-<li><p>Get the second element with <code>[2]</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<li><p>Get the second item with <code>[2]</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num_vec[<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre class="regular-r-output"><code>[1] 6</code></pre>
 </div>
 </div></li>
-<li><p>Get the second through the fourth elements with <code>[2:4]</code>:</p>
+<li><p>Get the second through the fourth items with <code>[2:4]</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>num_vec[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -344,8 +339,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div></li>
 </ul>
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-3-indexing" class="level4 exercise">
-<h4 class="anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-challenge-3-indexing"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3</strong>: Indexing</h4>
+<section id="challenge3-indexing" class="level4 exercise">
+<h4 class="anchored" data-anchor-id="challenge3-indexing"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Challenge 3</strong>: Indexing</h4>
 <hr style="height:1pt; visibility:hidden;">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href=""><i class="fa-solid fa-list-check" aria-label="list-check"></i> Instructions</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href=""><i class="fa-solid fa-circle-check" aria-label="circle-check"></i> Solution</a></li></ul>
@@ -359,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>This extracts the first and third elements of the <code>fruits</code> vector, returning:</p>
+<p>This extracts the first and third items of the <code>fruits</code> vector, returning:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"cherry"</span>, <span class="st">"pineapple"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fruits[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -378,8 +373,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="2" type="1">
 <li>What do you expect <code>fruits[5]</code> will return?</li>
 </ol>
-<div id="radio_ASFHWWUNAF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ASFHWWUNAF" value=""> <span>A) <code>"pineapple"</code></span></label><label><input type="radio" autocomplete="off" name="radio_ASFHWWUNAF" value=""> <span>B) An error</span></label><label><input type="radio" autocomplete="off" name="radio_ASFHWWUNAF" value=""> <span>C) <code>"peach"</code></span></label><label><input type="radio" autocomplete="off" name="radio_ASFHWWUNAF" value="answer"> <span>D) Something else</span></label>
+<div id="radio_CWJHOJWMNR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CWJHOJWMNR" value=""> <span>A) <code>"pineapple"</code></span></label><label><input type="radio" autocomplete="off" name="radio_CWJHOJWMNR" value=""> <span>B) An error</span></label><label><input type="radio" autocomplete="off" name="radio_CWJHOJWMNR" value=""> <span>C) <code>"peach"</code></span></label><label><input type="radio" autocomplete="off" name="radio_CWJHOJWMNR" value="answer"> <span>D) Something else</span></label>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
@@ -390,18 +385,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="regular-r-output"><code>[1] NA</code></pre>
 </div>
 </div>
-<p>It returns <code>NA</code>, for missing data, because there is no fifth element in the vector.</p>
+<p>It returns <code>NA</code>, for missing data, because there is no fifth item in the vector.</p>
 <p>Option C, an error, is a good guess as well, but R is designed to be forgiving in this case and returns <code>NA</code> instead of an error.</p>
 </div>
 </div>
 </div>
 </section>
 </section>
-<section id="changing-vector-elements-using-indexing" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="changing-vector-elements-using-indexing"><span class="header-section-number">1.2</span> Changing vector elements using indexing</h3>
-<p>Above, we saw how you can <em>extract</em> elements of a vector using indexing. To <em>change</em> elements in a vector, simply use the bracket on the other side of the arrow – for example:</p>
+<section id="changing-vector-items-using-indexing" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="changing-vector-items-using-indexing"><span class="header-section-number">1.2</span> Changing vector items using indexing</h3>
+<p>Above, we saw how you can <em>extract</em> items of a vector using indexing. To <em>change</em> items in a vector, simply use the bracket on the other side of the arrow – for example:</p>
 <ul>
-<li><p>Change the first element to <code>30</code>:</p>
+<li><p>Change the first item to <code>30</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>num_vec[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">30</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>num_vec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -409,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="regular-r-output"><code>[1] 30  6  3 41</code></pre>
 </div>
 </div></li>
-<li><p>Change the last element to <code>0</code>:</p>
+<li><p>Change the last item to <code>0</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num_vec[<span class="fu">length</span>(num_vec)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>num_vec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -417,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="regular-r-output"><code>[1] 30  6  3  0</code></pre>
 </div>
 </div></li>
-<li><p>Change the second element to the mean value of the vector:</p>
+<li><p>Change the second item to the mean value of the vector:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>num_vec[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fu">mean</span>(num_vec)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>num_vec</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -533,7 +528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre class="regular-r-output"><code>[1]  1  3 NA  7</code></pre>
 </div>
 </div>
-<p>Notably, many functions operating on vectors will return <code>NA</code> if <strong>any</strong> element in the vector is <code>NA</code>:</p>
+<p>Notably, many functions operating on vectors will return <code>NA</code> if <strong>any</strong> item in the vector is <code>NA</code>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(vector_NA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -600,8 +595,8 @@ Levels: low medium high</code></pre>
 <h3 data-number="1.8" class="anchored" data-anchor-id="learn-more"><span class="header-section-number">1.8</span> Learn more</h3>
 <p>To learn more about data types and data structures, see <a href="https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html">this episode from a separate Carpentries lesson</a>.</p>
 <hr style="height:1pt; visibility:hidden;">
-<section id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-bonus-challenge" class="level4 unnumbered exercise">
-<h4 class="unnumbered anchored" data-anchor-id="b58fc729-690b-4000-b19f-365a4093b2ff7b7b3c20666120757365722d65646974203e7d7d-bonus-challenge"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Bonus Challenge</strong></h4>
+<section id="bonus-challenge" class="level4 unnumbered exercise">
+<h4 class="unnumbered anchored" data-anchor-id="bonus-challenge"><i class="fa-solid fa-user-edit" aria-label="user-edit"></i> <strong>Bonus Challenge</strong></h4>
 <p>An important part of every data analysis is cleaning input data. Here, you will clean a cat data set that has an added observation with a problematic data entry.</p>
 <p>Start by creating the new data frame:</p>
 <div class="cell">
@@ -987,6 +982,7 @@ dbl (4): year, lifeExp, pop, gdpPercap
 <li><p>Pivoting/reshaping — moving between ‘wide’ and ‘long’ data formats with <code>pivot_wider()</code> and <code>pivot_longer()</code>. This is covered in <a href="https://swcarpentry.github.io/r-novice-gapminder/instructor/13-tidyr.html">episode 13 of the focal Carpentries lesson</a>.</p></li>
 <li><p>Joining/merging — combining multiple dataframes based on one or more shared columns. This can be done with <em>dplyr</em>’s <code>join_*()</code> functions – see for example <a href="https://r4ds.hadley.nz/joins.html">this chapter in R for Data Science</a>.</p></li>
 </ul>
+<p><br></p>
 
 
 <script type="webr-data">
@@ -1006,6 +1002,17 @@ eyJjb250ZW50cyI6W3siY2VsbE5hbWUiOiJ3ZWJyLXdpZGdldC0zIiwiaW5saW5lIjpmYWxzZSwibWV0
 <script type="vfs-file">
 W10=
 </script>
+<!-- Previous/Next page nav template, filled in and injected by scripts/page-nav.lua -->
+<div id="page-nav">
+
+<a class="page-nav-prev" href="4_ggplot.html">
+  <span class="page-nav-label">← Previous</span>
+  <span class="page-nav-title">4: Data Visualization</span>
+</a>
+
+
+</div>
+
 </section>
 </section>
 
@@ -1013,7 +1020,7 @@ W10=
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1"><p> R uses 1-based indexing, which means it starts counting at 1 like humans do. Index 2 therefore simply corresponds to the second element. Python and several other languages use 0-based indexing, which starts counting at 0 such that the second element corresponds to index 1.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p> R uses 1-based indexing, which means it starts counting at 1 like humans do. Index 2 therefore simply corresponds to the second item. Python and several other languages use 0-based indexing, which starts counting at 0 such that the second item corresponds to index 1.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p> Using the <a href="https://readxl.tidyverse.org/">readxl</a> package. This is installed as part of the tidyverse but is not a <em>core</em> tidyverse package and therefore needs to be loaded separately: <code>library(readxl)</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p> Recall that you can see where that is at the top of the Console tab, or by running <code>getwd()</code>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p> This symbol only works when you have one of the tidyverse packages loaded.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

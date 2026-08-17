@@ -1,6 +1,9 @@
 ---
 title: "About this website"
 number-sections: false
+date-modified: last-modified
+language:
+  title-block-modified: "Page last modified"
 ---
 
 -----
@@ -29,14 +32,14 @@ This workshop is taught online via Zoom.
 
 This workshop is taught by the organizers of [OSU Code Club](https://osu-codeclub.github.io):
 
-- **Horacio Lopez-Nicora** [{{< fa envelope >}}](mailto:lopez-nicora.1@osu.edu) --
+- **Horacio Lopez-Nicora** [{{< fa envelope >}}](mailto:lopez-nicora.1@osu.edu) ---
   Associate Professor in the department of [Plant Pathology](https://plantpath.osu.edu)
 
-- **Jelmer Poelstra** [{{< fa envelope >}}](mailto:poelstra.1@osu.edu) --
-  Bioinformatics & Microscopy Lead at the CFAES
-  [Molecular and Cellular Imaging Center (MCIC)](https://mcic.osu.edu)
+- **Jelmer Poelstra** [{{< fa envelope >}}](mailto:poelstra.1@osu.edu) ---
+  Lead of the [CFAES Bioinformatics Core](https://go.osu.edu/bioinformatics-core),
+  [RASC](https://cfaes.osu.edu/research/research-and-analytical-service-cores)
 
-- **Jessica Cooperstone** [{{< fa envelope >}}](mailto:cooperstone.1@osu.edu) --
+- **Jessica Cooperstone** [{{< fa envelope >}}](mailto:cooperstone.1@osu.edu) ---
   Associate Professor in the departments of
   [Horticulture & Crop Science](https://hcs.osu.edu),
   and [Food Science & Technology](https://fst.osu.edu)
@@ -44,15 +47,14 @@ This workshop is taught by the organizers of [OSU Code Club](https://osu-codeclu
 The following **helpers** will be assisting participants:
 
 - Kelsey Badger
-- Menuka Bhandar
-- Elizabeth Campolongo
 - Brandon Scholten
-- Matt Thompson
 - Net Zhang
+- Ishika Aahna
+- Mandy Lan
 
-This workshop is organized by **Kelsey Badger** at the
-[OSU Research Commons](https://library.osu.edu/researchcommons), and
-Matthew Thompson and Elizabeth Campolongo at the
+This workshop is organized in collaboration with **Kelsey Badger** at the
+[OSU Research Commons](https://library.osu.edu/researchcommons),
+and **Matthew Thompson** and **Elizabeth Campolongo** at the
 [OSU Imageomics Institute](https://imageomics.osu.edu/).
 
 ### The Carpentries
@@ -68,4 +70,4 @@ The material on this website has been adapted from the
 Software Carpentry lesson.
 
 A [companion workshop](https://library.osu.edu/events/version-control-with-git-0)
-is being held on August 21^th^ on version control with Git and GitHub.
+is being held on August 21^st^ on version control with Git and GitHub.

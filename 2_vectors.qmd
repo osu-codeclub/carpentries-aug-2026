@@ -1,15 +1,18 @@
 ---
 title: "Vectors and data types"
 author:
-  - name: Software Carpentry
   - name: Jelmer Poelstra
     orcid: 0000-0002-3514-7462
     email: poelstra.1@osu.edu
     affiliation: 
       - name: CFAES Bioinformatics Core, Ohio State University
         url: https://go.osu.edu/bioinformatics-core
-date: 2026-06-08
+  - name: Software Carpentry
+date: 2026-06-17
 date-modified: last-modified
+language:
+  title-block-published: "Presented on"
+  title-block-modified: "Page last modified"
 engine: knitr
 format:
   live-html:
@@ -44,13 +47,14 @@ Specifically, we will cover **vectors** and **data types**.
 
 - **Vectors** are the simplest of the R "data structures",
   object types that R can store data in.
-  (In the next session, you'll get introduced to another data structure:
-  the data  frame.)
 
 - **Data types** are how R distinguishes between different kinds of data
   like numbers and text.
   We'll talk about the 4 main data types:
   `character`, `integer`, `double`, and `logical`.
+
+Having a solid understanding of these foundational R concepts will help you avoid
+many common pitfalls when working with R.
 
 ### Setting up
 
@@ -59,7 +63,7 @@ we'll write our code in a script:
 
 1. _Open a new R script_:
    Click the **`+`** symbol in the top toolbar, then click `R Script`^[
-   Or Click `File` => `New file` => `R Script`.].
+   Or click `File` => `New file` => `R Script`.].
    
 2. _Save the script_ straight away as `data-structures.R`.
    You can save it anywhere you like,
@@ -71,63 +75,67 @@ we'll write our code in a script:
    <details><summary>Section headers for your script _(Click to expand)_</summary>
    ```{r, eval=FALSE}
    # 2 - Vectors ------------------------------------------------------------------
-   # 2.1 - Single-element vectors (and quoting)
+   # 2.1 - Single-item vectors (and quoting)
 
-   # Challenge 1:
-   # Which of the following option or options will producer? 
+   # Challenge 1
+   # Which of the following options will produce an error?
+   # (There may be more than one.)
    # A) number1 <- "42"
+   #    number1
    # B) color <- blue
+   #    color
    # C) animal <- "djfhjkhkjkhCGT"
-   # D) number2 <- 10^6
+   #    animal
+   # D) number2 <- 1e6
+   #    number2
 
-   # 2.2 - Multi-element vectors
+   # 2.2 - Multi-item vectors
    
    # Challenge 2
-   # Which elements does the vector birds contain after running the code above?
+   # Which items does the vector birds contain after running the code above?
    # A) cardinal and chickadee
    # B) cardinal, chickadee, and bald eagle
    
    # 2.3 - Vectorization
 
    # Challenge 3
-   # A) Create a vector x with whole numbers 1 through 13,
+   # A) Create a vector `x` with whole numbers 1 through 13,
    #    then print the vector to check your results.
-   # B) Subtract 0.5 from each element in x and save the result in vector y,
+   x <- ______
+
+   ______
+
+   # B) Subtract 0.5 from each item in `x` and save the result in vector `y`,
    #    then print the vector to check your results.
+   y <- ______
+
+   ______
 
    # 2.4 - Exploring vectors
 
-   # Challenge 4
-   # What do you expect `mean(birds)` will return?
-   # A) The original vector birds
-   # B) Nothing meaningful, maybe an error
-   # C) "cardidee"
-   
    # 3 - Data types ---------------------------------------------------------------
    # 3.1 - R's main data types
 
    # 3.2 - A vector can only contain one data type
 
-   # Challenge 5
-   # In each line below, what do you think the data type (if any) will be?
+   # Challenge 4
+   # In each line below, what do you think the data type will be, if any?
    # Try it out and see if you were right.
    # typeof("TRUE")
    # typeof(banana)
    # typeof(c(2, 6, "3"))
    
    # 3.3 - Manual type conversion
-
    ```
    </details>
 
 ## Vectors
 
 A vector in R is essentially **a collection of one or more items**.
-Moving forward, we'll call these items "elements".
 
-### Single-element vectors (and quoting)
+### Single-item vectors (and quoting)
 
-Vectors can consist of just a single element,
+Vectors can consist of just a single item,
 so each of the two lines of code below creates a vector:
 
 ```{r}
@@ -135,16 +143,18 @@ vector1 <- 8
 vector2 <- "panda"
 ```
 
-In the `"panda"` example, which is a **character string** (_string_ for short):
+In the second example, `"panda"` is a **character string** (or simply "string"):
 
-- `"panda"` constitutes _one element_, not 5 (its number of letters).
+- `"panda"` constitutes _one item_, not 5 (its number of letters).
 - Unlike when dealing with numbers, we have to _quote the string_.^[
   Either double quotes (`"..."`) or single quotes (`'...'`) work,
   but the former are most commonly used by convention.]
+- This doesn't mean the quotes are part of the string itself:
+  they are just a way to tell R that it is a string.
 
-Character strings need to be quoted because they are otherwise interpreted as
-R objects ---
-for example, because `vector1` and `vector2` are objects,
+Character strings need to be quoted because without quotes,
+R interprets them as **names of objects**.
+For example, since `vector1` and `vector2` are objects,
 we refer to them without quotes:
 
 ```{r}
@@ -154,7 +164,7 @@ vector2
 ```
 
 Meanwhile,
-the code below doesn't work because there is no _object called `panda`_:
+the code below doesn't work because there is no object called `panda`:
 
 ```{r, error=TRUE}
 vector_fail <- panda
@@ -163,19 +173,16 @@ vector_fail <- panda
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 1: Quoting**
-
-::: {.callout-tip appearance="simple"}
-You can run the code below here on the website
-by clicking the **Run Code** button!
-:::
+#### {{< fa user-edit >}} **Challenge 1: Quoting** {#challenge1-quoting}
 
 ::: {.panel-tabset}
 
 #### {{< fa list-check >}} Quiz
 
-**Which of the following option or options will produce an error?**
-Once you have your answer, feel free to try them out to see what happens.
+**Which of the following options will produce an error? (There may be more than one.)**
+
+First think about it, _then_ click the **Run Code** button to check your answer.
+Afterwards, you can also click the **Explanation** tab to see why.
 
 ```{webr}
 #| autorun: false
@@ -201,16 +208,16 @@ animal
 ```{webr}
 #| autorun: false
 #| caption: ""
-number2 <- 10^6
+number2 <- 1e6
 number2
 ```
 
 #### {{< fa circle-info >}} Explanation
 
 The only option that will produce an error is the second, `color <- blue`.
-The string `"blue"` needs to be quoted,
-otherwise R will look for an object called `blue` and return an error if it doesn't exist
-(and none exists in this case).
+Here, `blue` needs to be quoted as `"blue"`.
+Without the quotes, R looks for an *object* called `blue`,
+and returns an error because no such object exists.
 
 ```{r, error=TRUE}
 color <- blue
@@ -234,19 +241,19 @@ As for the other options:
   animal
   ```
 
-- `10^6` is a valid number in scientific notation, and R will interpret it as 1,000,000:
+- `1e6` is a valid number in scientific notation, and R will interpret it as 1 million:
 
   ```{r}
-  number2 <- 10^6
+  number2 <- 1e6
   number2
   ```
 
 :::
 :::
 
-### Multi-element vectors
+### Multi-item vectors
 
-A common way to make vectors with **multiple elements** is with the
+A common way to make vectors with **multiple items** is with the
 `c` (combine) function:
 
 ```{r}
@@ -254,35 +261,35 @@ num_vec <- c(2, 6, 3, 41)
 num_vec
 ```
 
-The `c()` function can also **append** elements to an existing vector ---
-first we create a vector, then we add an element:
+The `c()` function can also **add** items to a vector you already have.
+Below, we first create a vector,
+and then use that vector as an argument to the `c()` function:
 
 ```{r}
-# Create a vector with two elements:
 birds <- c("cardinal", "chickadee")
 birds
 ```
 
 ```{r}
-# Add an element to a vector:
 c(birds, "bald eagle")
 ```
 
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 2: Changing vectors**
+#### {{< fa user-edit >}} **Challenge 2: Changing vectors** {#challenge2-changing-vectors}
 
 ::: {.callout-tip appearance="simple"}
-Clicking on one of the options below will tell you whether it's correct or not.
-Click the Explanation tab for more information.
+Click on one of the options below to make your selection,
+and the page will tell you whether it is correct.
+You can then also click the Explanation tab for more information.
 :::
 
 ::: {.panel-tabset}
 
 #### {{< fa list-check >}} Quiz
 
-Which elements does the vector `birds` contain after running the code above?
+Which items does the vector `birds` contain after running the code above?
 
 ```{r}
 #| echo: false
@@ -296,14 +303,16 @@ cat(longmcq(c(
 #### {{< fa circle-info >}} Explanation
 
 The answer is A) `cardinal` and `chickadee`.
-The `c()` function does not modify the original vector,
-but instead returns a new vector with the additional element.
+
+The `c()` function **does not modify the original vector,**
+**but instead returns a new vector with the additional item.**
+
 Since we didn't save the new vector to an object,
 the original vector `birds` remains unchanged,
 and `bald eagle` is not added to it.
 
-To add the new element to the original vector,
-we would have to save the result of `c()` back to `birds`:
+To add the new item to the original vector,
+we would save the result of `c()` back to `birds`:
 
 ```{r}
 birds <- c(birds, "bald eagle")
@@ -315,9 +324,9 @@ birds
 
 <hr style="height:1pt; visibility:hidden;" />
 
-Vectors with **series of numbers** are commonly useful,
-and a handy shortcut to make series of whole numbers (integers) is with the
-`:` operator:
+Vectors containing a **series of numbers** are often useful,
+and the `:` operator is a handy shortcut for making series of whole numbers
+(integers):
 
 ```{r}
 series_vec <- 1:10
@@ -342,22 +351,21 @@ series_vec * 2
 series_vec + 1
 ```
 
-In the first example, **every individual element in `num_vec` was multiplied by 2**.
-Similarly, in the second example, every individual element in `num_vec` was increased by 1.
+In the first example, **every individual item in `series_vec` was multiplied by 2**.
+Similarly, in the second example, every individual item in `series_vec` was
+increased by 1.
 
 This behavior,
-where an operation is applied to every element of a vector,
+where an operation is automatically applied to every item of a vector,
 is called "vectorization" --- a key feature of the R language!
 
 <hr style="height:1pt; visibility:hidden;" />
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 3: Vectorization**
+#### {{< fa user-edit >}} **Challenge 3: Vectorization** {#challenge3-vectorization}
 
-::: {.callout-tip appearance="simple"}
 Replace the blanks `______` in the code below with the correct code,
 then click **Run Code** to have your answer checked:
-:::
 
 ::: {.panel-tabset}
 
@@ -374,7 +382,7 @@ A) Create a vector `x` with whole numbers 1 through 13,
 # Create a vector `x` with whole numbers 1 through 13.
 x <- ______
 
-# Print vector x
+# Print vector x to check your results.
 ______
 ```
 
@@ -394,16 +402,18 @@ if (identical(.result, 1:13)) {
 # Create a vector `x` with whole numbers 1 through 13.
 x <- 1:13
 
-# Print vector x
+# Print vector x to check your results.
 x
 ```
 
 :::
 
+<hr style="height:1pt; visibility:hidden;" />
+
 ::: {.panel-tabset}
 #### {{< fa list-check >}} Instructions
 
-B) Subtract 0.5 from each element in `x` and save the result in vector `y`,
+B) Subtract 0.5 from each item in `x` and save the result in vector `y`,
    then print the vector to check your results.
 
 ```{webr}
@@ -417,10 +427,10 @@ x <- 1:13
 #| caption: ""
 #| autorun: false
 #| completion: false
-# Subtract 0.5 from each element in x and save the result in vector y
+# Subtract 0.5 from each item in x and save the result in vector y.
 y <- ______
 
-# Print vector y
+# Print vector y to check your results.
 ______
 ```
 
@@ -437,7 +447,7 @@ if (identical(.result, 1:13 - 0.5)) {
 #### {{< fa circle-check >}} Solution
 
 ```{r}
-# Subtract 0.5 from each element in x and save the result in vector y
+# Subtract 0.5 from each item in x and save the result in vector y
 y <- x - 0.5
 
 # Print vector y
@@ -452,95 +462,44 @@ y
 R has many functions that provide information about vectors and other types of
 objects, such as:
 
-- Get the **number of elements** with `length()`:
+- Get the **number of items** with `length()`:
 
-```{r}
-length(series_vec)
-```
+  ```{r}
+  length(series_vec)
+  ```
 
-- See the **first and last few elements**, respectively,
-  with `head()` and `tail()`:
+- See the **first few items** with `head()` (or the last few with `tail()`):
 
-  - Print the first 6 elements with `head()`:
+  - By default, it prints the first 6 items:
 
     ```{r}
     head(series_vec)
     ```
-  
-  - Print the last 6 elements with `tail()`:
 
-    ```{r}  
-    tail(series_vec)
-    ```
-  
-  - Both `head()` and `tail()` have an argument `n` to specify the number of
-    elements:
+  - You can specify the number of items with the `n` argument:
 
     ```{r}
-    tail(series_vec, n = 2)
+    head(series_vec, n = 2)
     ```
 
 - Get **arithmetic summaries** like `mean()` for vectors with numbers:
 
   ```{r}
-  # mean() will compute the mean (average) across all elements
+  # mean() will compute the mean (average) across all items
   mean(series_vec)
   ```
-
-<hr style="height:1pt; visibility:hidden;" />
-
-::: exercise
-#### {{< fa user-edit >}} **Challenge 4: Prelude to data types**
-
-::: {.callout-tip appearance="simple"}
-Clicking on one of the options below will tell you whether it's correct or not.
-Click the Explanation tab for more information.
-:::
-
-::: {.panel-tabset}
-
-#### {{< fa list-check >}} Quiz
-
-What do you expect `mean(birds)` will return?
-
-```{r}
-#| echo: false
-#| results: asis
-cat(longmcq(c(
-  "A) The original vector `birds`",
-  answer = "B) Nothing meaningful, maybe an error",
-  'C) `"cardidee"`'
-)))
-```
-
-#### {{< fa circle-info >}} Explanation
-
-The answer is B).
-Specifically, this code will return a warning along with `NA` (not available):
-
-```{r, error=TRUE}
-mean(birds)
-```
-
-The `mean()` function is only meant for vectors that consist of numbers,
-while `birds` consists of character strings.
-We'll dive into this in the next section on data types.
-
-:::
-:::
 
 ## Data types
 
 ### R's main data types
 
-In the exercise above,
-we saw that R can't compute the mean of a vector with bird names.
 R distinguishes between different kinds of data,
 such as character strings and numbers,
-using several pre-defined "**data types**".
-And its behavior in various operations depends heavily on the data type.
+with several pre-defined "**data types**".
+Its behavior in various operations depends heavily on the data type.
 
-As another example, this fails:
+For example, R refuses to perform mathematical operations on character strings,
+so the code below will return an error:
 
 ```{r, error=TRUE}
 "valerion" * 5
@@ -552,13 +511,11 @@ We can ask what the data type of something is using the `typeof()` function:
 typeof("valerion")
 ```
 
-R has _automatically set_ the data type of `"valerion"` to `character`,
-i.e. a (character) string.
-And the earlier command failed because R can't perform mathematical functions 
-("_binary operator_") on vectors of type `character` ("_non-numeric argument_").
+R has automatically set the data type of `"valerion"` to `character`,
+i.e. a character string.
 
-The `character` data type most commonly contains letters,
-but anything that is placed between quotes (`"..."`) will be interpreted as this
+Note that while the `character` data type most commonly contains letters,
+anything that is placed between quotes (`"..."`) will be interpreted as this
 data type --- even plain numbers:
 
 ```{r}
@@ -570,36 +527,36 @@ Besides `character`, three other **common data types** are:
 - `double` (sometimes referred to as `numeric`) ---
   numbers that can have decimal points:
 
-```{r}
-typeof(3.14)
-```
+  ```{r}
+  typeof(3.14)
+  ```
 
 - `integer` --- whole numbers only:
 
-```{r}
-typeof(1:3)
-```
+  ```{r}
+  typeof(1:3)
+  ```
 
-- `logical` (either `TRUE` or `FALSE`, unquoted):
+- `logical` (either `TRUE` or `FALSE`, unquoted!):
 
-```{r}
-typeof(TRUE)
-```
+  ```{r}
+  typeof(TRUE)
+  ```
 
-### A vector can only contain one data type 
+### A vector can only contain one data type
 
 A vector can only **be composed of a single data type**.
 As we saw above,
 R silently picks the "best-fitting" data type when you create a vector.
 
 ::: exercise
-#### {{< fa user-edit >}} **Challenge 5: Data types**
+#### {{< fa user-edit >}} **Challenge 4: Data types** {#challenge4-data-types}
 
 ::: {.panel-tabset}
 
 #### {{< fa list-check >}} Quiz
 
-In each line below, what do you think the data type (if any) will be?
+In each line below, what do you think the data type will be, if any?
 Try it out and see if you were right.
 
 ```{webr}
@@ -647,7 +604,8 @@ typeof(c(2, 6, "3"))
 
 -----
 
-3. This produces a `character` vector, and we'll talk about why in the next section:
+3. This produces a `character` vector, and we'll talk about why right below
+   this challenge:
    
    ```{r}
    typeof(c(2, 6, "3"))
@@ -661,17 +619,19 @@ typeof(c(2, 6, "3"))
 
 R's behavior of returning a character vector for `c(2, 6, "3")` in the challenge
 above is called **type coercion**.
-Because a vector can contain only one data type,
-R force-changes any non-conforming elements to the type it has chosen for the vector.
+More generally, R forcibly converts any non-conforming items to the type it
+has chosen for a vector.
 
+::: {.callout-note appearance="simple"}
 Type coercion can be the source of many surprises,
-and is one reason you need to be aware of these data types and R's behavior
+and is one reason you need to be aware of data types and R's behavior
 around them.
+:::
 
 ### Manual type conversion
 
-Luckily, you are not just at the mercy of whatever R decides to do automatically,
-but can convert vectors using the `as.` group of functions:
+You are not at the mercy of whatever R decides to do automatically:
+you can also convert vectors yourself, using the `as.` group of functions:
 
 ::: {.callout-tip appearance="simple"}
 Try to use RStudio's auto-complete functionality here: type "`as.`" and then press the <kbd>Tab</kbd> key.
@@ -692,9 +652,12 @@ as.double("kiwi")
 
 ::: {.callout-note appearance="simple"}
 `NA` is R's way of denoting _missing data_ --
-see [this bonus section](bonus.qmd#missing-values-na) for more.
+see [this bonus section](bonus.qmd#missing-values-na){target="_blank"} for more.
 :::
 
 That's it for this session!
 After lunch, we'll learn to manipulate and summarize data frames using
-a real dataset with periodic country-wise statistics such as population size.
+a real dataset with statistics such as population size for many countries
+over time.
+
+<br>

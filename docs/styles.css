@@ -13,7 +13,7 @@ h2 {
 }
 
 h3 {
-  margin-top: 40px;
+  margin-top: 35px;
   font-size: 1.4em;
   font-weight: normal;
 }
@@ -237,4 +237,50 @@ details {
   border-color: #d9d7d9;
   border-left-color: #919091;
   border-radius: 5px;
+}
+
+
+/* --------------------------------------------------------------------------/*
+/* Page nav (Previous/Next), appended at the end of the article content
+   column -- see partials/page-nav.html and format.html.include-after-body
+   in _quarto.yml */
+#page-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  margin: 1.2em 0 1.5em 0;
+  padding-top: 1em;
+  border-top: 1px solid #d9d7d9;
+}
+
+#page-nav a {
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+  padding: 0.6em 1em;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-tertiary);
+  border: 1px solid #d9d7d9;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+#page-nav a:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(187, 0, 0, 0.05);
+}
+
+#page-nav .page-nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+#page-nav .page-nav-label {
+  font-size: 0.8em;
+  color: var(--color-secondary);
+}
+
+#page-nav .page-nav-title {
+  font-weight: 500;
+  color: var(--color-link);
 }

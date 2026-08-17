@@ -9,8 +9,10 @@ author:
       - name: Plant Pathology, Ohio State University
         url: https://plantpath.osu.edu/our-people/horacio-lopez-nicora
 date: 2026-08-17
-editor_options: 
-  chunk_output_type: console
+date-modified: last-modified
+language:
+  title-block-published: "Presented on"
+  title-block-modified: "Page last modified"
 ---
 
 -------
@@ -134,12 +136,12 @@ because sometimes R can output hundreds of numbers or other elements.
 
 ```{r}
 # Exponents
-3 ^ 4
+3^4
 ```
 
 ```{r}
 # Square root (using exponent 0.5)
-16 ^ 0.5
+16^0.5
 ```
 
 ```{r}
@@ -159,7 +161,7 @@ because sometimes R can output hundreds of numbers or other elements.
 
 ```{r}
 # Using ** as an alternative exponent operator
-2 ** 5
+2**5
 ```
 
 ::: callout-note
@@ -242,7 +244,7 @@ See the example below:
 
 ```{r}
 # This line is entirely ignored by R
-10 / 5  # This line contains code but everythig after the '#' is ignored
+10 / 5 # This line contains code but everythig after the '#' is ignored
 ```
 
 ## Functions in R -- and packages
@@ -287,7 +289,7 @@ install.packages("tidyverse")
 ### Some other R functions
 
 Another important function is `c()`, which stands for **combine** or **concatenate**.
-With `c()`, you can create _vectors_ that contain multiple elements, like multiple numbers.
+With `c()`, you can create _vectors_ that contain multiple items, like multiple numbers.
 You'll learn more about vectors in the next session, but here is a quick example:
 
 ```{r}
