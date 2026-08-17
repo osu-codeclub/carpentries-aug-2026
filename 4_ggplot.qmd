@@ -8,7 +8,7 @@ author:
     affiliation: 
       - name: Horticulture and Crop Science, Ohio State University
         url: https://cfaes.osu.edu/person/jessica-cooperstone 
-date: 2026-06-17
+date: 2026-08-17
 date-modified: last-modified
 language:
   title-block-published: "Presented on"
